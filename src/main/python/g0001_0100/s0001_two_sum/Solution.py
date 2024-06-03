@@ -5,11 +5,11 @@
 from typing import List
 
 class Solution:
-        def twoSum(self, numbers: List[int], target: int) -> List[int]:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
         index_map = {}
         for i, num in enumerate(numbers):
-        required_num = target - num
+            required_num = target - num
         if required_num in index_map:
-        return [index_map[required_num], i]
+            return [index_map[required_num], i]
         index_map[num] = i
         return [-1, -1]
