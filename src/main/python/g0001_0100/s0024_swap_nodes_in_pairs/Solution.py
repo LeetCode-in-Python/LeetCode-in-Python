@@ -16,4 +16,4 @@ class Solution:
         head.next = self.swapPairs(nxt.next)  
         nxt.next = head
 
-        return nxt  
+        return nxt
