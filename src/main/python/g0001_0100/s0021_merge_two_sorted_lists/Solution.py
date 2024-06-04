@@ -47,4 +47,3 @@ def linked_list_to_list(node):
         lst.append(node.val)
         node = node.next
     return lst
-        
