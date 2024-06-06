@@ -33,93 +33,77 @@ Given the `head` of a linked list, remove the `nth` node from the end of the lis
 
 **Follow up:** Could you do this in one pass?
 
-To solve the Remove Nth Node From End of List problem in Java with a `Solution` class, we'll follow these steps:
+Here are the steps to solve the "Remove Nth Node From End of List" problem:
 
-1. Define a `ListNode` class representing the nodes of the linked list.
-2. Define a `Solution` class with a method named `removeNthFromEnd` that takes the head of the linked list and an integer `n` as input and returns the head of the modified list.
-3. Create two pointers, `fast` and `slow`, and initialize them to point to the head of the list.
-4. Move the `fast` pointer `n` steps forward in the list.
-5. If the `fast` pointer reaches the end of the list (`fast == null`), it means that `n` is equal to the length of the list. In this case, remove the head node by returning `head.next`.
-6. Move both `fast` and `slow` pointers simultaneously until the `fast` pointer reaches the end of the list.
-7. At this point, the `slow` pointer will be pointing to the node just before the node to be removed.
-8. Remove the `nth` node by updating the `next` reference of the node pointed to by the `slow` pointer to skip the `nth` node.
-9. Return the head of the modified list.
+### Approach:
 
-Here's the implementation:
+1. **Initialize Pointers:**
+   - Initialize two pointers, `fast` and `slow`, both initially pointing to the head of the linked list.
 
-```java
-public class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int val) { this.val = val; }
-}
+2. **Move Fast Pointer:**
+   - Move the `fast` pointer `n` nodes ahead.
 
-public class Solution {
-    public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode fast = dummy;
-        ListNode slow = dummy;
+3. **Handle Edge Case:**
+   - If the `fast` pointer becomes `None` after moving `n` nodes, it means the node to be removed is the head of the list. In this case, return `head.next`.
 
-        // Move the fast pointer n steps forward
-        for (int i = 0; i <= n; i++) {
-            fast = fast.next;
-        }
+4. **Move Both Pointers Until Fast Reaches End:**
+   - Move both `fast` and `slow` pointers one node at a time until the `fast` pointer reaches the end of the list.
 
-        // Move both pointers until the fast pointer reaches the end
-        while (fast != null) {
-            fast = fast.next;
-            slow = slow.next;
-        }
+5. **Remove Nth Node:**
+   - Update the next pointer of the `slow` pointer to skip the node to be removed.
 
-        // Remove the nth node
-        slow.next = slow.next.next;
+6. **Return Updated Head:**
+   - Return the head of the modified linked list.
 
-        return dummy.next;
-    }
+### Python Code:
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-        // Example 1
-        ListNode head1 = new ListNode(1);
-        head1.next = new ListNode(2);
-        head1.next.next = new ListNode(3);
-        head1.next.next.next = new ListNode(4);
-        head1.next.next.next.next = new ListNode(5);
-        int n1 = 2;
-        ListNode result1 = solution.removeNthFromEnd(head1, n1);
-        printList(result1); // Output: [1,2,3,5]
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        # Initialize pointers
+        fast = slow = head
 
-        // Example 2
-        ListNode head2 = new ListNode(1);
-        int n2 = 1;
-        ListNode result2 = solution.removeNthFromEnd(head2, n2);
-        printList(result2); // Output: []
+        # Move fast pointer n nodes ahead
+        for _ in range(n):
+            fast = fast.next
 
-        // Example 3
-        ListNode head3 = new ListNode(1);
-        head3.next = new ListNode(2);
-        int n3 = 1;
-        ListNode result3 = solution.removeNthFromEnd(head3, n3);
-        printList(result3); // Output: [1]
-    }
+        # Handle case where the node to be removed is the head
+        if not fast:
+            return head.next
 
-    private static void printList(ListNode head) {
-        if (head == null) {
-            System.out.println("[]");
-            return;
-        }
-        StringBuilder sb = new StringBuilder("[");
-        while (head != null) {
-            sb.append(head.val).append(",");
-            head = head.next;
-        }
-        sb.setLength(sb.length() - 1);
-        sb.append("]");
-        System.out.println(sb.toString());
-    }
-}
+        # Move both pointers until fast reaches the end
+        while fast.next:
+            fast = fast.next
+            slow = slow.next
+
+        # Remove nth node
+        slow.next = slow.next.next
+
+        # Return updated head
+        return head
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+head1 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+n1 = 2
+result1 = solution.removeNthFromEnd(head1, n1)  # Output: ListNode(1, ListNode(2, ListNode(3, ListNode(5))))
+
+# Example 2:
+head2 = ListNode(1)
+n2 = 1
+result2 = solution.removeNthFromEnd(head2, n2)  # Output: None (empty list)
+
+# Example 3:
+head3 = ListNode(1, ListNode(2))
+n3 = 1
+result3 = solution.removeNthFromEnd(head3, n3)  # Output: ListNode(1)
 ```
 
-This implementation provides a solution to the Remove Nth Node From End of List problem in Java.
+This code defines a `ListNode` class representing a node in the linked list and a `Solution` class with a method `removeNthFromEnd` that takes the head of the linked list and an integer `n` as input, removes the `nth` node from the end of the list, and returns the head of the modified list. The example usage demonstrates how to create instances of the `ListNode` class and call the `removeNthFromEnd` method with different inputs.

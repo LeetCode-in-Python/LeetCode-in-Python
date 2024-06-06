@@ -39,65 +39,82 @@ Given a string `s`, find the length of the **longest substring** without repeati
 *   <code>0 <= s.length <= 5 * 10<sup>4</sup></code>
 *   `s` consists of English letters, digits, symbols and spaces.
 
-To solve the Longest Substring Without Repeating Characters problem in Java using a `Solution` class, we'll follow these steps:
+Here are the steps to solve the "Longest Substring Without Repeating Characters" problem:
 
-1. Define a `Solution` class with a method named `lengthOfLongestSubstring`.
-2. Initialize variables to keep track of the starting index of the substring (`start`), the maximum length (`maxLen`), and a hashmap to store characters and their indices.
-3. Iterate through the string `s`, and for each character:
-   - Check if the character exists in the hashmap and its index is greater than or equal to the `start` index.
-   - If found, update the `start` index to the index after the last occurrence of the character.
-   - Update the maximum length if necessary.
-   - Update the index of the current character in the hashmap.
-4. Return the maximum length found.
-5. Handle the edge case where the input string is empty.
+### Approach:
 
-Here's the implementation:
+1. **Initialize Pointers and Variables:**
+   - Initialize two pointers, `start` and `end`, to define the current substring.
+   - Initialize a dictionary `char_index` to store the last index of each character in the substring.
+   - Initialize the variable `max_length` to track the length of the longest substring.
 
-```java
-import java.util.HashMap;
+2. **Traverse the String:**
+   - Use the `end` pointer to traverse through the string `s`.
 
-public class Solution {
-    
-    public int lengthOfLongestSubstring(String s) {
-        // Initialize variables
-        int start = 0;
-        int maxLen = 0;
-        HashMap<Character, Integer> map = new HashMap<>();
-        
-        // Iterate through the string
-        for (int end = 0; end < s.length(); end++) {
-            char ch = s.charAt(end);
-            // If the character exists in the hashmap and its index is greater than or equal to the start index
-            if (map.containsKey(ch) && map.get(ch) >= start) {
-                // Update the start index to the index after the last occurrence of the character
-                start = map.get(ch) + 1;
-            }
-            // Update the maximum length if necessary
-            maxLen = Math.max(maxLen, end - start + 1);
-            // Update the index of the current character in the hashmap
-            map.put(ch, end);
-        }
-        
-        return maxLen;
-    }
+3. **Check for Repeating Characters:**
+   - If the character at the current `end` pointer is not in the substring (not in `char_index`), add it to the substring.
+   - Update `max_length` if the length of the current substring is greater than the previous maximum.
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+4. **Adjust Start Pointer:**
+   - If the character is already in the substring, move the `start` pointer to the right of the last occurrence of that character.
+   - This ensures that the substring does not contain repeating characters.
 
-        // Test cases
-        String s1 = "abcabcbb";
-        System.out.println("Example 1 Output: " + solution.lengthOfLongestSubstring(s1));
+5. **Update Character Index:**
+   - Update the index of the current character in the `char_index` dictionary.
 
-        String s2 = "bbbbb";
-        System.out.println("Example 2 Output: " + solution.lengthOfLongestSubstring(s2));
+6. **Repeat Until End of String:**
+   - Repeat steps 3-5 until the `end` pointer reaches the end of the string.
 
-        String s3 = "pwwkew";
-        System.out.println("Example 3 Output: " + solution.lengthOfLongestSubstring(s3));
+7. **Return Maximum Length:**
+   - The maximum length of the substring without repeating characters is stored in the variable `max_length`.
 
-        String s4 = "";
-        System.out.println("Example 4 Output: " + solution.lengthOfLongestSubstring(s4));
-    }
-}
+### Python Code:
+
+```python
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        # Initialize pointers and variables
+        start, end = 0, 0
+        char_index = {}  # Dictionary to store the last index of each character
+        max_length = 0
+
+        # Traverse the string
+        while end < len(s):
+            # Check for repeating characters
+            if s[end] not in char_index or char_index[s[end]] < start:
+                # Update max_length
+                max_length = max(max_length, end - start + 1)
+            else:
+                # Adjust start pointer
+                start = char_index[s[end]] + 1
+
+            # Update character index
+            char_index[s[end]] = end
+
+            # Move end pointer to the next character
+            end += 1
+
+        # Return the maximum length of the substring
+        return max_length
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+s1 = "abcabcbb"
+gprint(solution.lengthOfLongestSubstring(s1))  # Output: 3
+
+# Example 2:
+s2 = "bbbbb"
+print(solution.lengthOfLongestSubstring(s2))  # Output: 1
+
+# Example 3:
+s3 = "pwwkew"
+print(solution.lengthOfLongestSubstring(s3))  # Output: 3
+
+# Example 4:
+s4 = ""
+print(solution.lengthOfLongestSubstring(s4))  # Output: 0
 ```
 
-This implementation provides a solution to the Longest Substring Without Repeating Characters problem in Java.
+This code defines a `Solution` class with a method `lengthOfLongestSubstring` that takes a string `s` as input and returns the length of the longest substring without repeating characters. The example usage demonstrates how to create an instance of the `Solution` class and call the `lengthOfLongestSubstring` method with different inputs.

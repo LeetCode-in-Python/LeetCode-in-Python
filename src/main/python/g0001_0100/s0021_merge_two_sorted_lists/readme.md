@@ -30,69 +30,77 @@ Merge two sorted linked lists and return it as a **sorted** list. The list shoul
 *   `-100 <= Node.val <= 100`
 *   Both `l1` and `l2` are sorted in **non-decreasing** order.
 
-To solve the Merge Two Sorted Lists problem in Java with a `Solution` class, we'll implement a recursive approach. Here are the steps:
+Here are the steps to solve the "Merge Two Sorted Lists" problem:
 
-1. Define a `ListNode` class to represent a node in the linked list.
-2. Define a `Solution` class with a method named `mergeTwoLists` that takes two linked lists `l1` and `l2` as input and returns a merged sorted list.
-3. The base case for the recursion is when either `l1` or `l2` is null. In this case, return the non-null list because it's already sorted.
-4. Compare the values of the heads of `l1` and `l2`. Let `head` be the smaller value of the two heads.
-5. Recursively call `mergeTwoLists` with the next node of the smaller head and the other list that remained unchanged.
-6. Update the `next` pointer of the smaller head to point to the result of the recursive call.
-7. Return the smaller head, which is the merged sorted list.
+### Approach:
 
-Here's the implementation:
+1. **Initialize Dummy Node:**
+   - Initialize a dummy node to simplify the code. The dummy node's next pointer will point to the head of the merged list.
 
-```java
-public class Solution {
-    static class ListNode {
-        int val;
-        ListNode next;
+2. **Initialize Pointers:**
+   - Initialize pointers `curr` and `prev` initially pointing to the dummy node.
 
-        ListNode(int val) {
-            this.val = val;
-        }
-    }
+3. **Merge Lists:**
+   - Iterate until either `l1` or `l2` becomes `None`. In each iteration:
+     - Compare the values of the current nodes in `l1` and `l2`.
+     - Connect the smaller node to the merged list.
+     - Move the corresponding pointer (`l1` or `l2`) to its next node.
+     - Move the `curr` pointer to the newly added node.
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null) {
-            return l2;
-        }
-        if (l2 == null) {
-            return l1;
-        }
+4. **Handle Remaining Nodes:**
+   - After the loop, if there are remaining nodes in either `l1` or `l2`, connect them to the merged list.
 
-        ListNode head;
-        if (l1.val < l2.val) {
-            head = l1;
-            head.next = mergeTwoLists(l1.next, l2);
-        } else {
-            head = l2;
-            head.next = mergeTwoLists(l1, l2.next);
-        }
+5. **Return Merged List:**
+   - Return the next of the dummy node, which is the head of the merged list.
 
-        return head;
-    }
+### Python Code:
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-        // Test cases
-        ListNode l1 = new ListNode(1);
-        l1.next = new ListNode(2);
-        l1.next.next = new ListNode(4);
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        # Initialize dummy node
+        dummy = ListNode()
+        # Initialize pointers
+        curr = dummy
+        # Merge lists
+        while l1 and l2:
+            if l1.val < l2.val:
+                curr.next = l1
+                l1 = l1.next
+            else:
+                curr.next = l2
+                l2 = l2.next
+            curr = curr.next
+        # Handle remaining nodes
+        if l1:
+            curr.next = l1
+        elif l2:
+            curr.next = l2
+        # Return merged list
+        return dummy.next
 
-        ListNode l2 = new ListNode(1);
-        l2.next = new ListNode(3);
-        l2.next.next = new ListNode(4);
+# Example Usage:
+solution = Solution()
 
-        ListNode mergedList = solution.mergeTwoLists(l1, l2);
-        while (mergedList != null) {
-            System.out.print(mergedList.val + " ");
-            mergedList = mergedList.next;
-        }
-        System.out.println(); // newline
-    }
-}
+# Example 1:
+l1_1 = ListNode(1, ListNode(2, ListNode(4)))
+l2_1 = ListNode(1, ListNode(3, ListNode(4)))
+result1 = solution.mergeTwoLists(l1_1, l2_1)  # Output: ListNode(1, ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(4))))))
+
+# Example 2:
+l1_2 = None
+l2_2 = None
+result2 = solution.mergeTwoLists(l1_2, l2_2)  # Output: None (empty list)
+
+# Example 3:
+l1_3 = None
+l2_3 = ListNode(0)
+result3 = solution.mergeTwoLists(l1_3, l2_3)  # Output: ListNode(0)
 ```
 
-This implementation provides a solution to the Merge Two Sorted Lists problem in Java using a recursive approach.
+This code defines a `ListNode` class representing a node in the linked list and a `Solution` class with a method `mergeTwoLists` that takes two sorted linked lists (`l1` and `l2`) as input and returns a new sorted linked list obtained by merging the nodes of `l1` and `l2`. The example usage demonstrates how to create instances of the `ListNode` class and call the `mergeTwoLists` method with different inputs.

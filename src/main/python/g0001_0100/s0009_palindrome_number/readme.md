@@ -40,61 +40,64 @@ An integer is a **palindrome** when it reads the same backward as forward. For e
 
 **Follow up:** Could you solve it without converting the integer to a string?
 
-To solve the Palindrome Number problem in Java using a `Solution` class, we'll follow these steps:
+Here are the steps to solve the "Palindrome Number" problem:
 
-1. Define a `Solution` class with a method named `isPalindrome`.
-2. Handle special cases where `x` is negative or divisible by 10 but not equal to zero, as they cannot be palindromes.
-3. Initialize variables to keep track of the reversed number (`reversed`) and the original number (`original`).
-4. Iterate through the digits of the original number `x`:
-   - Extract the least significant digit using the modulo operator and append it to the reversed number.
-   - Update `original` by removing the least significant digit using integer division.
-5. Check if the reversed number is equal to the original number. If so, return `true`; otherwise, return `false`.
+### Approach:
 
-Here's the implementation:
+1. **Handle Special Cases for Negative Numbers:**
+   - If the given integer `x` is negative, return `false` since negative numbers cannot be palindromes.
 
-```java
-public class Solution {
+2. **Reverse the Integer:**
+   - Reverse the digits of the positive integer `x` to obtain a new integer.
 
-    public boolean isPalindrome(int x) {
-        // Special cases:
-        // As discussed, negative numbers are not palindromes.
-        // Also, if the last digit of the number is 0, it can't be a palindrome unless the number is 0 itself.
-        if (x < 0 || (x % 10 == 0 && x != 0)) {
-            return false;
-        }
+3. **Check for Palindrome:**
+   - Compare the reversed integer with the original integer `x`.
+   - If they are equal, return `true`; otherwise, return `false`.
 
-        int reversed = 0;
-        int original = x;
+4. **Return Result:**
+   - Return the result indicating whether the integer is a palindrome or not.
 
-        while (original > reversed) {
-            int digit = original % 10;
-            reversed = reversed * 10 + digit;
-            original /= 10;
-        }
+### Python Code:
 
-        // When the length is an odd number, we can get rid of the middle digit by reversed / 10
-        // For example when the input is 12321, at the end of the while loop we get x = 12, reversed = 123,
-        // since the middle digit doesn't matter in palidrome(it will always equal to itself), we can simply get rid of it.
-        return original == reversed || original == reversed / 10;
-    }
+```python
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        # Handle special case for negative numbers
+        if x < 0:
+            return False
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+        # Reverse the digits of the positive integer
+        reversed_x = self.reverse(x)
 
-        // Test cases
-        int x1 = 121;
-        System.out.println("Example 1 Output: " + solution.isPalindrome(x1));
+        # Check for palindrome
+        return x == reversed_x
 
-        int x2 = -121;
-        System.out.println("Example 2 Output: " + solution.isPalindrome(x2));
+    def reverse(self, x: int) -> int:
+        reversed_x = 0
+        while x > 0:
+            digit = x % 10
+            reversed_x = reversed_x * 10 + digit
+            x //= 10
+        return reversed_x
 
-        int x3 = 10;
-        System.out.println("Example 3 Output: " + solution.isPalindrome(x3));
+# Example Usage:
+solution = Solution()
 
-        int x4 = -101;
-        System.out.println("Example 4 Output: " + solution.isPalindrome(x4));
-    }
-}
+# Example 1:
+x1 = 121
+print(solution.isPalindrome(x1))  # Output: True
+
+# Example 2:
+x2 = -121
+print(solution.isPalindrome(x2))  # Output: False
+
+# Example 3:
+x3 = 10
+print(solution.isPalindrome(x3))  # Output: False
+
+# Example 4:
+x4 = -101
+print(solution.isPalindrome(x4))  # Output: False
 ```
 
-This implementation provides a solution to the Palindrome Number problem in Java.
+This code defines a `Solution` class with a method `isPalindrome` that takes an integer `x` as input and returns `True` if it is a palindrome and `False` otherwise. The example usage demonstrates how to create an instance of the `Solution` class and call the `isPalindrome` method with different inputs. The `reverse` method is used to reverse the digits of a positive integer.

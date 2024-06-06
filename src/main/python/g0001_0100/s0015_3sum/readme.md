@@ -29,81 +29,93 @@ Notice that the solution set must not contain duplicate triplets.
 *   `0 <= nums.length <= 3000`
 *   <code>-10<sup>5</sup> <= nums[i] <= 10<sup>5</sup></code>
 
-To solve the 3Sum problem in Java using a `Solution` class, we'll follow these steps:
+Here are the steps to solve the "3Sum" problem:
 
-1. Define a `Solution` class with a method named `threeSum` that takes an array of integers `nums` as input and returns a list of lists representing the triplets that sum up to zero.
-2. Sort the input array `nums` to ensure that duplicate triplets are avoided.
-3. Initialize an empty list `result` to store the triplets.
-4. Iterate over the elements of the sorted array `nums` up to the second to last element.
-5. Within the outer loop, initialize two pointers, `left` and `right`, where `left` starts at the next element after the current element and `right` starts at the last element of the array.
-6. While `left` is less than `right`, check if the sum of the current element (`nums[i]`), `nums[left]`, and `nums[right]` equals zero.
-7. If the sum is zero, add `[nums[i], nums[left], nums[right]]` to the `result` list.
-8. Move the `left` pointer to the right (increment `left`) and the `right` pointer to the left (decrement `right`).
-9. If the sum is less than zero, increment `left`.
-10. If the sum is greater than zero, decrement `right`.
-11. After the inner loop finishes, increment the outer loop index while skipping duplicates.
-12. Return the `result` list containing all the valid triplets.
+### Approach:
 
-Here's the implementation:
+1. **Sort the Array:**
+   - Sort the given array `nums` in ascending order.
 
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+2. **Initialize Result List:**
+   - Initialize an empty list `result` to store the triplets.
 
-public class Solution {
-    public List<List<Integer>> threeSum(int[] nums) {
-        Arrays.sort(nums);
-        List<List<Integer>> result = new ArrayList<>();
+3. **Iterate Through the Array:**
+   - Iterate through the sorted array `nums` from index `i = 0` to `i = len(nums) - 3`.
 
-        for (int i = 0; i < nums.length - 2; i++) {
-            if (i > 0 && nums[i] == nums[i - 1]) {
-                continue; // Skip duplicates
-            }
+4. **Check for Duplicate Elements:**
+   - If the current element is the same as the previous element, skip to the next iteration to avoid duplicate triplets.
 
-            int left = i + 1;
-            int right = nums.length - 1;
+5. **Use Two Pointers for 2Sum:**
+   - Use two pointers (`left` and `right`) to find a pair of elements whose sum is equal to the negation of the current element (`-nums[i]`).
+     - Initialize `left = i + 1` and `right = len(nums) - 1`.
+     - Check if `nums[i] + nums[left] + nums[right] == 0`.
 
-            while (left < right) {
-                int sum = nums[i] + nums[left] + nums[right];
-                if (sum == 0) {
-                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+6. **Move Pointers:**
+   - If the sum is less than zero, increment `left`.
+   - If the sum is greater than zero, decrement `right`.
+   - If the sum is zero, add the triplet `[nums[i], nums[left], nums[right]]` to the result list.
 
-                    // Skip duplicates
-                    while (left < right && nums[left] == nums[left + 1]) {
-                        left++;
-                    }
-                    while (left < right && nums[right] == nums[right - 1]) {
-                        right--;
-                    }
+7. **Skip Duplicate Elements:**
+   - While moving pointers, skip duplicate elements to avoid duplicate triplets.
 
-                    left++;
-                    right--;
-                } else if (sum < 0) {
-                    left++;
-                } else {
-                    right--;
-                }
-            }
-        }
+8. **Return Result:**
+   - Return the final list of triplets.
 
-        return result;
-    }
+### Python Code:
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        # Sort the array
+        nums.sort()
+        result = []
 
-        // Test cases
-        int[] nums1 = {-1, 0, 1, 2, -1, -4};
-        System.out.println("Example 1 Output: " + solution.threeSum(nums1));
+        # Iterate through the array
+        for i in range(len(nums) - 2):
+            # Check for duplicate elements
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
 
-        int[] nums2 = {};
-        System.out.println("Example 2 Output: " + solution.threeSum(nums2));
+            # Two pointers for 2Sum
+            left, right = i + 1, len(nums) - 1
 
-        int[] nums3 = {0};
-        System.out.println("Example 3 Output: " + solution.threeSum(nums3));
-    }
-}
+            while left < right:
+                total = nums[i] + nums[left] + nums[right]
+
+                if total < 0:
+                    left += 1
+                elif total > 0:
+                    right -= 1
+                else:
+                    # Add triplet to result
+                    result.append([nums[i], nums[left], nums[right]])
+
+                    # Skip duplicate elements
+                    while left < right and nums[left] == nums[left + 1]:
+                        left += 1
+                    while left < right and nums[right] == nums[right - 1]:
+                        right -= 1
+
+                    # Move pointers
+                    left += 1
+                    right -= 1
+
+        return result
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+nums1 = [-1, 0, 1, 2, -1, -4]
+print(solution.threeSum(nums1))  # Output: [[-1, -1, 2], [-1, 0, 1]]
+
+# Example 2:
+nums2 = []
+print(solution.threeSum(nums2))  # Output: []
+
+# Example 3:
+nums3 = [0]
+print(solution.threeSum(nums3))  # Output: []
 ```
 
-This implementation provides a solution to the 3Sum problem in Java.
+This code defines a `Solution` class with a method `threeSum` that takes an array `nums` as input and returns a list of unique triplets whose sum is equal to zero. The example usage demonstrates how to create an instance of the `Solution` class and call the `threeSum` method with different inputs.

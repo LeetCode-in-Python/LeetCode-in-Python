@@ -34,100 +34,94 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 *   `0 <= Node.val <= 9`
 *   It is guaranteed that the list represents a number that does not have leading zeros.
 
-To solve the Add Two Numbers problem in Java using a `Solution` class, we'll follow these steps:
+Here are the steps to solve the "Add Two Numbers" problem:
 
-1. Define a `ListNode` class to represent nodes in a linked list.
-2. Define a `Solution` class with a method named `addTwoNumbers`.
-3. Inside the `addTwoNumbers` method, traverse both input linked lists simultaneously:
-   - Keep track of a carry variable to handle cases where the sum of two digits exceeds 9.
-   - Calculate the sum of the current nodes' values along with the carry.
-   - Update the carry for the next iteration.
-   - Create a new node with the sum % 10 and attach it to the result linked list.
-   - Move to the next nodes in both input lists.
-4. After finishing the traversal, check if there is any remaining carry. If so, add a new node with the carry to the result.
-5. Return the head of the result linked list.
+### Approach:
 
-Here's the implementation:
+1. **Initialize Pointers and Carry:**
+   - Initialize three pointers, `p1` for the first linked list (`l1`), `p2` for the second linked list (`l2`), and `dummy_head` for the dummy node of the result linked list.
+   - Initialize `carry` to 0.
 
-```java
-class ListNode {
-    int val;
-    ListNode next;
-    
-    ListNode() {}
-    
-    ListNode(int val) {
-        this.val = val;
-    }
-    
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
-}
+2. **Traverse Both Linked Lists:**
+   - Traverse both linked lists until both pointers (`p1` and `p2`) reach the end.
 
-public class Solution {
-    
-    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummyHead = new ListNode();
-        ListNode curr = dummyHead;
-        int carry = 0;
-        
-        while (l1 != null || l2 != null) {
-            int sum = carry;
-            if (l1 != null) {
-                sum += l1.val;
-                l1 = l1.next;
-            }
-            if (l2 != null) {
-                sum += l2.val;
-                l2 = l2.next;
-            }
-            curr.next = new ListNode(sum % 10);
-            curr = curr.next;
-            carry = sum / 10;
-        }
-        
-        if (carry > 0) {
-            curr.next = new ListNode(carry);
-        }
-        
-        return dummyHead.next;
-    }
+3. **Calculate Sum and Carry:**
+   - At each step, calculate the sum of the current digits and the carry from the previous step.
+   - Update `carry` for the next iteration.
 
-    // Helper method to print a linked list
-    public void printList(ListNode head) {
-        ListNode curr = head;
-        while (curr != null) {
-            System.out.print(curr.val + " ");
-            curr = curr.next;
-        }
-        System.out.println();
-    }
+4. **Create New Node:**
+   - Create a new node with the value as the sum % 10 and add it to the result linked list.
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+5. **Move Pointers:**
+   - Move both pointers (`p1` and `p2`) to the next nodes in their respective linked lists.
 
-        // Test cases
-        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
-        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
-        ListNode result1 = solution.addTwoNumbers(l1, l2);
-        System.out.print("Example 1 Output: ");
-        solution.printList(result1);
+6. **Handle Remaining Digits:**
+   - After both linked lists are traversed, check if there is any remaining carry.
+   - If there is, create a new node with the value of the carry and add it to the result linked list.
 
-        ListNode l3 = new ListNode(0);
-        ListNode l4 = new ListNode(0);
-        ListNode result2 = solution.addTwoNumbers(l3, l4);
-        System.out.print("Example 2 Output: ");
-        solution.printList(result2);
+7. **Return Result:**
+   - Return the next node of `dummy_head` as the head of the result linked list.
 
-        ListNode l5 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))))));
-        ListNode l6 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
-        ListNode result3 = solution.addTwoNumbers(l5, l6);
-        System.out.print("Example 3 Output: ");
-        solution.printList(result3);
-    }
-}
+### Python Code:
+
+```python
+# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        dummy_head = ListNode()
+        p1, p2, current = l1, l2, dummy_head
+        carry = 0
+
+        while p1 or p2:
+            # Get values and handle None cases
+            x = p1.val if p1 else 0
+            y = p2.val if p2 else 0
+
+            # Calculate sum and carry
+            _sum = x + y + carry
+            carry = _sum // 10
+
+            # Create new node with the sum % 10
+            current.next = ListNode(_sum % 10)
+            current = current.next
+
+            # Move pointers to the next nodes
+            if p1:
+                p1 = p1.next
+            if p2:
+                p2 = p2.next
+
+        # Handle remaining carry
+        if carry > 0:
+            current.next = ListNode(carry)
+
+        return dummy_head.next
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+l1 = ListNode(2, ListNode(4, ListNode(3)))
+l2 = ListNode(5, ListNode(6, ListNode(4)))
+result = solution.addTwoNumbers(l1, l2)
+# Output: [7, 0, 8]
+
+# Example 2:
+l1 = ListNode(0)
+l2 = ListNode(0)
+result = solution.addTwoNumbers(l1, l2)
+# Output: [0]
+
+# Example 3:
+l1 = ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9, ListNode(9)))))))
+l2 = ListNode(9, ListNode(9, ListNode(9, ListNode(9))))
+result = solution.addTwoNumbers(l1, l2)
+# Output: [8, 9, 9, 9, 0, 0, 0, 1]
 ```
 
-This implementation provides a solution to the Add Two Numbers problem using linked lists in Java.
+This code defines a `ListNode` class for the singly-linked list and a `Solution` class with a method `addTwoNumbers` that takes two linked lists as input and returns the result as a linked list. The example usage demonstrates how to create instances of the `ListNode` class and call the `addTwoNumbers` method with different inputs.

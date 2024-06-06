@@ -31,75 +31,86 @@ A mapping of digit to letters (just like on the telephone buttons) is given belo
 *   `0 <= digits.length <= 4`
 *   `digits[i]` is a digit in the range `['2', '9']`.
 
-To solve the Letter Combinations of a Phone Number problem in Java using a `Solution` class, we'll follow these steps:
+Here are the steps to solve the "Letter Combinations of a Phone Number" problem:
 
-1. Define a `Solution` class with a method named `letterCombinations` that takes a string `digits` as input and returns a list of all possible letter combinations.
-2. Create a mapping of digits to letters using a hashmap or an array.
-3. Initialize an empty list `result` to store the combinations.
-4. If the input string `digits` is empty, return an empty list `result`.
-5. Call a recursive function `generateCombinations` to generate combinations for each digit.
-6. Within the recursive function:
-   - Base case: If the current combination length equals the length of the input `digits`, add the combination to the `result` list.
-   - Recursive step: For the current digit, iterate over its corresponding letters and append each letter to the current combination, then recursively call the function with the next digit.
-7. Return the `result` list containing all possible combinations.
+### Approach:
 
-Here's the implementation:
+1. **Define Letter Mapping:**
+   - Define a dictionary mapping each digit to its corresponding letters on the telephone keypad.
 
-```java
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+2. **Initialize Result List:**
+   - Initialize an empty list `result` to store the letter combinations.
 
-public class Solution {
-    private static final Map<Character, String> digitToLetters = new HashMap<>();
-    static {
-        digitToLetters.put('2', "abc");
-        digitToLetters.put('3', "def");
-        digitToLetters.put('4', "ghi");
-        digitToLetters.put('5', "jkl");
-        digitToLetters.put('6', "mno");
-        digitToLetters.put('7', "pqrs");
-        digitToLetters.put('8', "tuv");
-        digitToLetters.put('9', "wxyz");
-    }
+3. **Check for Empty Input:**
+   - If the input string `digits` is empty, return an empty list.
 
-    public List<String> letterCombinations(String digits) {
-        List<String> result = new ArrayList<>();
-        if (digits.length() == 0) {
-            return result;
-        }
-        generateCombinations(result, digits, "", 0);
-        return result;
-    }
+4. **Recursive Backtracking:**
+   - Use a recursive backtracking approach to generate all possible combinations.
+     - Define a recursive function that takes the current combination, current index, and the result list as parameters.
+     - Base case: If the current combination length is equal to the length of the input `digits`, add it to the result list.
+     - For the current digit, get its corresponding letters and recursively call the function for each letter with an updated combination and index.
 
-    private void generateCombinations(List<String> result, String digits, String combination, int index) {
-        if (index == digits.length()) {
-            result.add(combination);
-            return;
+5. **Return Result List:**
+   - Return the final list of letter combinations.
+
+### Python Code:
+
+```python
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        # Define letter mapping
+        letter_mapping = {
+            '2': 'abc',
+            '3': 'def',
+            '4': 'ghi',
+            '5': 'jkl',
+            '6': 'mno',
+            '7': 'pqrs',
+            '8': 'tuv',
+            '9': 'wxyz'
         }
 
-        char digit = digits.charAt(index);
-        String letters = digitToLetters.get(digit);
-        for (char letter : letters.toCharArray()) {
-            generateCombinations(result, digits, combination + letter, index + 1);
-        }
-    }
+        # Initialize result list
+        result = []
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+        # Base case: empty input
+        if not digits:
+            return result
 
-        // Test cases
-        String digits1 = "23";
-        System.out.println("Example 1 Output: " + solution.letterCombinations(digits1));
+        # Recursive backtracking function
+        def backtrack(combination, index):
+            # Base case: combination length equals digits length
+            if index == len(digits):
+                result.append(''.join(combination))
+                return
 
-        String digits2 = "";
-        System.out.println("Example 2 Output: " + solution.letterCombinations(digits2));
+            # Get letters for current digit
+            current_digit = digits[index]
+            for letter in letter_mapping[current_digit]:
+                # Recursively call with updated combination and index
+                combination.append(letter)
+                backtrack(combination, index + 1)
+                combination.pop()
 
-        String digits3 = "2";
-        System.out.println("Example 3 Output: " + solution.letterCombinations(digits3));
-    }
-}
+        # Start recursive backtracking
+        backtrack([], 0)
+
+        return result
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+digits1 = "23"
+print(solution.letterCombinations(digits1))  # Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
+# Example 2:
+digits2 = ""
+print(solution.letterCombinations(digits2))  # Output: []
+
+# Example 3:
+digits3 = "2"
+print(solution.letterCombinations(digits3))  # Output: ["a","b","c"]
 ```
 
-This implementation provides a solution to the Letter Combinations of a Phone Number problem in Java.
+This code defines a `Solution` class with a method `letterCombinations` that takes a string of digits as input and returns a list of all possible letter combinations. The example usage demonstrates how to create an instance of the `Solution` class and call the `letterCombinations` method with different inputs.

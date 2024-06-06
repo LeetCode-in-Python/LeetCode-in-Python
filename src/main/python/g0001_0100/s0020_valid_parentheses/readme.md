@@ -44,54 +44,74 @@ An input string is valid if:
 *   <code>1 <= s.length <= 10<sup>4</sup></code>
 *   `s` consists of parentheses only `'()[]{}'`.
 
-To solve the Valid Parentheses problem in Java with a `Solution` class, we'll use a stack data structure. Here are the steps:
+Here are the steps to solve the "Valid Parentheses" problem:
 
-1. Define a `Solution` class with a method named `isValid` that takes a string `s` as input and returns a boolean indicating whether the string contains valid parentheses.
-2. Create a stack to store opening parentheses.
-3. Iterate through each character in the input string `s`.
-4. If the current character is an opening parenthesis (`'('`, `'{'`, or `'['`), push it onto the stack.
-5. If the current character is a closing parenthesis (`')'`, `'}'`, or `']'`), check if the stack is empty. If it is, return `false` because there's no matching opening parenthesis for the current closing parenthesis.
-6. If the stack is not empty, pop the top element from the stack and check if it matches the current closing parenthesis. If it doesn't match, return `false`.
-7. After iterating through all characters in `s`, check if the stack is empty. If it's not empty, return `false` because there are unmatched opening parentheses remaining.
-8. If the stack is empty after processing all characters, return `true` because all parentheses are valid.
+### Approach:
 
-Here's the implementation:
+1. **Initialize Stack:**
+   - Initialize an empty stack to keep track of the opening brackets.
 
-```java
-import java.util.Stack;
+2. **Iterate Through Characters:**
+   - Iterate through each character in the input string `s`.
 
-public class Solution {
-    public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
+3. **Check for Opening Bracket:**
+   - If the current character is an opening bracket (`'('`, `'{'`, or `'['`), push it onto the stack.
 
-        for (char c : s.toCharArray()) {
-            if (c == '(' || c == '{' || c == '[') {
-                stack.push(c);
-            } else {
-                if (stack.isEmpty()) {
-                    return false;
-                }
-                char top = stack.pop();
-                if ((c == ')' && top != '(') || (c == '}' && top != '{') || (c == ']' && top != '[')) {
-                    return false;
-                }
-            }
-        }
+4. **Check for Closing Bracket:**
+   - If the current character is a closing bracket (`')'`, `'}'`, or `']'`), check if the stack is empty. If it is, return `False` as there is no corresponding opening bracket.
 
-        return stack.isEmpty();
-    }
+5. **Check Matching Brackets:**
+   - Pop the top element from the stack and check if it matches the corresponding opening bracket for the current closing bracket. If not, return `False`.
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+6. **Check for Empty Stack:**
+   - After iterating through all characters, check if the stack is empty. If it is, return `True`; otherwise, return `False`.
 
-        // Test cases
-        System.out.println(solution.isValid("()")); // true
-        System.out.println(solution.isValid("()[]{}")); // true
-        System.out.println(solution.isValid("(]")); // false
-        System.out.println(solution.isValid("([)]")); // false
-        System.out.println(solution.isValid("{[]}")); // true
-    }
-}
+### Python Code:
+
+```python
+class Solution:
+    def isValid(self, s: str) -> bool:
+        # Initialize stack
+        stack = []
+
+        # Define mapping of opening to closing brackets
+        bracket_mapping = {')': '(', '}': '{', ']': '['}
+
+        # Iterate through characters
+        for char in s:
+            # Check for opening bracket
+            if char in bracket_mapping.values():
+                stack.append(char)
+            else:
+                # Check for closing bracket
+                if not stack or stack.pop() != bracket_mapping[char]:
+                    return False
+
+        # Check for empty stack
+        return not stack
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+input1 = "()"
+result1 = solution.isValid(input1)  # Output: True
+
+# Example 2:
+input2 = "()[]{}"
+result2 = solution.isValid(input2)  # Output: True
+
+# Example 3:
+input3 = "(]"
+result3 = solution.isValid(input3)  # Output: False
+
+# Example 4:
+input4 = "([)]"
+result4 = solution.isValid(input4)  # Output: False
+
+# Example 5:
+input5 = "{[]}"
+result5 = solution.isValid(input5)  # Output: True
 ```
 
-This implementation provides a solution to the Valid Parentheses problem in Java using a stack data structure.
+This code defines a `Solution` class with a method `isValid` that takes a string `s` as input and returns `True` if the parentheses in the input string are valid and `False` otherwise. The example usage demonstrates how to create an instance of the `Solution` class and call the `isValid` method with different inputs.
