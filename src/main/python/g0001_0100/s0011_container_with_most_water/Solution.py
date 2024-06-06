@@ -3,7 +3,7 @@
 # #2024_06_04_Time_488_ms_(91.81%)_Space_29.5_MB_(60.76%)
 
 class Solution:
-    def maxArea(self, height):
+    def maxArea(self, height: List[int]) -> int:
         max_area = -1
         left = 0
         right = len(height) - 1

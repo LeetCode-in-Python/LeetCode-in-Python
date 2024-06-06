@@ -3,7 +3,7 @@
 # #Big_O_Time_O(4^n)_Space_O(n) #2024_06_04_Time_28_ms_(91.85%)_Space_16.5_MB_(84.41%)
 
 class Solution:
-    def letterCombinations(self, digits):
+    def letterCombinations(self, digits: str) -> List[str]:
         if not digits:
             return []
 

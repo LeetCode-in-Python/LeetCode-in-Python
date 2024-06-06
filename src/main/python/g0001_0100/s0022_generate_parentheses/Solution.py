@@ -3,7 +3,7 @@
 # #Big_O_Time_O(2^n)_Space_O(n) #2024_06_04_Time_32_ms_(86.75%)_Space_16.8_MB_(83.99%)
 
 class Solution:
-    def generateParenthesis(self, n):
+    def generateParenthesis(self, n: int) -> List[str]:
         ans = []
         self._generate([], ans, n, n)
         return ans

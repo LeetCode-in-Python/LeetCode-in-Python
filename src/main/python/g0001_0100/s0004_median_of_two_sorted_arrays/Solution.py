@@ -2,7 +2,7 @@
 # #Big_O_Time_O(log(min(N,M)))_Space_O(1) #2024_06_03_Time_63_ms_(99.35%)_Space_16.9_MB_(31.27%)
 
 class Solution:
-    def findMedianSortedArrays(self, nums1, nums2):
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         if len(nums2) < len(nums1):
             return self.findMedianSortedArrays(nums2, nums1)
 

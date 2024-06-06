@@ -8,7 +8,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def removeNthFromEnd(self, head, n):
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         self.n = n
         dummy = ListNode(0, head)
         self._removeNth(dummy)
@@ -23,20 +23,3 @@ class Solution:
         
         if self.n == 0:
             node.next = node.next.next
-
-# Helper function to create a linked list from a list
-def create_linked_list(lst):
-    dummy = ListNode(0)
-    current = dummy
-    for val in lst:
-        current.next = ListNode(val)
-        current = current.next
-    return dummy.next
-
-# Helper function to convert a linked list to a list
-def linked_list_to_list(node):
-    lst = []
-    while node:
-        lst.append(node.val)
-        node = node.next
-    return lst

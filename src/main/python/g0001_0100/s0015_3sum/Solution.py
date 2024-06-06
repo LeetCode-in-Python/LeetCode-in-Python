@@ -3,7 +3,7 @@
 # #Big_O_Time_O(n*log(n))_Space_O(n^2) #2024_06_04_Time_683_ms_(63.27%)_Space_20.8_MB_(49.61%)
 
 class Solution:
-    def threeSum(self, nums):
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         result = []
         length = len(nums)
