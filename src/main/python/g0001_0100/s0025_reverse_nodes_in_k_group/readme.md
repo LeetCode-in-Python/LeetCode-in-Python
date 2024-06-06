@@ -45,68 +45,98 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 
 **Follow-up:** Can you solve the problem in O(1) extra memory space?
 
-To solve the "Reverse Nodes in k-Group" problem in Java with a `Solution` class, we can reverse the nodes in groups of k using a recursive approach. Here are the steps:
+To solve the "Reverse Nodes in k-Group" problem, you can use the following approach:
 
-1. Define a `Solution` class.
-2. Define a method named `reverseKGroup` that takes the head of a linked list and an integer k as input and returns the head of the modified list.
-3. Define a helper method named `reverse` that takes the head and tail of a sublist as input and reverses the sublist in place. This method returns the new head of the sublist.
-4. Create a dummy ListNode object and set its `next` pointer to the head of the input list. This dummy node will serve as the new head of the modified list.
-5. Initialize pointers `prev`, `curr`, `next`, and `tail`. Set `prev` and `tail` to the dummy node, and `curr` to the head of the input list.
-6. Iterate through the list:
-   - Move `curr` k steps forward. If it's not possible (i.e., there are less than k nodes left), break the loop.
-   - Set `next` to the `next` pointer of `curr`.
-   - Reverse the sublist from `curr` to `next` using the `reverse` method. Update `prev` and `tail` accordingly.
-   - Move `prev` and `tail` k steps forward to the last node of the reversed sublist.
-   - Move `curr` to `next`.
-7. Return the `next` pointer of the dummy node, which points to the head of the modified list.
+### Approach:
 
-Here's the implementation:
+1. **Check if Reversal is Possible:**
+   - Before reversing, check if there are at least `k` nodes remaining in the linked list.
 
-```java
-public class Solution {
-    public ListNode reverseKGroup(ListNode head, int k) {
-        // Create a dummy node and point its next to the head
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        
-        // Initialize pointers
-        ListNode prev = dummy, curr = head, next, tail;
-        
-        // Iterate through the list and reverse in groups of k
-        while (true) {
-            // Move curr k steps forward
-            tail = prev;
-            for (int i = 0; i < k; i++) {
-                tail = tail.next;
-                if (tail == null) return dummy.next; // Less than k nodes left
-            }
-            
-            next = tail.next; // Save the next pointer of the sublist
-            tail.next = null; // Disconnect the sublist from the rest of the list
-            
-            // Reverse the sublist and update prev and tail pointers
-            prev.next = reverse(curr, tail);
-            tail.next = next; // Connect the reversed sublist back to the rest of the list
-            
-            // Move prev, tail, and curr to the next group
-            prev = curr;
-            curr = next;
-        }
-    }
-    
-    // Helper method to reverse a sublist from head to tail
-    private ListNode reverse(ListNode head, ListNode tail) {
-        ListNode prev = null, curr = head, next;
-        while (curr != null) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-            if (prev == tail) break;
-        }
-        return prev; // Return the new head of the reversed sublist
-    }
-}
+2. **Reverse Nodes:**
+   - Reverse the next `k` nodes of the linked list.
+
+3. **Connect the Reversed Portion:**
+   - Connect the reversed portion to the previous part of the linked list.
+
+4. **Update Pointers:**
+   - Move the pointers to their correct positions for the next iteration.
+
+5. **Repeat:**
+   - Repeat the process until there are fewer than `k` nodes left.
+
+6. **Return Result:**
+   - Return the modified head of the linked list.
+
+### Python Code:
+
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def reverseKGroup(self, head, k):
+        # Function to reverse a linked list
+        def reverseList(start, end):
+            prev, curr = None, start
+            while curr != end:
+                next_node = curr.next
+                curr.next = prev
+                prev = curr
+                curr = next_node
+            return prev
+
+        # Initialize pointers
+        dummy = ListNode(0)
+        dummy.next = head
+        prev, curr = dummy, head
+
+        # Find the length of the linked list
+        length = 0
+        while head:
+            length += 1
+            head = head.next
+
+        # Reverse nodes in k-group
+        while length >= k:
+            end = curr
+            for _ in range(k - 1):
+                end = end.next
+
+            # Reverse k nodes
+            next_start = end.next
+            reversed_start = reverseList(curr, next_start)
+
+            # Connect reversed portion to the previous part
+            prev.next = reversed_start
+            curr.next = next_start
+
+            # Move pointers for the next iteration
+            prev, curr = curr, next_start
+            length -= k
+
+        # Return the modified head
+        return dummy.next
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+head1 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+result1 = solution.reverseKGroup(head1, 2)  # Output: ListNode(2, ListNode(1, ListNode(4, ListNode(3, ListNode(5))))))
+
+# Example 2:
+head2 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+result2 = solution.reverseKGroup(head2, 3)  # Output: ListNode(3, ListNode(2, ListNode(1, ListNode(4, ListNode(5))))))
+
+# Example 3:
+head3 = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+result3 = solution.reverseKGroup(head3, 1)  # Output: ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+
+# Example 4:
+head4 = ListNode(1)
+result4 = solution.reverseKGroup(head4, 1)  # Output: ListNode(1)
 ```
 
-This implementation provides a solution to the "Reverse Nodes in k-Group" problem in Java without modifying the values in the list's nodes. It recursively reverses the nodes in groups of k.
+This code defines a `Solution` class with a method `reverseKGroup` that takes a linked list and an integer `k` as input and reverses every `k` nodes in the linked list. The example usage demonstrates how to create an instance of the `Solution` class and call the `reverseKGroup` method with different inputs.

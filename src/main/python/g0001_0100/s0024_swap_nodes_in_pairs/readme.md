@@ -29,51 +29,74 @@ Given a linked list, swap every two adjacent nodes and return its head. You must
 *   The number of nodes in the list is in the range `[0, 100]`.
 *   `0 <= Node.val <= 100`
 
-To solve the "Swap Nodes in Pairs" problem in Java with a `Solution` class, we can traverse the linked list while swapping pairs of nodes. Here are the steps:
+To solve the "Swap Nodes in Pairs" problem, you can follow these steps:
 
-1. Define a `Solution` class.
-2. Define a method named `swapPairs` that takes the head of a linked list as input and returns the head of the modified list.
-3. Create a dummy ListNode object and set its `next` pointer to the head of the input list. This dummy node will serve as the new head of the modified list.
-4. Initialize three pointers: `prev`, `first`, and `second`.
-5. Iterate through the list while `first` and `second` are not null:
-   - Assign `first` to the `next` pointer of `prev`.
-   - Assign `second` to the `next` pointer of `first`.
-   - Assign the `next` pointer of `prev` to the `next` pointer of `second`.
-   - Assign the `next` pointer of `second` to `first`.
-   - Move `prev` to `first`.
-   - Move `first` to `first.next` (which is the next pair of nodes).
-6. Return the `next` pointer of the dummy node, which points to the head of the modified list.
+### Approach:
 
-Here's the implementation:
+1. **Initialize a Dummy Node:**
+   - Create a dummy node to simplify handling edge cases and to serve as the new head of the modified linked list.
 
-```java
-public class Solution {
-    public ListNode swapPairs(ListNode head) {
-        // Create a dummy node and point its next to the head
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        
-        // Initialize pointers
-        ListNode prev = dummy;
-        ListNode first, second;
-        
-        // Swap pairs of nodes
-        while (prev.next != null && prev.next.next != null) {
-            first = prev.next;
-            second = first.next;
-            
-            // Swap nodes
-            prev.next = second;
-            first.next = second.next;
-            second.next = first;
-            
-            // Move prev to the next pair of nodes
-            prev = first;
-        }
-        
-        return dummy.next;
-    }
-}
+2. **Initialize Pointers:**
+   - Initialize three pointers: `prev`, `current`, and `next`.
+
+3. **Iterate through Pairs:**
+   - Use a loop to iterate through the linked list in pairs.
+   - Inside the loop:
+      - Update `prev.next` to point to the second node in the pair (`next`).
+      - Update `current.next` to point to the node after the pair (`next.next`).
+      - Update `next.next` to point to the first node in the pair (`current`).
+      - Move `prev`, `current`, and `next` pointers to their next positions for the next pair.
+
+4. **Return Modified Head:**
+   - Return the `dummy.next` as the new head of the modified linked list.
+
+### Python Code:
+
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def swapPairs(self, head):
+        # Initialize a dummy node
+        dummy = ListNode(0)
+        dummy.next = head
+        prev = dummy
+
+        # Iterate through pairs
+        while head and head.next:
+            # Initialize pointers
+            current = head
+            next_node = head.next
+
+            # Swap pairs
+            prev.next = next_node
+            current.next = next_node.next
+            next_node.next = current
+
+            # Move pointers for the next pair
+            prev = current
+            head = current.next
+
+        # Return modified head
+        return dummy.next
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+head1 = ListNode(1, ListNode(2, ListNode(3, ListNode(4))))
+result1 = solution.swapPairs(head1)  # Output: ListNode(2, ListNode(1, ListNode(4, ListNode(3))))
+
+# Example 2:
+head2 = None
+result2 = solution.swapPairs(head2)  # Output: None
+
+# Example 3:
+head3 = ListNode(1)
+result3 = solution.swapPairs(head3)  # Output: ListNode(1)
 ```
 
-This implementation provides a solution to the "Swap Nodes in Pairs" problem in Java without modifying the values in the list's nodes.
+This code defines a `Solution` class with a method `swapPairs` that takes a linked list as input and swaps every two adjacent nodes. The example usage demonstrates how to create an instance of the `Solution` class and call the `swapPairs` method with different inputs.

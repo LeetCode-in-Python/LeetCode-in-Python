@@ -55,65 +55,65 @@ The matching should cover the **entire** input string (not partial).
 *   `p` contains only lowercase English letters, `'.'`, and `'*'`.
 *   It is guaranteed for each appearance of the character `'*'`, there will be a previous valid character to match.
 
-To solve the Regular Expression Matching problem in Java using a `Solution` class, we'll follow these steps:
+Here are the steps for the recursive approach:
 
-1. Define a `Solution` class with a method named `isMatch`.
-2. Implement a recursive approach to check for pattern matching.
-3. Base cases:
-   - If the pattern string is empty, return `s.isEmpty()`.
-   - If the pattern string's length is 1 or the next character after `*` is `.`:
-     - Check if the length of `s` is 1 and the characters match or the pattern is `.`.
-     - If so, return `true`; otherwise, return `false`.
-4. If the second character of the pattern is not `*`, recursively call `isMatch` with the substring starting from the second character.
-5. If the second character of the pattern is `*`, recursively check all possibilities:
-   - Zero occurrences of the preceding character (skipping `*` and the character before it).
-   - One or more occurrences of the preceding character (matching the first character and recursively calling `isMatch` for the remaining part of the string).
-6. Return the result of the recursive checks.
-7. Handle edge cases where the input strings are empty or the pattern contains invalid characters.
+### Recursive Approach:
 
-Here's the implementation:
+1. **Base Cases:**
+   - If the pattern `p` is empty, the matching is successful if the string `s` is also empty. Return `True` if both are empty; otherwise, return `False`.
+   - If the pattern `p` has only one character or the next character is not `'*'`, check if the first characters of `s` and `p` match. If yes, move to the next characters of both `s` and `p`; otherwise, return `False`.
 
-```java
-public class Solution {
+2. **Handle '*' Character:**
+   - If the next character in `p` is `'*'`, there are two possibilities:
+     - Skip the `'*'` and the preceding character in `p` (i.e., match zero occurrences of the preceding character).
+     - Match one occurrence of the preceding character in `p` with the current character in `s`.
 
-    public boolean isMatch(String s, String p) {
-        if (p.isEmpty())
-            return s.isEmpty();
+3. **Recursive Calls:**
+   - Recursively call the function with updated `s` and `p` for the possibilities mentioned in step 2.
 
-        boolean firstMatch = !s.isEmpty() && (p.charAt(0) == s.charAt(0) || p.charAt(0) == '.');
+4. **Return Result:**
+   - Return `True` if any recursive call returns `True`; otherwise, return `False`.
 
-        if (p.length() >= 2 && p.charAt(1) == '*') {
-            return isMatch(s, p.substring(2)) || (firstMatch && isMatch(s.substring(1), p));
-        } else {
-            return firstMatch && isMatch(s.substring(1), p.substring(1));
-        }
-    }
+### Python Code (Recursive):
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        # Base cases
+        if not p:
+            return not s
 
-        // Test cases
-        String s1 = "aa";
-        String p1 = "a";
-        System.out.println("Example 1 Output: " + solution.isMatch(s1, p1));
+        first_match = bool(s) and (s[0] == p[0] or p[0] == '.')
 
-        String s2 = "aa";
-        String p2 = "a*";
-        System.out.println("Example 2 Output: " + solution.isMatch(s2, p2));
+        # Handle '*' character
+        if len(p) >= 2 and p[1] == '*':
+            return (self.isMatch(s, p[2:]) or
+                    (first_match and self.isMatch(s[1:], p)))
+        else:
+            return first_match and self.isMatch(s[1:], p[1:])
 
-        String s3 = "ab";
-        String p3 = ".*";
-        System.out.println("Example 3 Output: " + solution.isMatch(s3, p3));
+# Example Usage:
+solution = Solution()
 
-        String s4 = "aab";
-        String p4 = "c*a*b";
-        System.out.println("Example 4 Output: " + solution.isMatch(s4, p4));
+# Example 1:
+s1, p1 = "aa", "a"
+print(solution.isMatch(s1, p1))  # Output: False
 
-        String s5 = "mississippi";
-        String p5 = "mis*is*p*.";
-        System.out.println("Example 5 Output: " + solution.isMatch(s5, p5));
-    }
-}
+# Example 2:
+s2, p2 = "aa", "a*"
+print(solution.isMatch(s2, p2))  # Output: True
+
+# Example 3:
+s3, p3 = "ab", ".*"
+print(solution.isMatch(s3, p3))  # Output: True
+
+# Example 4:
+s4, p4 = "aab", "c*a*b"
+print(solution.isMatch(s4, p4))  # Output: True
+
+# Example 5:
+s5, p5 = "mississippi", "mis*is*p*."
+print(solution.isMatch(s5, p5))  # Output: False
 ```
 
-This implementation provides a solution to the Regular Expression Matching problem in Java.
+This code defines a `Solution` class with a method `isMatch` that takes a string `s` and a pattern `p` as input and returns `True` if they match and `False` otherwise. The example usage demonstrates how to create an instance of the `Solution` class and call the `isMatch` method with different inputs using the recursive approach.

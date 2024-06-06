@@ -34,63 +34,91 @@ Given a signed 32-bit integer `x`, return `x` _with its digits reversed_. If rev
 
 *   <code>-2<sup>31</sup> <= x <= 2<sup>31</sup> - 1</code>
 
-To solve the Reverse Integer problem in Java using a `Solution` class, we'll follow these steps:
+Here are the steps to solve the "Reverse Integer" problem:
 
-1. Define a `Solution` class with a method named `reverse`.
-2. Initialize variables to keep track of the reversed integer (`rev`), the sign of the input integer (`sign`), and the absolute value of the input integer (`x`).
-3. Iterate through each digit of the input integer `x`:
-   - Extract the least significant digit using the modulo operator.
-   - Update the reversed integer `rev` by multiplying it by 10 and adding the extracted digit.
-   - Update `x` by removing the least significant digit using integer division.
-4. Check if the reversed integer `rev` overflows the signed 32-bit integer range. If so, return 0.
-5. Return the reversed integer `rev` with the appropriate sign.
+### Approach:
 
-Here's the implementation:
+1. **Handle Special Case for 0:**
+   - If the given integer `x` is 0, return 0.
 
-```java
-public class Solution {
+2. **Determine Sign:**
+   - Determine the sign of the integer `x` (positive or negative).
 
-    public int reverse(int x) {
-        int rev = 0;
-        int sign = (x < 0) ? -1 : 1;
-        int limit = Integer.MAX_VALUE / 10;
-        int absX = Math.abs(x);
+3. **Handle Negative Case:**
+   - If `x` is negative, update the sign and make `x` positive for the reversal process.
 
-        while (absX > 0) {
-            int digit = absX % 10;
-            absX /= 10;
+4. **Reverse the Digits:**
+   - Convert the positive `x` to a string.
+   - Reverse the string.
 
-            if (rev > limit || (rev == limit && digit > 7)) {
-                return 0;
-            }
+5. **Handle Leading Zeros:**
+   - Remove leading zeros from the reversed string.
 
-            if (rev < -limit || (rev == -limit && digit < -8)) {
-                return 0;
-            }
+6. **Convert Back to Integer:**
+   - Convert the reversed string back to an integer.
 
-            rev = rev * 10 + digit;
-        }
+7. **Apply Sign:**
+   - If the original `x` was negative, apply the negative sign to the reversed integer.
 
-        return rev * sign;
-    }
+8. **Check for Overflow:**
+   - Check if the reversed integer is within the 32-bit integer range <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code>.
+   - If not, return 0.
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+9. **Return Result:**
+   - Return the reversed integer.
 
-        // Test cases
-        int x1 = 123;
-        System.out.println("Example 1 Output: " + solution.reverse(x1));
+### Python Code:
 
-        int x2 = -123;
-        System.out.println("Example 2 Output: " + solution.reverse(x2));
+```python
+class Solution:
+    def reverse(self, x: int) -> int:
+        # Handle special case for 0
+        if x == 0:
+            return 0
 
-        int x3 = 120;
-        System.out.println("Example 3 Output: " + solution.reverse(x3));
+        # Determine sign
+        sign = 1 if x > 0 else -1
 
-        int x4 = 0;
-        System.out.println("Example 4 Output: " + solution.reverse(x4));
-    }
-}
+        # Make x positive for the reversal process
+        x = abs(x)
+
+        # Reverse the digits
+        reversed_str = str(x)[::-1]
+
+        # Remove leading zeros
+        reversed_str = reversed_str.lstrip('0')
+
+        # Convert back to integer
+        reversed_int = int(reversed_str)
+
+        # Apply sign
+        reversed_int *= sign
+
+        # Check for overflow
+        if reversed_int < -2**31 or reversed_int > 2**31 - 1:
+            return 0
+
+        # Return the reversed integer
+        return reversed_int
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+x1 = 123
+print(solution.reverse(x1))  # Output: 321
+
+# Example 2:
+x2 = -123
+print(solution.reverse(x2))  # Output: -321
+
+# Example 3:
+x3 = 120
+print(solution.reverse(x3))  # Output: 21
+
+# Example 4:
+x4 = 0
+print(solution.reverse(x4))  # Output: 0
 ```
 
-This implementation provides a solution to the Reverse Integer problem in Java.
+This code defines a `Solution` class with a method `reverse` that takes an integer `x` as input and returns the reversed integer. The example usage demonstrates how to create an instance of the `Solution` class and call the `reverse` method with different inputs.

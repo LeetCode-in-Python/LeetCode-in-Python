@@ -38,70 +38,81 @@ string convert(string s, int numRows);
 *   `s` consists of English letters (lower-case and upper-case), `','` and `'.'`.
 *   `1 <= numRows <= 1000`
 
-To solve the Zigzag Conversion problem in Java using a `Solution` class, we'll follow these steps:
+Here are the steps to solve the "Zigzag Conversion" problem:
 
-1. Define a `Solution` class with a method named `convert`.
-2. Create an array of strings to represent each row of the zigzag pattern.
-3. Initialize variables to keep track of the current row (`row`) and the direction of traversal (`down`).
-4. Iterate through each character in the input string `s`.
-   - Append the current character to the string representing the current row.
-   - If we reach the first or last row, change the direction of traversal accordingly.
-   - Update the current row based on the direction of traversal.
-5. Concatenate the strings representing each row to form the final zigzag conversion.
-6. Return the concatenated string.
-7. Handle edge cases where the number of rows is 1 or the input string is empty.
+### Approach:
 
-Here's the implementation:
+1. **Handle Special Cases:**
+   - If the number of rows (`numRows`) is 1 or the length of the string (`s`) is less than or equal to the number of rows, return the original string.
 
-```java
-public class Solution {
+2. **Initialize Rows:**
+   - Create a list of strings to represent each row of the zigzag pattern.
+   - Initialize an index variable to keep track of the current row.
 
-    public String convert(String s, int numRows) {
-        if (numRows == 1 || s.length() <= numRows) {
-            return s;
-        }
+3. **Iterate through the String:**
+   - Iterate through each character in the string `s`.
 
-        StringBuilder[] rows = new StringBuilder[numRows];
-        for (int i = 0; i < numRows; i++) {
-            rows[i] = new StringBuilder();
-        }
+4. **Fill Rows:**
+   - For each character, determine the current row in the zigzag pattern.
+   - Append the character to the corresponding row.
 
-        int row = 0;
-        boolean down = false;
+5. **Read Zigzag Pattern:**
+   - Concatenate the rows to obtain the final zigzag pattern.
 
-        for (char c : s.toCharArray()) {
-            rows[row].append(c);
-            if (row == 0 || row == numRows - 1) {
-                down = !down;
-            }
-            row += down ? 1 : -1;
-        }
+6. **Return Result:**
+   - Return the final zigzag pattern.
 
-        StringBuilder result = new StringBuilder();
-        for (StringBuilder sb : rows) {
-            result.append(sb);
-        }
+### Python Code:
 
-        return result.toString();
-    }
+```python
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        # Handle special cases
+        if numRows == 1 or len(s) <= numRows:
+            return s
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+        # Initialize rows
+        rows = [''] * numRows
+        index = 0
+        direction = 1  # 1 for down, -1 for up
 
-        // Test cases
-        String s1 = "PAYPALISHIRING";
-        int numRows1 = 3;
-        System.out.println("Example 1 Output: " + solution.convert(s1, numRows1));
+        # Iterate through the string
+        for char in s:
+            # Fill rows
+            rows[index] += char
 
-        String s2 = "PAYPALISHIRING";
-        int numRows2 = 4;
-        System.out.println("Example 2 Output: " + solution.convert(s2, numRows2));
+            # Change direction if reaching top or bottom row
+            if index == 0:
+                direction = 1
+            elif index == numRows - 1:
+                direction = -1
 
-        String s3 = "A";
-        int numRows3 = 1;
-        System.out.println("Example 3 Output: " + solution.convert(s3, numRows3));
-    }
-}
+            # Move to the next row
+            index += direction
+
+        # Read zigzag pattern
+        result = ''.join(rows)
+
+        # Return the final result
+        return result
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+s1 = "PAYPALISHIRING"
+numRows1 = 3
+print(solution.convert(s1, numRows1))  # Output: "PAHNAPLSIIGYIR"
+
+# Example 2:
+s2 = "PAYPALISHIRING"
+numRows2 = 4
+print(solution.convert(s2, numRows2))  # Output: "PINALSIGYAHRPI"
+
+# Example 3:
+s3 = "A"
+numRows3 = 1
+print(solution.convert(s3, numRows3))  # Output: "A"
 ```
 
-This implementation provides a solution to the Zigzag Conversion problem in Java.
+This code defines a `Solution` class with a method `convert` that takes a string `s` and the number of rows `numRows` as input and returns the zigzag conversion of the string. The example usage demonstrates how to create an instance of the `Solution` class and call the `convert` method with different inputs.

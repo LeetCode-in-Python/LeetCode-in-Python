@@ -20,59 +20,65 @@ Given `n` pairs of parentheses, write a function to _generate all combinations o
 
 *   `1 <= n <= 8`
 
-To solve the "Generate Parentheses" problem in Java with a `Solution` class, we can use a backtracking approach. Here are the steps:
+Here are the steps to solve the "Generate Parentheses" problem:
 
-1. Define a `Solution` class.
-2. Define a method named `generateParenthesis` that takes an integer `n` as input and returns a list of strings representing all combinations of well-formed parentheses.
-3. Create an empty list to store the result.
-4. Call the recursive helper function `generateParenthesisHelper` with the empty string `""`, counts of open and close parentheses set to `0`, the value of `n`, and the result list.
-5. In the `generateParenthesisHelper` function:
-   - If the length of the current string is equal to `2 * n`, add it to the result list.
-   - If the count of open parentheses is less than `n`, append an open parenthesis to the current string and call the function recursively with increased open count.
-   - If the count of close parentheses is less than the count of open parentheses, append a close parenthesis to the current string and call the function recursively with increased close count.
-6. Return the result list.
+### Approach:
 
-Here's the implementation:
+1. **Initialize Result List:**
+   - Initialize an empty list `result` to store the generated combinations.
 
-```java
-import java.util.ArrayList;
-import java.util.List;
+2. **Define Recursive Function:**
+   - Define a recursive function `generateParenthesisHelper` that takes parameters:
+     - `current`: the current combination being built.
+     - `left`: the remaining count of open parentheses.
+     - `right`: the remaining count of close parentheses.
 
-public class Solution {
-    public List<String> generateParenthesis(int n) {
-        List<String> result = new ArrayList<>();
-        generateParenthesisHelper("", 0, 0, n, result);
-        return result;
-    }
+3. **Base Case:**
+   - If both `left` and `right` become zero, add the current combination to the `result` list.
 
-    private void generateParenthesisHelper(String current, int open, int close, int n, List<String> result) {
-        if (current.length() == 2 * n) {
-            result.add(current);
-            return;
-        }
+4. **Recursive Calls:**
+   - If `left` is greater than zero, make a recursive call with one less open parenthesis and the current combination appended with an open parenthesis.
+   - If `right` is greater than `left`, make a recursive call with one less close parenthesis and the current combination appended with a close parenthesis.
 
-        if (open < n) {
-            generateParenthesisHelper(current + "(", open + 1, close, n, result);
-        }
+5. **Initialize:**
+   - Start the recursion by calling the `generateParenthesisHelper` function with an empty string (`current`), the total number of open parentheses (`n`), and the total number of close parentheses (`n`).
 
-        if (close < open) {
-            generateParenthesisHelper(current + ")", open, close + 1, n, result);
-        }
-    }
+6. **Return Result:**
+   - Return the `result` list containing all the valid combinations.
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+### Python Code:
 
-        // Test cases
-        int n1 = 3;
-        System.out.println("Parentheses combinations for n = " + n1 + ":");
-        System.out.println(solution.generateParenthesis(n1));
+```python
+class Solution:
+    def generateParenthesis(self, n: int):
+        def generateParenthesisHelper(current, left, right):
+            # Base case: If both left and right are zero, add the current combination to result
+            if left == 0 and right == 0:
+                result.append(current)
+                return
+            # Recursive calls
+            if left > 0:
+                generateParenthesisHelper(current + '(', left - 1, right)
+            if right > left:
+                generateParenthesisHelper(current + ')', left, right - 1)
 
-        int n2 = 1;
-        System.out.println("\nParentheses combinations for n = " + n2 + ":");
-        System.out.println(solution.generateParenthesis(n2));
-    }
-}
+        # Initialize result list
+        result = []
+        # Start recursion
+        generateParenthesisHelper('', n, n)
+        # Return result list
+        return result
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+n1 = 3
+result1 = solution.generateParenthesis(n1)  # Output: ["((()))","(()())","(())()","()(())","()()()"]
+
+# Example 2:
+n2 = 1
+result2 = solution.generateParenthesis(n2)  # Output: ["()"]
 ```
 
-This implementation provides a solution to the "Generate Parentheses" problem in Java using a backtracking approach.
+This code defines a `Solution` class with a method `generateParenthesis` that takes an integer `n` as input and returns a list containing all combinations of well-formed parentheses for `n` pairs. The example usage demonstrates how to create an instance of the `Solution` class and call the `generateParenthesis` method with different inputs.

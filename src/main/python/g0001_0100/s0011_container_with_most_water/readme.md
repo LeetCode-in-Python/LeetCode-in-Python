@@ -40,58 +40,75 @@ Given `n` non-negative integers <code>a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>n
 *   <code>2 <= n <= 10<sup>5</sup></code>
 *   <code>0 <= height[i] <= 10<sup>4</sup></code>
 
-To solve the Container With Most Water problem in Java using a `Solution` class, we'll follow these steps:
+Here are the steps to solve the "Container With Most Water" problem:
 
-1. Define a `Solution` class with a method named `maxArea` that takes an array of integers `height` as input and returns the maximum area of water that can be contained.
-2. Initialize two pointers, `left` pointing to the start of the array and `right` pointing to the end of the array.
-3. Initialize a variable `maxArea` to store the maximum area encountered so far, initially set to 0.
-4. Iterate while `left` is less than `right`.
-5. Calculate the current area using the formula: `(right - left) * min(height[left], height[right])`.
-6. Update `maxArea` if the current area is greater than `maxArea`.
-7. Move the pointer pointing to the smaller height towards the other pointer. If `height[left] < height[right]`, increment `left`, otherwise decrement `right`.
-8. Continue the iteration until `left` becomes greater than or equal to `right`.
-9. Return `maxArea`.
+### Approach:
 
-Here's the implementation:
+1. **Initialize Pointers:**
+   - Initialize two pointers, one at the beginning (`left`) and one at the end (`right`) of the height array.
 
-```java
-public class Solution {
-    public int maxArea(int[] height) {
-        int left = 0;
-        int right = height.length - 1;
-        int maxArea = 0;
+2. **Calculate Initial Area:**
+   - Calculate the initial area between the two pointers using the minimum height (`min_height`) and the width (`width`) between the pointers.
 
-        while (left < right) {
-            int currentArea = (right - left) * Math.min(height[left], height[right]);
-            maxArea = Math.max(maxArea, currentArea);
+3. **Move Pointers Inward:**
+   - Move the pointer with the smaller height towards the center of the array.
+     - If `height[left] < height[right]`, increment `left`.
+     - If `height[left] >= height[right]`, decrement `right`.
 
-            if (height[left] < height[right]) {
-                left++;
-            } else {
-                right--;
-            }
-        }
+4. **Update Maximum Area:**
+   - Update the maximum area if the newly calculated area is greater than the current maximum.
 
-        return maxArea;
-    }
+5. **Repeat Until Pointers Meet:**
+   - Repeat steps 3-4 until the pointers meet.
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+6. **Return Maximum Area:**
+   - Return the maximum area.
 
-        // Test cases
-        int[] height1 = {1, 8, 6, 2, 5, 4, 8, 3, 7};
-        System.out.println("Example 1 Output: " + solution.maxArea(height1));
+### Python Code:
 
-        int[] height2 = {1, 1};
-        System.out.println("Example 2 Output: " + solution.maxArea(height2));
+```python
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        # Initialize pointers
+        left, right = 0, len(height) - 1
+        max_area = 0
 
-        int[] height3 = {4, 3, 2, 1, 4};
-        System.out.println("Example 3 Output: " + solution.maxArea(height3));
+        # Iterate until pointers meet
+        while left < right:
+            # Calculate width and minimum height
+            width = right - left
+            min_height = min(height[left], height[right])
 
-        int[] height4 = {1, 2, 1};
-        System.out.println("Example 4 Output: " + solution.maxArea(height4));
-    }
-}
+            # Update maximum area
+            max_area = max(max_area, width * min_height)
+
+            # Move pointers inward
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+
+        # Return maximum area
+        return max_area
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+height1 = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+print(solution.maxArea(height1))  # Output: 49
+
+# Example 2:
+height2 = [1, 1]
+print(solution.maxArea(height2))  # Output: 1
+
+# Example 3:
+height3 = [4, 3, 2, 1, 4]
+print(solution.maxArea(height3))  # Output: 16
+
+# Example 4:
+height4 = [1, 2, 1]
+print(solution.maxArea(height4))  # Output: 2
 ```
 
-This implementation provides a solution to the Container With Most Water problem in Java.
+This code defines a `Solution` class with a method `maxArea` that takes an array of heights as input and returns the maximum area that can be formed by a container. The example usage demonstrates how to create an instance of the `Solution` class and call the `maxArea` method with different inputs.

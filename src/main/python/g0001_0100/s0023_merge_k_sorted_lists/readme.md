@@ -35,99 +35,74 @@ _Merge all the linked-lists into one sorted linked-list and return it._
 *   `lists[i]` is sorted in **ascending order**.
 *   The sum of `lists[i].length` won't exceed `10^4`.
 
-To solve the "Merge k Sorted Lists" problem in Java with a `Solution` class, we can use a priority queue (min-heap) to efficiently merge the lists. Here are the steps:
+To solve the "Merge k Sorted Lists" problem, you can follow these steps:
 
-1. Define a `Solution` class.
-2. Define a method named `mergeKLists` that takes an array of linked lists `lists` as input and returns a single sorted linked list.
-3. Create a priority queue of ListNode objects. We will use this priority queue to store the heads of each linked list.
-4. Iterate through each linked list in the input array `lists` and add the head node of each list to the priority queue.
-5. Create a dummy ListNode object to serve as the head of the merged sorted linked list.
-6. Initialize a ListNode object named `current` to point to the dummy node.
-7. While the priority queue is not empty:
-   - Remove the ListNode with the smallest value from the priority queue.
-   - Add this node to the merged linked list by setting the `next` pointer of the `current` node to this node.
-   - Move the `current` pointer to the next node in the merged linked list.
-   - If the removed node has a `next` pointer, add the next node from the same list to the priority queue.
-8. Return the `next` pointer of the dummy node, which points to the head of the merged sorted linked list.
+### Approach:
 
-Here's the implementation:
+1. **Initialize a Priority Queue (Min-Heap):**
+   - Initialize a priority queue (min-heap) to store nodes from all linked lists based on their values.
 
-```java
-import java.util.PriorityQueue;
+2. **Populate Priority Queue:**
+   - Iterate through each linked list and insert the first node (if not None) from each list into the priority queue.
 
-public class Solution {
-    public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode> minHeap = new PriorityQueue<>((a, b) -> a.val - b.val);
+3. **Merge Lists using Priority Queue:**
+   - While the priority queue is not empty:
+     - Pop the smallest node from the priority queue.
+     - Append the node's value to the result list.
+     - If the node has a next element, insert the next node into the priority queue.
+
+4. **Return Result List:**
+   - Return the merged result list.
+
+### Python Code:
+
+```python
+import heapq
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def mergeKLists(self, lists):
+        # Initialize a priority queue
+        heap = []
         
-        // Add the heads of all lists to the priority queue
-        for (ListNode node : lists) {
-            if (node != null) {
-                minHeap.offer(node);
-            }
-        }
-        
-        // Create a dummy node to serve as the head of the merged list
-        ListNode dummy = new ListNode(0);
-        ListNode current = dummy;
-        
-        // Merge the lists
-        while (!minHeap.isEmpty()) {
-            ListNode minNode = minHeap.poll();
-            current.next = minNode;
-            current = current.next;
-            
-            if (minNode.next != null) {
-                minHeap.offer(minNode.next);
-            }
-        }
-        
-        return dummy.next;
-    }
+        # Populate priority queue with the first node from each list
+        for i, lst in enumerate(lists):
+            if lst:
+                heapq.heappush(heap, (lst.val, i, lst))
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+        # Initialize result dummy node and pointer
+        result_dummy = ListNode()
+        current = result_dummy
 
-        // Test case
-        ListNode[] lists = new ListNode[] {
-            ListNode.createList(new int[] {1, 4, 5}),
-            ListNode.createList(new int[] {1, 3, 4}),
-            ListNode.createList(new int[] {2, 6})
-        };
-        System.out.println("Merged list:");
-        ListNode.printList(solution.mergeKLists(lists));
-    }
-}
+        # Merge lists using priority queue
+        while heap:
+            val, i, node = heapq.heappop(heap)
+            current.next = ListNode(val)
+            current = current.next
+            if node.next:
+                heapq.heappush(heap, (node.next.val, i, node.next))
 
-class ListNode {
-    int val;
-    ListNode next;
+        # Return merged result
+        return result_dummy.next
 
-    ListNode(int val) {
-        this.val = val;
-    }
+# Example Usage:
+solution = Solution()
 
-    static ListNode createList(int[] arr) {
-        if (arr == null || arr.length == 0) {
-            return null;
-        }
+# Example 1:
+lists1 = [ListNode(1, ListNode(4, ListNode(5))), ListNode(1, ListNode(3, ListNode(4))), ListNode(2, ListNode(6))]
+result1 = solution.mergeKLists(lists1)  # Output: ListNode(1, ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(4, ListNode(5, ListNode(6))))))))
 
-        ListNode dummy = new ListNode(0);
-        ListNode current = dummy;
-        for (int num : arr) {
-            current.next = new ListNode(num);
-            current = current.next;
-        }
-        return dummy.next;
-    }
+# Example 2:
+lists2 = []
+result2 = solution.mergeKLists(lists2)  # Output: None
 
-    static void printList(ListNode head) {
-        while (head != null) {
-            System.out.print(head.val + " ");
-            head = head.next;
-        }
-        System.out.println();
-    }
-}
+# Example 3:
+lists3 = [[]]
+result3 = solution.mergeKLists(lists3)  # Output: None
 ```
 
-This implementation provides a solution to the "Merge k Sorted Lists" problem in Java using a priority queue.
+This code defines a `Solution` class with a method `mergeKLists` that takes a list of linked lists as input and returns a merged sorted linked list. The example usage demonstrates how to create an instance of the `Solution` class and call the `mergeKLists` method with different inputs.

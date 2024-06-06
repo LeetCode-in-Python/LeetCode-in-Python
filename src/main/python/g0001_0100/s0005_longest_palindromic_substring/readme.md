@@ -33,65 +33,85 @@ Given a string `s`, return _the longest palindromic substring_ in `s`.
 *   `1 <= s.length <= 1000`
 *   `s` consist of only digits and English letters.
 
-To solve the Longest Palindromic Substring problem in Java using a `Solution` class, we'll follow these steps:
+Here are the steps to solve the "Longest Palindromic Substring" problem:
 
-1. Define a `Solution` class with a method named `longestPalindrome`.
-2. Initialize variables to keep track of the start and end indices of the longest palindromic substring found so far (`start` and `end`).
-3. Iterate through the string `s`:
-   - For each character in the string, expand around it to check if it forms a palindrome.
-   - Handle both odd-length and even-length palindromes separately.
-   - Update `start` and `end` indices if a longer palindrome is found.
-4. Return the substring from `start` to `end`.
-5. Handle edge cases where the input string is empty or has a length of 1.
+### Approach:
 
-Here's the implementation:
+1. **Initialize Variables:**
+   - Initialize two pointers, `start` and `end`, to represent the current substring being considered.
+   - Initialize a variable `max_length` to store the length of the longest palindromic substring found.
+   - Initialize variables `max_start` and `max_end` to store the starting and ending indices of the longest palindromic substring.
 
-```java
-public class Solution {
-    
-    public String longestPalindrome(String s) {
-        if (s == null || s.length() < 1) return "";
-        int start = 0;
-        int end = 0;
-        
-        for (int i = 0; i < s.length(); i++) {
-            int len1 = expandAroundCenter(s, i, i);
-            int len2 = expandAroundCenter(s, i, i + 1);
-            int len = Math.max(len1, len2);
-            if (len > end - start) {
-                start = i - (len - 1) / 2;
-                end = i + len / 2;
-            }
-        }
-        
-        return s.substring(start, end + 1);
-    }
-    
-    private int expandAroundCenter(String s, int left, int right) {
-        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
-            left--;
-            right++;
-        }
-        return right - left - 1;
-    }
+2. **Expand Around Center:**
+   - Iterate through each character in the string `s`.
+   - For each character, consider it as the center of a potential palindrome and expand around it to find the longest palindrome.
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
+3. **Handle Odd-Length Palindromes:**
+   - For each character, expand the substring by considering the current character as the center and expanding outward on both sides.
+   - Update `start` and `end` pointers accordingly.
 
-        // Test cases
-        String s1 = "babad";
-        System.out.println("Example 1 Output: " + solution.longestPalindrome(s1));
+4. **Handle Even-Length Palindromes:**
+   - Consider each pair of adjacent characters as potential centers and expand around them to find even-length palindromes.
+   - Update `start` and `end` pointers accordingly.
 
-        String s2 = "cbbd";
-        System.out.println("Example 2 Output: " + solution.longestPalindrome(s2));
+5. **Update Longest Palindrome:**
+   - After expanding around the current center, check if the length of the palindrome is greater than the current maximum (`max_length`).
+   - If yes, update `max_length`, `max_start`, and `max_end`.
 
-        String s3 = "a";
-        System.out.println("Example 3 Output: " + solution.longestPalindrome(s3));
+6. **Return Result:**
+   - After iterating through all characters, return the longest palindromic substring using the indices `max_start` and `max_end`.
 
-        String s4 = "ac";
-        System.out.println("Example 4 Output: " + solution.longestPalindrome(s4));
-    }
-}
+### Python Code:
+
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        # Initialize variables
+        max_length = 0
+        max_start, max_end = 0, 0
+
+        # Expand around center
+        for i in range(len(s)):
+            # Handle odd-length palindromes
+            start, end = self.expand_around_center(s, i, i)
+            if end - start + 1 > max_length:
+                max_length = end - start + 1
+                max_start, max_end = start, end
+
+            # Handle even-length palindromes
+            start, end = self.expand_around_center(s, i, i + 1)
+            if end - start + 1 > max_length:
+                max_length = end - start + 1
+                max_start, max_end = start, end
+
+        # Return the longest palindromic substring
+        return s[max_start:max_end + 1]
+
+    def expand_around_center(self, s, left, right):
+        # Expand around center and return indices of the palindrome
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            left -= 1
+            right += 1
+        return left + 1, right - 1
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+s1 = "babad"
+print(solution.longestPalindrome(s1))  # Output: "bab" or "aba"
+
+# Example 2:
+s2 = "cbbd"
+print(solution.longestPalindrome(s2))  # Output: "bb"
+
+# Example 3:
+s3 = "a"
+print(solution.longestPalindrome(s3))  # Output: "a"
+
+# Example 4:
+s4 = "ac"
+print(solution.longestPalindrome(s4))  # Output: "a"
 ```
 
-This implementation provides a solution to the Longest Palindromic Substring problem in Java.
+This code defines a `Solution` class with a method `longestPalindrome` that takes a string `s` as input and returns the longest palindromic substring. The example usage demonstrates how to create an instance of the `Solution` class and call the `longestPalindrome` method with different inputs.
