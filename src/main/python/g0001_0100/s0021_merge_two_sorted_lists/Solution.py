@@ -9,41 +9,24 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def mergeTwoLists(self, l1, l2):
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode(-1)
         current = dummy
         
-        while l1 is not None or l2 is not None:
-            if l1 is not None and l2 is not None:
-                if l1.val <= l2.val:
-                    current.next = ListNode(l1.val)
-                    l1 = l1.next
+        while list1 is not None or list2 is not None:
+            if list1 is not None and list2 is not None:
+                if list1.val <= list2.val:
+                    current.next = ListNode(list1.val)
+                    list1 = list1.next
                 else:
-                    current.next = ListNode(l2.val)
-                    l2 = l2.next
-            elif l1 is not None:
-                current.next = ListNode(l1.val)
-                l1 = l1.next
+                    current.next = ListNode(list2.val)
+                    list2 = list2.next
+            elif list1 is not None:
+                current.next = ListNode(list1.val)
+                list1 = list1.next
             else:
-                current.next = ListNode(l2.val)
-                l2 = l2.next
+                current.next = ListNode(list2.val)
+                list2 = list2.next
             current = current.next
             
         return dummy.next
-
-# Helper function to create a linked list from a list
-def create_linked_list(lst):
-    dummy = ListNode(0)
-    current = dummy
-    for val in lst:
-        current.next = ListNode(val)
-        current = current.next
-    return dummy.next
-
-# Helper function to convert a linked list to a list
-def linked_list_to_list(node):
-    lst = []
-    while node:
-        lst.append(node.val)
-        node = node.next
-    return lst

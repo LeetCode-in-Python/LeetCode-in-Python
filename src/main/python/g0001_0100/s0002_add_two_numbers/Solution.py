@@ -1,6 +1,6 @@
 # #Medium #Top_100_Liked_Questions #Top_Interview_Questions #Math #Linked_List #Recursion
 # #Data_Structure_II_Day_10_Linked_List #Programming_Skills_II_Day_15
-# #Big_O_Time_O(max(N,M))_Space_O(max(N,M)) #2024_06_03_Time_45_ms_(95.01%)_Space_16.7_MB_(8.91%)
+# #Big_O_Time_O(max(N,M))_Space_O(max(N,M)) #2024_06_06_Time_47_ms_(90.77%)_Space_16.6_MB_(83.79%)
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -8,7 +8,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         dummy_head = ListNode(0)
         p, q, curr = l1, l2, dummy_head
         carry = 0
@@ -29,4 +29,3 @@ class Solution:
             curr.next = ListNode(carry)
         
         return dummy_head.next
-    

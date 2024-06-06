@@ -8,7 +8,7 @@
 #         self.val = val
 #         self.next = next
 class Solution:
-    def reverseKGroup(self, head, k):
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         if head is None or head.next is None or k == 1:
             return head
 
@@ -38,20 +38,3 @@ class Solution:
         # Recursion for further remaining linked list.
         head.next = self.reverseKGroup(current, k)
         return prev
-
-# Helper function to create a linked list from a list
-def create_linked_list(lst):
-    dummy = ListNode(0)
-    current = dummy
-    for val in lst:
-        current.next = ListNode(val)
-        current = current.next
-    return dummy.next
-
-# Helper function to convert a linked list to a list
-def linked_list_to_list(node):
-    lst = []
-    while node:
-        lst.append(node.val)
-        node = node.next
-    return lst
