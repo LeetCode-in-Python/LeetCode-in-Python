@@ -29,4 +29,3 @@ class Solution:
             self.helper(node.left, targetSum, currSum)
         if node.right is not None:
             self.helper(node.right, targetSum, currSum)
-        
