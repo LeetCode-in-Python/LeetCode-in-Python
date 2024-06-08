@@ -3,7 +3,10 @@
 # #Big_O_Time_O(n^2)_Space_O(1) #2024_06_08_Time_26_ms_(98.93%)_Space_16.5_MB_(91.88%)
 
 class Solution:
-    def rotate(self, matrix: list[list[int]]) -> None:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
         n = len(matrix)
         for i in range(n // 2):
             for j in range(i, n - i - 1):
