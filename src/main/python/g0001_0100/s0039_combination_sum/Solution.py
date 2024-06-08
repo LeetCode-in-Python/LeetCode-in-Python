@@ -3,10 +3,10 @@
 # #Big_O_Time_O(2^n)_Space_O(n+2^n) #2024_06_08_Time_42_ms_(94.56%)_Space_16.5_MB_(78.21%)
 
 class Solution:
-    def combinationSum(self, coins: list[int], amount: int) -> list[list[int]]:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         ans = []
         sub_list = []
-        self.combinationSumRec(len(coins), coins, amount, sub_list, ans)
+        self.combinationSumRec(len(candidates), candidates, target, sub_list, ans)
         return ans
 
     def combinationSumRec(self, n: int, coins: list[int], amount: int, sub_list: list[int], ans: list[list[int]]):
