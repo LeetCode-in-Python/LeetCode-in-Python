@@ -150,6 +150,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0394 |[Decode String](src/main/python/g0301_0400/s0394_decode_string/Solution.py)| Medium | Top_100_Liked_Questions, String, Stack, Recursion, Big_O_Time_O(n)_Space_O(n) | 28 | 91.14
 
 #### Day 15 Heap
 
@@ -220,6 +221,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0322 |[Coin Change](src/main/python/g0301_0400/s0322_coin_change/Solution.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Breadth_First_Search, Big_O_Time_O(m\*n)_Space_O(amount) | 488 | 96.38
 
 #### Day 13 Dynamic Programming
 
@@ -279,6 +281,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0003 |[Longest Substring Without Repeating Characters](src/main/python/g0001_0100/s0003_longest_substring_without_repeating_characters/Solution.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Hash_Table, Sliding_Window, Big_O_Time_O(n)_Space_O(1) | 45 | 93.32
 | 0020 |[Valid Parentheses](src/main/python/g0001_0100/s0020_valid_parentheses/Solution.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, String, Stack, Big_O_Time_O(n)_Space_O(n) | 24 | 98.16
 | 0005 |[Longest Palindromic Substring](src/main/python/g0001_0100/s0005_longest_palindromic_substring/Solution.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Dynamic_Programming, Big_O_Time_O(n)_Space_O(n) | 78 | 97.43
+| 0394 |[Decode String](src/main/python/g0301_0400/s0394_decode_string/Solution.py)| Medium | Top_100_Liked_Questions, String, Stack, Recursion, Big_O_Time_O(n)_Space_O(n) | 28 | 91.14
 
 #### Udemy Binary Search
 
@@ -289,7 +292,9 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0283 |[Move Zeroes](src/main/python/g0201_0300/s0283_move_zeroes/Solution.py)| Easy | Top_100_Liked_Questions, Array, Two_Pointers, Big_O_Time_O(n)_Space_O(1) | 113 | 97.70
 | 0001 |[Two Sum](src/main/python/g0001_0100/s0001_two_sum/Solution.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Array, Hash_Table, Big_O_Time_O(n)_Space_O(n) | 62 | 53.52
+| 0239 |[Sliding Window Maximum](src/main/python/g0201_0300/s0239_sliding_window_maximum/Solution.py)| Hard | Top_100_Liked_Questions, Array, Heap_Priority_Queue, Sliding_Window, Queue, Monotonic_Queue, Big_O_Time_O(n\*k)_Space_O(n+k) | 1093 | 66.83
 
 #### Udemy Two Pointers
 
@@ -340,6 +345,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0300 |[Longest Increasing Subsequence](src/main/python/g0201_0300/s0300_longest_increasing_subsequence/Solution.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Binary_Search, Big_O_Time_O(n\*log_n)_Space_O(n) | 58 | 96.98
 | 1143 |[Longest Common Subsequence](src/main/python/g1101_1200/s1143_longest_common_subsequence/Solution.py)| Medium | Top_100_Liked_Questions, String, Dynamic_Programming, Big_O_Time_O(n\*m)_Space_O(n\*m) | 452 | 81.00
 | 0010 |[Regular Expression Matching](src/main/python/g0001_0100/s0010_regular_expression_matching/Solution.py)| Hard | Top_Interview_Questions, String, Dynamic_Programming, Recursion, Big_O_Time_O(m\*n)_Space_O(m\*n) | 23 | 99.97
 
@@ -354,6 +360,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0338 |[Counting Bits](src/main/python/g0301_0400/s0338_counting_bits/Solution.py)| Easy | Dynamic_Programming, Bit_Manipulation, Big_O_Time_O(num)_Space_O(num) | 55 | 88.80
 
 #### Udemy Design
 
@@ -457,6 +464,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0240 |[Search a 2D Matrix II](src/main/python/g0201_0300/s0240_search_a_2d_matrix_ii/Solution.py)| Medium | Top_100_Liked_Questions, Array, Binary_Search, Matrix, Divide_and_Conquer, Big_O_Time_O(n+m)_Space_O(1) | 130 | 91.49
 
 #### Day 5 Array
 
@@ -543,6 +551,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0347 |[Top K Frequent Elements](src/main/python/g0301_0400/s0347_top_k_frequent_elements/Solution.py)| Medium | Top_100_Liked_Questions, Array, Hash_Table, Sorting, Heap_Priority_Queue, Counting, Divide_and_Conquer, Quickselect, Bucket_Sort, Big_O_Time_O(n\*log(n))_Space_O(k) | 86 | 71.64
 
 #### Day 21 Heap Priority Queue
 
@@ -565,6 +574,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0283 |[Move Zeroes](src/main/python/g0201_0300/s0283_move_zeroes/Solution.py)| Easy | Top_100_Liked_Questions, Array, Two_Pointers, Big_O_Time_O(n)_Space_O(1) | 113 | 97.70
 
 #### Day 4 Two Pointers
 
@@ -711,6 +721,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0300 |[Longest Increasing Subsequence](src/main/python/g0201_0300/s0300_longest_increasing_subsequence/Solution.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Binary_Search, Big_O_Time_O(n\*log_n)_Space_O(n) | 58 | 96.98
 
 #### Day 17 Dynamic Programming
 
@@ -722,6 +733,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0322 |[Coin Change](src/main/python/g0301_0400/s0322_coin_change/Solution.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Breadth_First_Search, Big_O_Time_O(m\*n)_Space_O(amount) | 488 | 96.38
 
 #### Day 19 Bit Manipulation
 
@@ -816,6 +828,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0300 |[Longest Increasing Subsequence](src/main/python/g0201_0300/s0300_longest_increasing_subsequence/Solution.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Binary_Search, Big_O_Time_O(n\*log_n)_Space_O(n) | 58 | 96.98
 
 #### Day 4
 
@@ -826,6 +839,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0287 |[Find the Duplicate Number](src/main/python/g0201_0300/s0287_find_the_duplicate_number/Solution.py)| Medium | Top_100_Liked_Questions, Array, Binary_Search, Two_Pointers, Bit_Manipulation, Big_O_Time_O(n)_Space_O(n) | 453 | 81.73
 
 #### Day 6
 
@@ -841,6 +855,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0240 |[Search a 2D Matrix II](src/main/python/g0201_0300/s0240_search_a_2d_matrix_ii/Solution.py)| Medium | Top_100_Liked_Questions, Array, Binary_Search, Matrix, Divide_and_Conquer, Big_O_Time_O(n+m)_Space_O(1) | 130 | 91.49
 
 #### Day 9
 
@@ -994,6 +1009,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0300 |[Longest Increasing Subsequence](src/main/python/g0201_0300/s0300_longest_increasing_subsequence/Solution.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Binary_Search, Big_O_Time_O(n\*log_n)_Space_O(n) | 58 | 96.98
 
 #### Day 19
 
@@ -1005,6 +1021,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0322 |[Coin Change](src/main/python/g0301_0400/s0322_coin_change/Solution.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Breadth_First_Search, Big_O_Time_O(m\*n)_Space_O(amount) | 488 | 96.38
 
 #### Day 21
 
@@ -1042,6 +1059,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0283 |[Move Zeroes](src/main/python/g0201_0300/s0283_move_zeroes/Solution.py)| Easy | Top_100_Liked_Questions, Array, Two_Pointers, Big_O_Time_O(n)_Space_O(1) | 113 | 97.70
 
 #### Day 7 Array
 
@@ -1264,6 +1282,16 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0438 |[Find All Anagrams in a String](src/main/python/g0401_0500/s0438_find_all_anagrams_in_a_string/Solution.py)| Medium | Top_100_Liked_Questions, String, Hash_Table, Sliding_Window, Algorithm_II_Day_5_Sliding_Window, Programming_Skills_II_Day_12, Level_1_Day_12_Sliding_Window/Two_Pointer, Big_O_Time_O(n+m)_Space_O(1) | 100 | 50.22
 | 0437 |[Path Sum III](src/main/python/g0401_0500/s0437_path_sum_iii/Solution.py)| Medium | Depth_First_Search, Tree, Binary_Tree, Level_2_Day_7_Tree, Big_O_Time_O(n)_Space_O(n) | 264 | 30.25
 | 0416 |[Partition Equal Subset Sum](src/main/python/g0401_0500/s0416_partition_equal_subset_sum/Solution.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Level_2_Day_13_Dynamic_Programming, Big_O_Time_O(n\*sums)_Space_O(n\*sums) | 550 | 64.93
+| 0394 |[Decode String](src/main/python/g0301_0400/s0394_decode_string/Solution.py)| Medium | Top_100_Liked_Questions, String, Stack, Recursion, Level_1_Day_14_Stack, Udemy_Strings, Big_O_Time_O(n)_Space_O(n) | 28 | 91.14
+| 0347 |[Top K Frequent Elements](src/main/python/g0301_0400/s0347_top_k_frequent_elements/Solution.py)| Medium | Top_100_Liked_Questions, Array, Hash_Table, Sorting, Heap_Priority_Queue, Counting, Divide_and_Conquer, Quickselect, Bucket_Sort, Data_Structure_II_Day_20_Heap_Priority_Queue, Big_O_Time_O(n\*log(n))_Space_O(k) | 86 | 71.64
+| 0338 |[Counting Bits](src/main/python/g0301_0400/s0338_counting_bits/Solution.py)| Easy | Dynamic_Programming, Bit_Manipulation, Udemy_Bit_Manipulation, Big_O_Time_O(num)_Space_O(num) | 55 | 88.80
+| 0322 |[Coin Change](src/main/python/g0301_0400/s0322_coin_change/Solution.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Breadth_First_Search, Algorithm_II_Day_18_Dynamic_Programming, Dynamic_Programming_I_Day_20, Level_2_Day_12_Dynamic_Programming, Big_O_Time_O(m\*n)_Space_O(amount) | 488 | 96.38
+| 0300 |[Longest Increasing Subsequence](src/main/python/g0201_0300/s0300_longest_increasing_subsequence/Solution.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Binary_Search, Algorithm_II_Day_16_Dynamic_Programming, Binary_Search_II_Day_3, Dynamic_Programming_I_Day_18, Udemy_Dynamic_Programming, Big_O_Time_O(n\*log_n)_Space_O(n) | 58 | 96.98
+| 0295 |[Find Median from Data Stream](src/main/python/g0201_0300/s0295_find_median_from_data_stream/MedianFinder.py)| Hard | Top_100_Liked_Questions, Sorting, Two_Pointers, Design, Heap_Priority_Queue, Data_Stream, Big_O_Time_O(n\*log_n)_Space_O(n) | 351 | 89.30
+| 0287 |[Find the Duplicate Number](src/main/python/g0201_0300/s0287_find_the_duplicate_number/Solution.py)| Medium | Top_100_Liked_Questions, Array, Binary_Search, Two_Pointers, Bit_Manipulation, Binary_Search_II_Day_5, Big_O_Time_O(n)_Space_O(n) | 453 | 81.73
+| 0283 |[Move Zeroes](src/main/python/g0201_0300/s0283_move_zeroes/Solution.py)| Easy | Top_100_Liked_Questions, Array, Two_Pointers, Algorithm_I_Day_3_Two_Pointers, Programming_Skills_I_Day_6_Array, Udemy_Arrays, Big_O_Time_O(n)_Space_O(1) | 113 | 97.70
+| 0240 |[Search a 2D Matrix II](src/main/python/g0201_0300/s0240_search_a_2d_matrix_ii/Solution.py)| Medium | Top_100_Liked_Questions, Array, Binary_Search, Matrix, Divide_and_Conquer, Data_Structure_II_Day_4_Array, Binary_Search_II_Day_8, Big_O_Time_O(n+m)_Space_O(1) | 130 | 91.49
+| 0239 |[Sliding Window Maximum](src/main/python/g0201_0300/s0239_sliding_window_maximum/Solution.py)| Hard | Top_100_Liked_Questions, Array, Heap_Priority_Queue, Sliding_Window, Queue, Monotonic_Queue, Udemy_Arrays, Big_O_Time_O(n\*k)_Space_O(n+k) | 1093 | 66.83
 | 0025 |[Reverse Nodes in k-Group](src/main/python/g0001_0100/s0025_reverse_nodes_in_k_group/Solution.py)| Hard | Top_100_Liked_Questions, Linked_List, Recursion, Data_Structure_II_Day_13_Linked_List, Udemy_Linked_List, Big_O_Time_O(n)_Space_O(k) | 36 | 90.51
 | 0024 |[Swap Nodes in Pairs](src/main/python/g0001_0100/s0024_swap_nodes_in_pairs/Solution.py)| Medium | Top_100_Liked_Questions, Linked_List, Recursion, Data_Structure_II_Day_12_Linked_List, Udemy_Linked_List, Big_O_Time_O(n)_Space_O(1) | 27 | 93.88
 | 0023 |[Merge k Sorted Lists](src/main/python/g0001_0100/s0023_merge_k_sorted_lists/Solution.py)| Hard | Top_100_Liked_Questions, Top_Interview_Questions, Heap_Priority_Queue, Linked_List, Divide_and_Conquer, Merge_Sort, Big_O_Time_O(k\*n\*log(k))_Space_O(log(k)) | 61 | 98.91
