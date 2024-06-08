@@ -27,36 +27,46 @@ Return `true` _if you can reach the last index, or_ `false` _otherwise_.
 *   <code>1 <= nums.length <= 10<sup>4</sup></code>
 *   <code>0 <= nums[i] <= 10<sup>5</sup></code>
 
-To solve the "Jump Game" problem in Java with the Solution class, follow these steps:
+To solve the "Jump Game" problem, you can follow these steps:
 
-1. Define a method `canJump` in the `Solution` class that takes an integer array `nums` as input and returns a boolean indicating whether it's possible to reach the last index.
-2. Initialize a variable `maxReach` to keep track of the maximum index that can be reached.
-3. Iterate through the array `nums` from index `0` to `nums.length - 1`:
-   - Check if the current index `i` is greater than `maxReach`. If it is, return `false` as it's not possible to reach the last index.
-   - Update `maxReach` as the maximum of `maxReach` and `i + nums[i]`, which represents the furthest index that can be reached from the current position.
-4. After iterating through all elements in `nums`, return `true` as it's possible to reach the last index.
+1. **Initialize Variables:** Start by initializing a variable `max_reach` to store the maximum reachable index. Initially, set `max_reach` to `0`, as you are at the first index.
+   
+2. **Iterate through the Array:** Traverse through the array `nums` starting from index `0` to `n-1`, where `n` is the length of the array.
 
-Here's the implementation of the `canJump` method in Java:
+3. **Update Maximum Reach:** At each index `i`, update `max_reach` to be the maximum of `max_reach` and `i + nums[i]`. This indicates the farthest index you can reach from the current position `i`.
 
-```java
-class Solution {
-    public boolean canJump(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return false;
-        }
-        int maxReach = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i > maxReach) {
-                return false;
-            }
-            maxReach = Math.max(maxReach, i + nums[i]);
-            if (maxReach >= nums.length - 1) {
-                return true;
-            }
-        }
-        return false;
-    }
-}
+4. **Check for End Reachability:** While traversing the array, if at any point `max_reach` becomes greater than or equal to the last index (i.e., `n - 1`), return `True`, indicating that you can reach the end of the array.
+
+5. **Handle Zero Reach:** If the current index `i` is greater than `max_reach`, it means you cannot progress further, and thus, return `False`.
+
+6. **Return Result:** After iterating through the entire array, if you haven't reached the end of the array, return `False`, as you cannot reach the last index.
+
+Here's a Python function implementing the above steps:
+
+```python
+from typing import List
+
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        max_reach = 0
+        n = len(nums)
+        
+        for i in range(n):
+            if i > max_reach:
+                return False
+            max_reach = max(max_reach, i + nums[i])
+            if max_reach >= n - 1:
+                return True
+        
+        return False
+
+# Example usage:
+nums1 = [2, 3, 1, 1, 4]
+nums2 = [3, 2, 1, 0, 4]
+
+sol = Solution()
+print(sol.canJump(nums1))  # Output: True
+print(sol.canJump(nums2))  # Output: False
 ```
 
-This implementation efficiently determines whether it's possible to reach the last index in the given array `nums` using a greedy approach, with a time complexity of O(n).
+You can then test this function with different input arrays to verify its correctness.

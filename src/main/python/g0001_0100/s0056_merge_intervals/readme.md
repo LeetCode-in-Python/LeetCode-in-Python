@@ -26,35 +26,39 @@ Given an array of `intervals` where <code>intervals[i] = [start<sub>i</sub>, end
 *   `intervals[i].length == 2`
 *   <code>0 <= start<sub>i</sub> <= end<sub>i</sub> <= 10<sup>4</sup></code>
 
-To solve the "Merge Intervals" problem in Java with the Solution class, follow these steps:
+Here are the steps to solve the task using the `Solution` class:
 
-1. Define a method `merge` in the `Solution` class that takes an array of integer arrays `intervals` as input and returns an array of the non-overlapping intervals that cover all the intervals in the input.
-2. Sort the intervals based on the start times.
-3. Initialize an ArrayList to store the merged intervals.
-4. Iterate through the sorted intervals:
-   - If the list of merged intervals is empty or the current interval's start time is greater than the end time of the last merged interval, add the current interval to the list of merged intervals.
-   - Otherwise, merge the current interval with the last merged interval by updating its end time if needed.
-5. Convert the ArrayList of merged intervals into an array and return it as the result.
+1. Define the `Solution` class with a method named `merge` that takes in a list of intervals.
+2. Inside the `merge` method, sort the intervals based on their start times.
+3. Initialize an empty list called `merged_intervals` to store the merged intervals.
+4. Iterate through the sorted intervals.
+5. For each interval, if the `merged_intervals` list is empty or if the current interval's start time is greater than the end time of the last interval in the `merged_intervals` list, append the current interval to `merged_intervals`.
+6. Otherwise, merge the current interval with the last interval in the `merged_intervals` list by updating the end time of the last interval if the current interval's end time is greater.
+7. After iterating through all intervals, return the `merged_intervals` list.
 
-Here's the implementation of the `merge` method in Java:
+Here's the implementation:
 
-```java
-import java.util.*;
+```python
+from typing import List
 
-class Solution {
-    public int[][] merge(int[][] intervals) {
-        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
-        List<int[]> merged = new ArrayList<>();
-        for (int[] interval : intervals) {
-            if (merged.isEmpty() || interval[0] > merged.get(merged.size() - 1)[1]) {
-                merged.add(interval);
-            } else {
-                merged.get(merged.size() - 1)[1] = Math.max(merged.get(merged.size() - 1)[1], interval[1]);
-            }
-        }
-        return merged.toArray(new int[merged.size()][]);
-    }
-}
+class Solution:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        intervals.sort(key=lambda x: x[0])
+        merged_intervals = []
+        
+        for interval in intervals:
+            if not merged_intervals or interval[0] > merged_intervals[-1][1]:
+                merged_intervals.append(interval)
+            else:
+                merged_intervals[-1][1] = max(merged_intervals[-1][1], interval[1])
+        
+        return merged_intervals
+
+# Example usage:
+intervals1 = [[1, 3], [2, 6], [8, 10], [15, 18]]
+intervals2 = [[1, 4], [4, 5]]
+
+sol = Solution()
+print(sol.merge(intervals1))  # Output: [[1, 6], [8, 10], [15, 18]]
+print(sol.merge(intervals2))  # Output: [[1, 5]]
 ```
-
-This implementation efficiently merges overlapping intervals in the given array `intervals` using sorting and iteration, with a time complexity of O(n log n) due to sorting.

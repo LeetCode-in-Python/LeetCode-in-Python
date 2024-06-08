@@ -28,81 +28,72 @@ Each solution contains a distinct board configuration of the n-queens' placement
 
 *   `1 <= n <= 9`
 
-To solve the "N-Queens" problem in Java with the Solution class, follow these steps:
+To solve the N-Queens problem, which involves placing N queens on an N x N chessboard without attacking each other, you can use backtracking. Here are the steps to solve the problem:
 
-1. Define a method `solveNQueens` in the `Solution` class that takes an integer `n` as input and returns a list of lists of strings.
-2. Initialize a board represented as a 2D character array of size `n x n`. Initialize all cells to `'.'`, indicating an empty space.
-3. Define a recursive backtracking function `backtrack` to explore all possible configurations of queens on the board.
-4. In the `backtrack` function:
-   - Base case: If the current row index `row` is equal to `n`, it means we have successfully placed `n` queens on the board. Add the current board configuration to the result.
-   - Iterate through each column index `col` from `0` to `n - 1`:
-     - Check if it's safe to place a queen at position `(row, col)` by calling a helper function `isSafe`.
-     - If it's safe, place a queen at position `(row, col)` on the board, mark it as `'Q'`.
-     - Recur to the next row by calling `backtrack(row + 1)`.
-     - Backtrack: After exploring all possibilities, remove the queen from position `(row, col)` by marking it as `'.'`.
-5. In the `solveNQueens` method, initialize an empty list `result` to store the solutions.
-6. Call the `backtrack` function with initial parameters `0` for the row index.
-7. Return the `result` list containing all distinct solutions.
+### Approach:
 
-Here's the implementation of the `solveNQueens` method in Java:
+1. **Initialize the Chessboard:**
+   - Initialize an empty N x N chessboard grid.
 
-```java
-import java.util.*;
+2. **Backtracking Function:**
+   - Define a backtracking function to recursively explore all possible queen placements.
 
-class Solution {
-    public List<List<String>> solveNQueens(int n) {
-        List<List<String>> result = new ArrayList<>();
-        char[][] board = new char[n][n];
-        for (int i = 0; i < n; i++) {
-            Arrays.fill(board[i], '.');
-        }
-        backtrack(board, 0, result);
-        return result;
-    }
-    
-    private void backtrack(char[][] board, int row, List<List<String>> result) {
-        int n = board.length;
-        if (row == n) {
-            result.add(constructBoard(board));
-            return;
-        }
-        for (int col = 0; col < n; col++) {
-            if (isSafe(board, row, col)) {
-                board[row][col] = 'Q';
-                backtrack(board, row + 1, result);
-                board[row][col] = '.';
-            }
-        }
-    }
-    
-    private boolean isSafe(char[][] board, int row, int col) {
-        int n = board.length;
-        for (int i = 0; i < row; i++) {
-            if (board[i][col] == 'Q') {
-                return false;
-            }
-        }
-        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
-            if (board[i][j] == 'Q') {
-                return false;
-            }
-        }
-        for (int i = row - 1, j = col + 1; i >= 0 && j < n; i--, j++) {
-            if (board[i][j] == 'Q') {
-                return false;
-            }
-        }
-        return true;
-    }
-    
-    private List<String> constructBoard(char[][] board) {
-        List<String> solution = new ArrayList<>();
-        for (char[] row : board) {
-            solution.add(new String(row));
-        }
-        return solution;
-    }
-}
+3. **Base Case:**
+   - If all queens are placed (i.e., row index equals N), add the current configuration to the list of solutions.
+
+4. **Try Placing Queen:**
+   - For the current row, try placing the queen in each column (0 to N-1).
+   - If placing the queen at the current position is safe (i.e., not attacking any other queen), mark the cell as a queen ('Q') and recursively move to the next row.
+
+5. **Backtrack:**
+   - After exploring all possibilities from the current position, backtrack by removing the queen from the current position and try the next column.
+
+6. **Return Solutions:**
+   - Return the list of all distinct solutions found.
+
+### Python Code:
+
+```python
+class Solution:
+    def solveNQueens(self, n):
+        def is_safe(row, col):
+            # Check for queens in the same column
+            for i in range(row):
+                if board[i][col] == 'Q':
+                    return False
+            
+            # Check for queens in the upper-left diagonal
+            for i, j in zip(range(row-1, -1, -1), range(col-1, -1, -1)):
+                if board[i][j] == 'Q':
+                    return False
+            
+            # Check for queens in the upper-right diagonal
+            for i, j in zip(range(row-1, -1, -1), range(col+1, n)):
+                if board[i][j] == 'Q':
+                    return False
+            
+            return True
+        
+        def backtrack(row):
+            if row == n:
+                solutions.append([''.join(row) for row in board])
+                return
+            
+            for col in range(n):
+                if is_safe(row, col):
+                    board[row][col] = 'Q'
+                    backtrack(row + 1)
+                    board[row][col] = '.'
+        
+        board = [['.' for _ in range(n)] for _ in range(n)]
+        solutions = []
+        backtrack(0)
+        return solutions
+
+# Example Usage:
+solution = Solution()
+print(solution.solveNQueens(4))  # Output: [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+print(solution.solveNQueens(1))  # Output: [["Q"]]
 ```
 
-This implementation efficiently finds all distinct solutions to the N-Queens problem using backtracking.
+This code defines a `Solution` class with a `solveNQueens` method to find all distinct solutions to the N-Queens puzzle. The example usage demonstrates how to create an instance of the `Solution` class and call the `solveNQueens` method with different values of `n`.

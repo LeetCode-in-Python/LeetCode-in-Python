@@ -41,48 +41,66 @@ You have to rotate the image [**in-place**](https://en.wikipedia.org/wiki/In-pla
 *   `1 <= n <= 20`
 *   `-1000 <= matrix[i][j] <= 1000`
 
-To solve the "Rotate Image" problem in Java with a `Solution` class, we can follow these steps:
+To solve the "Rotate Image" problem, you can perform the rotation in-place by swapping elements of the matrix. Here are the steps to solve the problem:
 
-1. Define a `Solution` class.
-2. Define a method named `rotate` that takes a 2D array `matrix` representing an image as input and rotates the image by 90 degrees clockwise.
-3. Determine the number of layers in the matrix, which is equal to half of the matrix's size.
-4. Iterate through each layer from outer to inner layers.
-5. For each layer:
-   - Iterate through each element in the current layer.
-   - Swap the elements of the current layer in a clockwise manner.
-6. Return the rotated matrix.
+### Approach:
 
-Here's the implementation:
+1. **Transpose the Matrix:**
+   - Transpose the matrix by swapping `matrix[i][j]` with `matrix[j][i]` for all `i` and `j` where `i < j`.
 
-```java
-public class Solution {
-    public void rotate(int[][] matrix) {
-        int n = matrix.length;
-        int layers = n / 2;
+2. **Reverse Each Row:**
+   - Reverse each row of the transposed matrix to get the final rotated matrix.
 
-        for (int layer = 0; layer < layers; layer++) {
-            int first = layer;
-            int last = n - 1 - layer;
-            
-            for (int i = first; i < last; i++) {
-                int offset = i - first;
-                int top = matrix[first][i];
-                
-                // Move left to top
-                matrix[first][i] = matrix[last - offset][first];
-                
-                // Move bottom to left
-                matrix[last - offset][first] = matrix[last][last - offset];
-                
-                // Move right to bottom
-                matrix[last][last - offset] = matrix[i][last];
-                
-                // Move top to right
-                matrix[i][last] = top;
-            }
-        }
-    }
-}
+### Python Code:
+
+```python
+class Solution:
+    def rotate(self, matrix):
+        n = len(matrix)
+        
+        # Transpose the matrix
+        for i in range(n):
+            for j in range(i + 1, n):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        
+        # Reverse each row
+        for i in range(n):
+            matrix[i] = matrix[i][::-1]
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+matrix1 = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+solution.rotate(matrix1)
+print(matrix1)  # Output: [[7,4,1],[8,5,2],[9,6,3]]
+
+# Example 2:
+matrix2 = [
+    [5,1,9,11],
+    [2,4,8,10],
+    [13,3,6,7],
+    [15,14,12,16]
+]
+solution.rotate(matrix2)
+print(matrix2)  # Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]
+
+# Example 3:
+matrix3 = [[1]]
+solution.rotate(matrix3)
+print(matrix3)  # Output: [[1]]
+
+# Example 4:
+matrix4 = [
+    [1,2],
+    [3,4]
+]
+solution.rotate(matrix4)
+print(matrix4)  # Output: [[3,1],[4,2]]
 ```
 
-This implementation provides a solution to the "Rotate Image" problem in Java. It rotates the given 2D matrix representing an image by 90 degrees clockwise in-place.
+This code defines a `Solution` class with a `rotate` method to rotate the given matrix by 90 degrees clockwise. The example usage demonstrates how to create an instance of the `Solution` class and call the `rotate` method with different input matrices.
