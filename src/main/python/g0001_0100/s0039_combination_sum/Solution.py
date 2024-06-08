@@ -9,7 +9,7 @@ class Solution:
         self.combinationSumRec(len(candidates), candidates, target, sub_list, ans)
         return ans
 
-    def combinationSumRec(self, n: int, coins: list[int], amount: int, sub_list: list[int], ans: list[list[int]]):
+    def combinationSumRec(self, n: int, coins: List[int], amount: int, sub_list: List[int], ans: List[List[int]]):
         if amount == 0 or n == 0:
             if amount == 0:
                 ans.append(sub_list.copy())
