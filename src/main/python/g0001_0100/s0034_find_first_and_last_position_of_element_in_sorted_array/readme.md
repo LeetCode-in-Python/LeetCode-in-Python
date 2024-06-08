@@ -33,70 +33,70 @@ You must write an algorithm with `O(log n)` runtime complexity.
 *   `nums` is a non-decreasing array.
 *   <code>-10<sup>9</sup> <= target <= 10<sup>9</sup></code>
 
-To solve the "Find First and Last Position of Element in Sorted Array" problem in Java with a `Solution` class, we can follow these steps:
+To solve this problem efficiently with a runtime complexity of O(log n), we can use binary search to find the starting and ending positions of the target value in the sorted array. Here are the steps:
 
-1. Define a `Solution` class.
-2. Define a method named `searchRange` that takes an integer array `nums` and an integer `target` as input and returns an integer array representing the starting and ending positions of `target` in `nums`. If `target` is not found, return `[-1, -1]`.
-3. Implement binary search to find the first and last occurrences of `target`.
-4. Set the left pointer `left` to 0 and the right pointer `right` to the length of `nums` minus 1.
-5. Initialize two variables `firstOccurrence` and `lastOccurrence` to -1.
-6. Perform two binary search operations:
-   - First, find the first occurrence of `target`:
-     - While `left` is less than or equal to `right`:
-       - Calculate the middle index `mid` as `(left + right) / 2`.
-       - If `nums[mid]` is equal to `target`, update `firstOccurrence = mid` and continue searching on the left half by updating `right = mid - 1`.
-       - Otherwise, if `target` is less than `nums[mid]`, update `right = mid - 1`.
-       - Otherwise, update `left = mid + 1`.
-   - Second, find the last occurrence of `target`:
-     - Reset `left` to 0 and `right` to the length of `nums` minus 1.
-     - While `left` is less than or equal to `right`:
-       - Calculate the middle index `mid` as `(left + right) / 2`.
-       - If `nums[mid]` is equal to `target`, update `lastOccurrence = mid` and continue searching on the right half by updating `left = mid + 1`.
-       - Otherwise, if `target` is greater than `nums[mid]`, update `left = mid + 1`.
-       - Otherwise, update `right = mid - 1`.
-7. Return the array `[firstOccurrence, lastOccurrence]`.
+### Approach:
 
-Here's the implementation:
+1. **Binary Search for Starting Position:**
+   - Use binary search to find the starting position of the target value.
+   - When the target value is found, continue searching towards the left to find the leftmost occurrence.
+   - Update the left boundary to narrow down the search space.
 
-```java
-public class Solution {
-    public int[] searchRange(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
-        int firstOccurrence = -1;
-        int lastOccurrence = -1;
+2. **Binary Search for Ending Position:**
+   - Use binary search to find the ending position of the target value.
+   - When the target value is found, continue searching towards the right to find the rightmost occurrence.
+   - Update the right boundary to narrow down the search space.
 
-        // Find first occurrence
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                firstOccurrence = mid;
-                right = mid - 1;
-            } else if (target < nums[mid]) {
-                right = mid - 1;
-            } else {
-                left = mid + 1;
-            }
-        }
+3. **Handle Missing Target:**
+   - If the target value is not found, return [-1, -1].
 
-        // Find last occurrence
-        left = 0;
-        right = nums.length - 1;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                lastOccurrence = mid;
-                left = mid + 1;
-            } else if (target < nums[mid]) {
-                right = mid - 1;
-            } else {
-                left = mid + 1;
-            }
-        }
+### Python Code:
 
-        return new int[]{firstOccurrence, lastOccurrence};
-    }
-}
+```python
+class Solution:
+    def searchRange(self, nums, target):
+        def search_boundary(nums, target, is_left):
+            left, right = 0, len(nums) - 1
+            boundary = -1
+
+            while left <= right:
+                mid = (left + right) // 2
+
+                if nums[mid] == target:
+                    boundary = mid
+                    if is_left:
+                        right = mid - 1
+                    else:
+                        left = mid + 1
+                elif nums[mid] < target:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+
+            return boundary
+
+        left_boundary = search_boundary(nums, target, is_left=True)
+        right_boundary = search_boundary(nums, target, is_left=False)
+
+        return [left_boundary, right_boundary]
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+nums1 = [5, 7, 7, 8, 8, 10]
+target1 = 8
+print(solution.searchRange(nums1, target1))  # Output: [3, 4]
+
+# Example 2:
+nums2 = [5, 7, 7, 8, 8, 10]
+target2 = 6
+print(solution.searchRange(nums2, target2))  # Output: [-1, -1]
+
+# Example 3:
+nums3 = []
+target3 = 0
+print(solution.searchRange(nums3, target3))  # Output: [-1, -1]
 ```
 
-This implementation provides a solution to the "Find First and Last Position of Element in Sorted Array" problem in Java. It returns the starting and ending positions of `target` in `nums` using binary search, with a time complexity of O(log n).
+This code defines a `Solution` class with a `searchRange` method to find the starting and ending positions of the target value in the given array. The example usage demonstrates how to create an instance of the `Solution` class and call the `searchRange` method with different inputs.

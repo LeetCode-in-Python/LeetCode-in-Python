@@ -51,53 +51,54 @@ It is **guaranteed** that the number of unique combinations that sum up to `targ
 *   All elements of `candidates` are **distinct**.
 *   `1 <= target <= 500`
 
-To solve the "Combination Sum" problem in Java with a `Solution` class, we can follow these steps:
+To solve the Combination Sum problem, you can use backtracking. Here are the steps you can follow:
 
-1. Define a `Solution` class.
-2. Define a method named `combinationSum` that takes an array of integers `candidates` and an integer `target` as input and returns a list of lists containing all unique combinations of `candidates` where the chosen numbers sum to `target`.
-3. Implement backtracking to explore all possible combinations of candidates.
-4. Sort the `candidates` array to ensure that duplicates are grouped together.
-5. Create a recursive helper method named `backtrack` that takes parameters:
-   - A list to store the current combination.
-   - An integer representing the starting index in the `candidates` array.
-   - The current sum of the combination.
-6. In the `backtrack` method:
-   - If the current sum equals the target, add the current combination to the result list.
-   - Iterate over the candidates starting from the current index.
-   - Add the current candidate to the combination.
-   - Recursively call the `backtrack` method with the updated combination, index, and sum.
-   - Remove the last added candidate from the combination to backtrack.
-7. Call the `backtrack` method with an empty combination list, starting index 0, and sum 0.
-8. Return the result list containing all unique combinations.
+1. **Define the function**: Create a function, let's name it `combinationSum`, that takes `candidates`, `target`, and any other necessary parameters.
 
-Here's the implementation:
+2. **Sort the candidates**: Sort the `candidates` array. Sorting helps in pruning the search space during backtracking.
 
-```java
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+3. **Initialize variables**: Initialize an empty list to store the result combinations. 
 
-public class Solution {
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(candidates); // Sort the candidates to ensure duplicates are grouped together
-        backtrack(result, new ArrayList<>(), candidates, target, 0);
-        return result;
-    }
+4. **Define a helper function**: Create a recursive helper function, let's name it `backtrack`, that takes the current combination, the current index of the candidate being considered, and the remaining target.
 
-    private void backtrack(List<List<Integer>> result, List<Integer> combination, int[] candidates, int target, int start) {
-        if (target == 0) {
-            result.add(new ArrayList<>(combination));
-            return;
-        }
+5. **Base case**: If the target is 0, add the current combination to the result list.
 
-        for (int i = start; i < candidates.length && candidates[i] <= target; i++) {
-            combination.add(candidates[i]);
-            backtrack(result, combination, candidates, target - candidates[i], i); // Use the same candidate again
-            combination.remove(combination.size() - 1); // Backtrack by removing the last candidate
-        }
-    }
-}
+6. **Iterate through candidates**: Start iterating from the current index to the end of the `candidates` array.
+
+7. **Check the sum condition**: For each candidate, check if adding it to the current combination keeps the sum less than or equal to the target. If so, recursively call the `backtrack` function with the updated combination, the current index, and the reduced target.
+
+8. **Backtrack**: After the recursive call returns, remove the last element from the current combination to backtrack.
+
+9. **Call the helper function**: Call the `backtrack` function initially with an empty combination, starting index 0, and the target.
+
+10. **Return the result**: Return the list of combinations obtained.
+
+Here's a Python code snippet implementing the above steps:
+
+```python
+class Solution:
+    def combinationSum(self, candidates, target):
+        def backtrack(start, target, path):
+            if target == 0:
+                result.append(path)
+                return
+            for i in range(start, len(candidates)):
+                if candidates[i] > target:
+                    break
+                backtrack(i, target - candidates[i], path + [candidates[i]])
+
+        result = []
+        candidates.sort()
+        backtrack(0, target, [])
+        return result
+
+# Test cases
+solution = Solution()
+print(solution.combinationSum([2,3,6,7], 7)) # Output: [[2, 2, 3], [7]]
+print(solution.combinationSum([2,3,5], 8))   # Output: [[2, 2, 2, 2], [2, 3, 3], [5, 3]]
+print(solution.combinationSum([2], 1))        # Output: []
+print(solution.combinationSum([1], 1))        # Output: [[1]]
+print(solution.combinationSum([1], 2))        # Output: [[1, 1]]
 ```
 
-This implementation provides a solution to the "Combination Sum" problem in Java. It explores all possible combinations of candidates using backtracking and returns the unique combinations whose sum equals the target.
+This implementation efficiently finds all unique combinations that sum up to the target.
