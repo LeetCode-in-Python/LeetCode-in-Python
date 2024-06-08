@@ -29,36 +29,50 @@ You can assume that you can always reach the last index.
 *   <code>1 <= nums.length <= 10<sup>4</sup></code>
 *   `0 <= nums[i] <= 1000`
 
-To solve the "Jump Game II" problem in Java with a `Solution` class, we can follow these steps:
+To solve the "Jump Game II" problem efficiently, you can use a greedy approach. Here are the steps to solve the problem:
 
-1. Define a `Solution` class.
-2. Define a method named `jump` that takes an array of non-negative integers `nums` as input and returns the minimum number of jumps required to reach the last index.
-3. Initialize variables `maxReach`, `steps`, and `end` to keep track of the maximum reachable position, the number of steps taken, and the end position respectively. Initialize `maxReach` to 0 and `end` to 0.
-4. Iterate through the array from index 0 to `nums.length - 2`:
-   - Update `maxReach` as the maximum of `maxReach` and `i + nums[i]`.
-   - If the current index `i` equals `end`, update `end` to `maxReach` and increment `steps`.
-5. Return `steps`.
+### Approach:
 
-Here's the implementation:
+1. **Initialize Variables:**
+   - Initialize variables `max_reach` to store the farthest index that can be reached from the current position.
+   - Initialize variables `steps` to store the minimum number of jumps needed to reach the current position.
+   - Initialize variables `last_jump` to store the index where the last jump was made.
 
-```java
-public class Solution {
-    public int jump(int[] nums) {
-        int maxReach = 0;
-        int steps = 0;
-        int end = 0;
+2. **Iterate Through Array:**
+   - Iterate through the array `nums` up to the second last index.
+   - For each index `i`:
+     - Update `max_reach` to the maximum of `max_reach` and `i + nums[i]`.
+     - If `i` reaches the `last_jump` index, update `last_jump` to `max_reach` and increment `steps`.
 
-        for (int i = 0; i < nums.length - 1; i++) {
-            maxReach = Math.max(maxReach, i + nums[i]);
-            if (i == end) {
-                end = maxReach;
-                steps++;
-            }
-        }
+3. **Return Result:**
+   - After the loop ends, return the `steps` variable, which contains the minimum number of jumps needed to reach the last index.
 
-        return steps;
-    }
-}
+### Python Code:
+
+```python
+class Solution:
+    def jump(self, nums):
+        n = len(nums)
+        max_reach = last_jump = steps = 0
+        
+        for i in range(n - 1):
+            max_reach = max(max_reach, i + nums[i])
+            if i == last_jump:
+                last_jump = max_reach
+                steps += 1
+                
+        return steps
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+nums1 = [2,3,1,1,4]
+print(solution.jump(nums1))  # Output: 2
+
+# Example 2:
+nums2 = [2,3,0,1,4]
+print(solution.jump(nums2))  # Output: 2
 ```
 
-This implementation provides a solution to the "Jump Game II" problem in Java. It calculates the minimum number of jumps required to reach the last index by iterating through the array and updating the maximum reachable position and the end position accordingly.
+This code defines a `Solution` class with a `jump` method to compute the minimum number of jumps needed to reach the last index in the given array `nums`. The example usage demonstrates how to create an instance of the `Solution` class and call the `jump` method with different inputs.

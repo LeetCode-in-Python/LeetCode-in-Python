@@ -37,63 +37,66 @@ The replacement must be **[in place](http://en.wikipedia.org/wiki/In-place_algor
 *   `1 <= nums.length <= 100`
 *   `0 <= nums[i] <= 100`
 
-To solve the "Next Permutation" problem in Java with a `Solution` class, we can follow these steps:
+To solve the "Next Permutation" problem, you can use the following steps:
 
-1. Define a `Solution` class.
-2. Define a method named `nextPermutation` that takes an integer array `nums` as input and modifies it to find the next permutation in lexicographic order.
-3. Find the first index `i` from the right such that `nums[i] > nums[i - 1]`. If no such index exists, reverse the entire array, as it's already the last permutation.
-4. Find the smallest index `j` from the right such that `nums[j] > nums[i - 1]`.
-5. Swap `nums[i - 1]` with `nums[j]`.
-6. Reverse the suffix of the array starting from index `i`.
+### Approach:
 
-Here's the implementation:
+1. **Find the First Decreasing Element:**
+   - Starting from the right, find the first pair of adjacent elements `nums[i]` and `nums[i+1]` where `nums[i] < nums[i+1]`. This element `nums[i]` is the first decreasing element.
 
-```java
-public class Solution {
-    public void nextPermutation(int[] nums) {
-        int n = nums.length;
-        
-        // Step 1: Find the first index i from the right such that nums[i] > nums[i - 1]
-        int i = n - 1;
-        while (i > 0 && nums[i] <= nums[i - 1]) {
-            i--;
-        }
-        
-        // Step 2: If no such index exists, reverse the entire array
-        if (i == 0) {
-            reverse(nums, 0, n - 1);
-            return;
-        }
-        
-        // Step 3: Find the smallest index j from the right such that nums[j] > nums[i - 1]
-        int j = n - 1;
-        while (nums[j] <= nums[i - 1]) {
-            j--;
-        }
-        
-        // Step 4: Swap nums[i - 1] with nums[j]
-        swap(nums, i - 1, j);
-        
-        // Step 5: Reverse the suffix of the array starting from index i
-        reverse(nums, i, n - 1);
-    }
-    
-    // Helper method to reverse a portion of the array
-    private void reverse(int[] nums, int start, int end) {
-        while (start < end) {
-            swap(nums, start, end);
-            start++;
-            end--;
-        }
-    }
-    
-    // Helper method to swap two elements in the array
-    private void swap(int[] nums, int i, int j) {
-        int temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
-}
+2. **Find the Smallest Element to the Right of `nums[i]`:**
+   - From the end, find the smallest element to the right of `nums[i]` that is greater than `nums[i]`. Let's call this element `nums[j]`.
+
+3. **Swap `nums[i]` and `nums[j]`:**
+   - Swap the elements `nums[i]` and `nums[j]`.
+
+4. **Reverse the Subarray to the Right of `nums[i]`:**
+   - Reverse the subarray to the right of `nums[i]` to ensure the smallest lexicographically next permutation.
+
+### Python Code:
+
+```python
+class Solution:
+    def nextPermutation(self, nums):
+        # Step 1: Find the first decreasing element
+        i = len(nums) - 2
+        while i >= 0 and nums[i] >= nums[i+1]:
+            i -= 1
+
+        # Step 2: Find the smallest element to the right of nums[i] that is greater than nums[i]
+        if i >= 0:
+            j = len(nums) - 1
+            while nums[j] <= nums[i]:
+                j -= 1
+
+            # Step 3: Swap nums[i] and nums[j]
+            nums[i], nums[j] = nums[j], nums[i]
+
+        # Step 4: Reverse the subarray to the right of nums[i]
+        left, right = i + 1, len(nums) - 1
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+nums1 = [1, 2, 3]
+solution.nextPermutation(nums1)  # Output: [1, 3, 2]
+
+# Example 2:
+nums2 = [3, 2, 1]
+solution.nextPermutation(nums2)  # Output: [1, 2, 3]
+
+# Example 3:
+nums3 = [1, 1, 5]
+solution.nextPermutation(nums3)  # Output: [1, 5, 1]
+
+# Example 4:
+nums4 = [1]
+solution.nextPermutation(nums4)  # Output: [1]
 ```
 
-This implementation provides a solution to the "Next Permutation" problem in Java. It finds the next lexicographically greater permutation of the given array `nums` and modifies it in place.
+This code defines a `Solution` class with a method `nextPermutation` that takes a list of integers `nums` and modifies it to the next lexicographically greater permutation. The example usage demonstrates how to create an instance of the `Solution` class and call the `nextPermutation` method with different inputs.

@@ -29,45 +29,59 @@ You must implement an algorithm that runs in `O(n)` time and uses constant extra
 *   <code>1 <= nums.length <= 5 * 10<sup>5</sup></code>
 *   <code>-2<sup>31</sup> <= nums[i] <= 2<sup>31</sup> - 1</code>
 
-To solve the "First Missing Positive" problem in Java with a `Solution` class, we can follow these steps:
+To solve the "First Missing Positive" problem efficiently with O(n) time complexity and constant extra space, you can use the cyclic sort algorithm. Here's a step-by-step approach:
 
-1. Define a `Solution` class.
-2. Define a method named `firstMissingPositive` that takes an array of integers `nums` as input and returns the smallest missing positive integer.
-3. Iterate through the array and mark the positive integers found by negating the value at the corresponding index.
-4. Iterate through the modified array again and return the index of the first positive number (which is the smallest missing positive integer).
-5. If no positive number is found, return `nums.length + 1`.
+### Approach:
 
-Here's the implementation:
+1. **Cyclic Sort:**
+   - Perform cyclic sort on the given array `nums`.
+   - Iterate through each number in the array and place it in its correct position if it is a positive integer and within the range of the array size.
+   - Ignore negative numbers and numbers greater than the size of the array.
+   - After cyclic sort, the array should contain positive integers starting from 1 to n, where n is the size of the array.
 
-```java
-public class Solution {
-    public int firstMissingPositive(int[] nums) {
-        int n = nums.length;
+2. **Find the First Missing Positive:**
+   - Iterate through the sorted array.
+   - The first index where the value is not equal to its index plus one is the smallest missing positive integer.
+   - If all numbers are in their correct positions, the smallest missing positive integer is the next integer after the array size.
 
-        // Mark positive integers found by negating the value at the corresponding index
-        for (int i = 0; i < n; i++) {
-            if (nums[i] > 0 && nums[i] <= n) {
-                int pos = nums[i] - 1;
-                if (nums[pos] != nums[i]) {
-                    int temp = nums[pos];
-                    nums[pos] = nums[i];
-                    nums[i] = temp;
-                    i--; // Revisit the swapped number
-                }
-            }
-        }
+### Python Code:
 
-        // Find the first positive number (smallest missing positive integer)
-        for (int i = 0; i < n; i++) {
-            if (nums[i] != i + 1) {
-                return i + 1;
-            }
-        }
+```python
+class Solution:
+    def firstMissingPositive(self, nums):
+        n = len(nums)
+        i = 0
 
-        // If no positive number is found, return nums.length + 1
-        return n + 1;
-    }
-}
+        while i < n:
+            # If the number is positive and within the range of the array size,
+            # and it's not already in its correct position, swap it to its correct position.
+            if 1 <= nums[i] <= n and nums[i] != nums[nums[i] - 1]:
+                nums[nums[i] - 1], nums[i] = nums[i], nums[nums[i] - 1]
+            else:
+                i += 1
+
+        # Iterate through the sorted array to find the first missing positive integer.
+        for i in range(n):
+            if nums[i] != i + 1:
+                return i + 1
+
+        # If all numbers are in their correct positions, return the next positive integer.
+        return n + 1
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+nums1 = [1, 2, 0]
+print(solution.firstMissingPositive(nums1))  # Output: 3
+
+# Example 2:
+nums2 = [3, 4, -1, 1]
+print(solution.firstMissingPositive(nums2))  # Output: 2
+
+# Example 3:
+nums3 = [7, 8, 9, 11, 12]
+print(solution.firstMissingPositive(nums3))  # Output: 1
 ```
 
-This implementation provides a solution to the "First Missing Positive" problem in Java. It marks positive integers found by negating the value at the corresponding index and then iterates through the modified array to find the smallest missing positive integer. If no positive number is found, it returns `nums.length + 1`.
+This code defines a `Solution` class with a `firstMissingPositive` method to find the smallest missing positive integer in the given unsorted array `nums`. The example usage demonstrates how to create an instance of the `Solution` class and call the `firstMissingPositive` method with different inputs.

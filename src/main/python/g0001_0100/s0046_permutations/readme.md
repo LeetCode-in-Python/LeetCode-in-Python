@@ -28,47 +28,65 @@ Given an array `nums` of distinct integers, return _all the possible permutation
 *   `-10 <= nums[i] <= 10`
 *   All the integers of `nums` are **unique**.
 
-To solve the "Permutations" problem in Java with a `Solution` class, we can follow these steps:
+To solve the "Permutations" problem, you can use backtracking. Here are the steps to solve the problem:
 
-1. Define a `Solution` class.
-2. Define a method named `permute` that takes an array of distinct integers `nums` as input and returns a list of all possible permutations.
-3. Create an empty list to store the result permutations.
-4. Call a recursive helper function named `permuteHelper` to generate permutations.
-5. Inside the `permuteHelper` function:
-   - If the current permutation size equals the length of the input array `nums`, add a copy of the current permutation to the result list.
-   - Otherwise, iterate through each element of `nums`:
-     - If the current element is not already in the permutation, add it to the current permutation, and recursively call `permuteHelper` with the updated permutation and the remaining elements of `nums`.
-     - After the recursive call, remove the last element from the permutation to backtrack.
-6. Return the result list.
+### Approach:
 
-Here's the implementation:
+1. **Define Backtracking Function:**
+   - Define a backtracking function `backtrack` to generate permutations recursively.
+   - The function should take three parameters:
+     - `path`: The current permutation being generated.
+     - `nums`: The input array of distinct integers.
+     - `result`: A list to store all permutations.
 
-```java
-import java.util.ArrayList;
-import java.util.List;
+2. **Base Case:**
+   - If the length of `path` equals the length of `nums`, append a copy of `path` to `result` and return.
 
-public class Solution {
-    public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-        permuteHelper(nums, new ArrayList<>(), result);
-        return result;
-    }
+3. **Recursive Step:**
+   - Iterate through each element `num` in `nums`.
+   - If `num` is not in `path`, append `num` to `path`.
+   - Recur with the updated `path`.
 
-    private void permuteHelper(int[] nums, List<Integer> current, List<List<Integer>> result) {
-        if (current.size() == nums.length) {
-            result.add(new ArrayList<>(current));
-            return;
-        }
+4. **Generate Permutations:**
+   - Call the backtracking function `backtrack` with an empty list `path`, the input array `nums`, and an empty list `result`.
 
-        for (int num : nums) {
-            if (!current.contains(num)) {
-                current.add(num);
-                permuteHelper(nums, current, result);
-                current.remove(current.size() - 1);
-            }
-        }
-    }
-}
+5. **Return Result:**
+   - After generating all permutations, return the `result` list.
+
+### Python Code:
+
+```python
+class Solution:
+    def permute(self, nums):
+        def backtrack(path, nums, result):
+            if len(path) == len(nums):
+                result.append(path[:])
+                return
+            
+            for num in nums:
+                if num not in path:
+                    path.append(num)
+                    backtrack(path, nums, result)
+                    path.pop()
+        
+        result = []
+        backtrack([], nums, result)
+        return result
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+nums1 = [1,2,3]
+print(solution.permute(nums1))  # Output: [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+
+# Example 2:
+nums2 = [0,1]
+print(solution.permute(nums2))  # Output: [[0,1],[1,0]]
+
+# Example 3:
+nums3 = [1]
+print(solution.permute(nums3))  # Output: [[1]]
 ```
 
-This implementation provides a solution to the "Permutations" problem in Java. It generates all possible permutations of the given array of distinct integers using backtracking.
+This code defines a `Solution` class with a `permute` method to generate all possible permutations of the given array `nums`. The example usage demonstrates how to create an instance of the `Solution` class and call the `permute` method with different inputs.

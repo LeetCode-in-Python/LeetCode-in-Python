@@ -43,41 +43,62 @@ You must write an algorithm with `O(log n)` runtime complexity.
 *   `nums` contains **distinct** values sorted in **ascending** order.
 *   <code>-10<sup>4</sup> <= target <= 10<sup>4</sup></code>
 
-To solve the "Search Insert Position" problem in Java with a `Solution` class, we can follow these steps:
+To solve this problem efficiently with a runtime complexity of O(log n), we can use binary search to find the insertion position of the target value in the sorted array. Here are the steps:
 
-1. Define a `Solution` class.
-2. Define a method named `searchInsert` that takes an integer array `nums` and an integer `target` as input and returns an integer representing the index where `target` would be inserted in order.
-3. Implement binary search to find the insertion position of `target`.
-4. Set the left pointer `left` to 0 and the right pointer `right` to the length of `nums` minus 1.
-5. While `left` is less than or equal to `right`:
-   - Calculate the middle index `mid` as `(left + right) / 2`.
-   - If `nums[mid]` is equal to `target`, return `mid`.
-   - If `target` is less than `nums[mid]`, update `right = mid - 1`.
-   - If `target` is greater than `nums[mid]`, update `left = mid + 1`.
-6. If `target` is not found in `nums`, return the value of `left`, which represents the index where `target` would be inserted in order.
+### Approach:
 
-Here's the implementation:
+1. **Binary Search:**
+   - Implement binary search to find the insertion position of the target value.
+   - If the target value is found, return its index.
+   - If the target value is not found, binary search will determine the index where the target would be inserted to maintain the sorted order.
 
-```java
-public class Solution {
-    public int searchInsert(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
+### Python Code:
 
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                return mid;
-            } else if (target < nums[mid]) {
-                right = mid - 1;
-            } else {
-                left = mid + 1;
-            }
-        }
+```python
+class Solution:
+    def searchInsert(self, nums, target):
+        left, right = 0, len(nums) - 1
 
-        return left;
-    }
-}
+        while left <= right:
+            mid = (left + right) // 2
+
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        # If the target is not found, return the insertion position (left).
+        return left
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+nums1 = [1, 3, 5, 6]
+target1 = 5
+print(solution.searchInsert(nums1, target1))  # Output: 2
+
+# Example 2:
+nums2 = [1, 3, 5, 6]
+target2 = 2
+print(solution.searchInsert(nums2, target2))  # Output: 1
+
+# Example 3:
+nums3 = [1, 3, 5, 6]
+target3 = 7
+print(solution.searchInsert(nums3, target3))  # Output: 4
+
+# Example 4:
+nums4 = [1, 3, 5, 6]
+target4 = 0
+print(solution.searchInsert(nums4, target4))  # Output: 0
+
+# Example 5:
+nums5 = [1]
+target5 = 0
+print(solution.searchInsert(nums5, target5))  # Output: 0
 ```
 
-This implementation provides a solution to the "Search Insert Position" problem in Java. It returns the index where `target` would be inserted in `nums` using binary search, with a time complexity of O(log n).
+This code defines a `Solution` class with a `searchInsert` method to find the insertion position of the target value in the given sorted array. The example usage demonstrates how to create an instance of the `Solution` class and call the `searchInsert` method with different inputs.

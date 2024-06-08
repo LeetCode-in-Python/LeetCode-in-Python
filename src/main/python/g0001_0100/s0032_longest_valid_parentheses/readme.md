@@ -31,49 +31,61 @@ Given a string containing just the characters `'('` and `')'`, find the length o
 *   <code>0 <= s.length <= 3 * 10<sup>4</sup></code>
 *   `s[i]` is `'('`, or `')'`.
 
-To solve the "Longest Valid Parentheses" problem in Java with a `Solution` class, we can follow these steps:
+To solve the "Longest Valid Parentheses" problem, you can use the following steps:
 
-1. Define a `Solution` class.
-2. Define a method named `longestValidParentheses` that takes a string `s` as input and returns an integer representing the length of the longest valid parentheses substring.
-3. Initialize a stack to store the indices of characters.
-4. Initialize a variable `maxLen` to store the maximum length of valid parentheses found so far.
-5. Push `-1` onto the stack to mark the starting point of a potential valid substring.
-6. Iterate through each character of the string:
+### Approach:
+
+1. **Initialize Variables:**
+   - Initialize a variable `max_length` to store the maximum valid parentheses substring length.
+   - Initialize a stack to keep track of indices of opening parentheses.
+
+2. **Traverse the String:**
+   - Iterate through each character in the string.
    - If the character is `'('`, push its index onto the stack.
    - If the character is `')'`:
-     - Pop the top index from the stack.
-     - If the stack is empty after popping, push the current index onto the stack to mark the starting point of the next potential valid substring.
-     - Otherwise, update `maxLen` with the maximum of the current `maxLen` and `i - stack.peek()`, where `i` is the current index and `stack.peek()` is the index at the top of the stack.
-7. Return `maxLen`.
+     - If the stack is not empty, pop an element from the stack.
+     - If the stack becomes empty:
+       - Push the current index onto the stack (marks the start of a potential new valid substring).
+       - Update `max_length` using the difference between the current index and the index popped from the stack.
+     - If the stack is not empty, update `max_length` using the difference between the current index and the index at the top of the stack.
 
-Here's the implementation:
+3. **Final Result:**
+   - The value of `max_length` will represent the length of the longest valid parentheses substring.
 
-```java
-import java.util.Stack;
+### Python Code:
 
-public class Solution {
-    public int longestValidParentheses(String s) {
-        int maxLen = 0;
-        Stack<Integer> stack = new Stack<>();
-        stack.push(-1); // Mark the starting point of a potential valid substring
-        
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == '(') {
-                stack.push(i);
-            } else { // c == ')'
-                stack.pop();
-                if (stack.isEmpty()) {
-                    stack.push(i); // Mark the starting point of the next potential valid substring
-                } else {
-                    maxLen = Math.max(maxLen, i - stack.peek());
-                }
-            }
-        }
-        
-        return maxLen;
-    }
-}
+```python
+class Solution:
+    def longestValidParentheses(self, s):
+        stack = [-1]  # Initialize the stack with -1 to handle the case when the first parenthesis is ')'
+        max_length = 0
+
+        for i in range(len(s)):
+            if s[i] == '(':
+                stack.append(i)
+            else:  # s[i] == ')'
+                stack.pop()
+                if not stack:
+                    stack.append(i)
+                else:
+                    max_length = max(max_length, i - stack[-1])
+
+        return max_length
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+s1 = "(()"
+print(solution.longestValidParentheses(s1))  # Output: 2
+
+# Example 2:
+s2 = ")()())"
+print(solution.longestValidParentheses(s2))  # Output: 4
+
+# Example 3:
+s3 = ""
+print(solution.longestValidParentheses(s3))  # Output: 0
 ```
 
-This implementation provides a solution to the "Longest Valid Parentheses" problem in Java. It finds the length of the longest valid parentheses substring in the given string `s`.
+This code defines a `Solution` class with a method `longestValidParentheses` that takes a string `s` and returns the length of the longest valid parentheses substring. The example usage demonstrates how to create an instance of the `Solution` class and call the `longestValidParentheses` method with different inputs.
