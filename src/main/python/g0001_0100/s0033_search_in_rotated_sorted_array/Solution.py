@@ -4,7 +4,7 @@
 # #2024_06_08_Time_36_ms_(91.71%)_Space_16.8_MB_(98.65%)
 
 class Solution:
-    def search(self, nums: list[int], target: int) -> int:
+    def search(self, nums: List[int], target: int) -> int:
         lo, hi = 0, len(nums) - 1
         
         while lo <= hi:
