@@ -3,7 +3,7 @@
 # #2024_06_08_Time_64_ms_(97.49%)_Space_17.8_MB_(39.66%)
 
 class Solution:
-    def searchRange(self, nums: list[int], target: int) -> list[int]:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
         ans = [-1, -1]
         ans[0] = self.helper(nums, target, False)
         ans[1] = self.helper(nums, target, True)
