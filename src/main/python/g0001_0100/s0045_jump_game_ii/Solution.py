@@ -3,7 +3,7 @@
 # #Big_O_Time_O(n)_Space_O(1) #2024_06_08_Time_89_ms_(99.30%)_Space_17.7_MB_(41.04%)
 
 class Solution:
-    def jump(self, nums: list[int]) -> int:
+    def jump(self, nums: List[int]) -> int:
         length = 0
         max_length = 0
         min_jump = 0
