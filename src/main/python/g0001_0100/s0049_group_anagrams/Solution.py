@@ -5,7 +5,7 @@
 from collections import defaultdict
 
 class Solution:
-    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         anagram_groups = defaultdict(list)
         for s in strs:
             sorted_str = ''.join(sorted(s))
