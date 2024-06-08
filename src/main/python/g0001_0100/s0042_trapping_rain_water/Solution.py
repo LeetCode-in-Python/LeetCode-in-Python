@@ -3,7 +3,7 @@
 # #Big_O_Time_O(n)_Space_O(1) #2024_06_08_Time_93_ms_(87.70%)_Space_18.5_MB_(68.72%)
 
 class Solution:
-    def trap(self, height: list[int]) -> int:
+    def trap(self, height: List[int]) -> int:
         l, r = 0, len(height) - 1
         res = 0
         lower_wall = 0
