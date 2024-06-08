@@ -4,7 +4,7 @@
 # #2024_06_08_Time_501_ms_(83.84%)_Space_30.7_MB_(91.05%)
 
 class Solution:
-    def maxSubArray(self, nums: list[int]) -> int:
+    def maxSubArray(self, nums: List[int]) -> int:
         maxi = float('-inf')
         sum_val = 0
         for num in nums:
