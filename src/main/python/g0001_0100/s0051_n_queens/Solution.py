@@ -2,14 +2,14 @@
 # #2024_06_08_Time_31_ms_(99.90%)_Space_16.9_MB_(70.82%)
 
 class Solution:
-    def solveNQueens(self, n: int) -> list[list[str]]:
+    def solveNQueens(self, n: int) -> List[List[str]]:
         pos = [False] * (n + 2 * n - 1 + 2 * n - 1)
         pos2 = [0] * n
         ans = []
         self.helper(n, 0, pos, pos2, ans)
         return ans
 
-    def helper(self, n: int, row: int, pos: list[bool], pos2: list[int], ans: list[list[str]]):
+    def helper(self, n: int, row: int, pos: List[bool], pos2: List[int], ans: List[List[str]]):
         if row == n:
             self.construct(n, pos2, ans)
             return
