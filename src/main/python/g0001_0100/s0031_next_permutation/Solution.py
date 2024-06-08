@@ -2,7 +2,10 @@
 # #2024_06_08_Time_35_ms_(93.06%)_Space_16.5_MB_(44.75%)
 
 class Solution:
-    def nextPermutation(self, nums):
+    def nextPermutation(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
         if not nums or len(nums) <= 1:
             return
 
