@@ -3,7 +3,7 @@
 # #Big_O_Time_O(n_log_n)_Space_O(n) #2024_06_08_Time_109_ms_(98.07%)_Space_20.5_MB_(84.05%)
 
 class Solution:
-    def merge(self, intervals: list[list[int]]) -> list[list[int]]:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals.sort(key=lambda x: x[0])
         merged = []
         for interval in intervals:
