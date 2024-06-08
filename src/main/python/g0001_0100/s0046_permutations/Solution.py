@@ -4,7 +4,7 @@
 # #2024_06_08_Time_28_ms_(98.67%)_Space_16.6_MB_(93.71%)
 
 class Solution:
-    def permute(self, nums: list[int]) -> list[list[int]]:
+    def permute(self, nums: List[int]) -> List[List[int]]:
         if not nums:
             return []
         
