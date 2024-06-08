@@ -12,7 +12,7 @@ class Solution:
         self.permute_recur(nums, final_result, [], [False] * len(nums))
         return final_result
 
-    def permute_recur(self, nums: list[int], final_result: list[list[int]], curr_result: list[int], used: list[bool]):
+    def permute_recur(self, nums: List[int], final_result: List[List[int]], curr_result: List[int], used: List[bool]):
         if len(curr_result) == len(nums):
             final_result.append(curr_result.copy())
             return
