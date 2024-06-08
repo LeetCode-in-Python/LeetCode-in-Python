@@ -33,32 +33,47 @@ A **subarray** is a **contiguous** part of an array.
 
 **Follow up:** If you have figured out the `O(n)` solution, try coding another solution using the **divide and conquer** approach, which is more subtle.
 
-To solve the "Maximum Subarray" problem in Java with the Solution class, follow these steps:
+To solve the Maximum Subarray problem, we can use the Kadane's algorithm, which efficiently finds the maximum subarray sum in linear time. Here are the steps to solve the task:
 
-1. Define a method `maxSubArray` in the `Solution` class that takes an integer array `nums` as input and returns an integer representing the largest sum of a contiguous subarray.
-2. Initialize two variables `maxSum` and `currentSum` to store the maximum sum found so far and the sum of the current subarray being considered, respectively. Set both to the value of the first element in `nums`.
-3. Iterate through the array `nums` from index `1` to `nums.length - 1`:
-   - Update `currentSum` as the maximum of the current element and the sum of the current element plus `currentSum`.
-   - Update `maxSum` as the maximum of `maxSum` and `currentSum`.
-4. After iterating through all elements in `nums`, return `maxSum`.
+1. **Initialize Variables:** 
+   - Initialize two variables `max_sum` and `current_sum` to keep track of the maximum sum found so far and the sum of the current subarray, respectively.
+   - Set `max_sum` and `current_sum` to the value of the first element in the array `nums`.
 
-Here's the implementation of the `maxSubArray` method in Java:
+2. **Iterate Through the Array:**
+   - Start iterating through the array `nums` from the second element (index 1).
+   - For each element `num` in `nums`, do the following:
+     - Update `current_sum` to be the maximum of either `num` or `current_sum + num`. This step ensures that we consider either starting a new subarray or extending the current subarray.
+     - Update `max_sum` to be the maximum of either `max_sum` or `current_sum`. This step ensures that we keep track of the maximum subarray sum found so far.
 
-```java
-class Solution {
-    public int maxSubArray(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
-        }
-        int maxSum = nums[0];
-        int currentSum = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            currentSum = Math.max(nums[i], currentSum + nums[i]);
-            maxSum = Math.max(maxSum, currentSum);
-        }
-        return maxSum;
-    }
-}
+3. **Return the Result:**
+   - After iterating through the entire array, `max_sum` will contain the maximum subarray sum.
+   - Return `max_sum` as the result.
+
+### Python Implementation:
+
+```python
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        # Initialize variables
+        max_sum = current_sum = nums[0]
+
+        # Iterate through the array
+        for num in nums[1:]:
+            current_sum = max(num, current_sum + num)
+            max_sum = max(max_sum, current_sum)
+
+        return max_sum
+
+# Example Usage:
+solution = Solution()
+nums1 = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+print(solution.maxSubArray(nums1))  # Output: 6
+
+nums2 = [1]
+print(solution.maxSubArray(nums2))  # Output: 1
+
+nums3 = [5, 4, -1, 7, 8]
+print(solution.maxSubArray(nums3))  # Output: 23
 ```
 
-This implementation efficiently finds the largest sum of a contiguous subarray in the given array `nums` using the Kadane's algorithm, which has a time complexity of O(n).
+This algorithm has a time complexity of O(n), where n is the length of the input array `nums`. Therefore, it efficiently finds the maximum subarray sum.

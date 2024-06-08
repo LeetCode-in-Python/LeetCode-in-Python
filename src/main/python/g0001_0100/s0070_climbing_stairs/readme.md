@@ -26,34 +26,40 @@ Each time you can either climb `1` or `2` steps. In how many distinct ways can y
 
 *   `1 <= n <= 45`
 
-To solve the "Climbing Stairs" problem in Java with the Solution class, follow these steps:
+To solve this task using Python with a `Solution` class, you can follow these steps:
 
-1. Define a method `climbStairs` in the `Solution` class that takes an integer `n` as input and returns the number of distinct ways to climb to the top of the staircase with `n` steps.
-2. Initialize an array `dp` of size `n+1` to store the number of distinct ways to reach each step.
-3. Set `dp[0] = 1` and `dp[1] = 1` since there is only one way to reach the first and second steps.
-4. Iterate over the steps from `2` to `n`:
-   - At each step `i`, the number of distinct ways to reach step `i` is the sum of the number of ways to reach steps `i-1` and `i-2`.
-   - Store this sum in `dp[i]`.
-5. Return `dp[n]`, which represents the number of distinct ways to climb to the top of the staircase with `n` steps.
+1. Define a class named `Solution`.
+2. Inside the class, define a method named `climbStairs` that takes `n` as an input parameter.
+3. Implement the logic to calculate the number of distinct ways to climb to the top using dynamic programming.
+4. Create a list `dp` to store the number of distinct ways to reach each step.
+5. Initialize `dp[0]`, `dp[1]`, and `dp[2]` to 1, 1, and 2 respectively, as there is only one way to reach the first two steps, and two ways to reach the third step.
+6. Iterate through the range from 3 to `n`, updating each element of `dp` using the formula `dp[i] = dp[i-1] + dp[i-2]`.
+7. Return `dp[n]`, which represents the number of distinct ways to climb to the top.
 
-Here's the implementation of the `climbStairs` method in Java:
+Here's the implementation:
 
-```java
-class Solution {
-    public int climbStairs(int n) {
-        if (n == 1) return 1;
+```python
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        # Create a list to store the number of distinct ways to reach each step
+        dp = [0] * (n + 1)
         
-        int[] dp = new int[n + 1];
-        dp[0] = 1;
-        dp[1] = 1;
+        # Initialize the first two steps
+        dp[0] = 1
+        dp[1] = 1
+        dp[2] = 2
         
-        for (int i = 2; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
-        }
+        # Calculate the number of distinct ways for each step
+        for i in range(3, n + 1):
+            dp[i] = dp[i - 1] + dp[i - 2]
         
-        return dp[n];
-    }
-}
+        # Return the number of distinct ways to climb to the top
+        return dp[n]
+
+# Example usage:
+solution = Solution()
+print(solution.climbStairs(2))  # Output: 2
+print(solution.climbStairs(3))  # Output: 3
 ```
 
-This implementation efficiently calculates the number of distinct ways to climb the stairs using dynamic programming, with a time complexity of O(n) and a space complexity of O(n).
+This implementation uses dynamic programming to efficiently calculate the number of distinct ways to climb to the top. It iterates through the steps only once, so the time complexity is O(n), where n is the number of steps.

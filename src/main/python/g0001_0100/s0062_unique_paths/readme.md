@@ -46,35 +46,44 @@ How many possible unique paths are there?
 *   `1 <= m, n <= 100`
 *   It's guaranteed that the answer will be less than or equal to <code>2 * 10<sup>9</sup></code>.
 
-To solve the "Unique Paths" problem in Java with the Solution class, follow these steps:
+To solve this task using Python with a `Solution` class, you can follow these steps:
 
-1. Define a method `uniquePaths` in the `Solution` class that takes two integers `m` and `n` as input and returns the number of unique paths from the top-left corner to the bottom-right corner of an `m x n` grid.
-2. Initialize a 2D array `dp` of size `m x n` to store the number of unique paths for each position in the grid.
-3. Initialize the first row and first column of `dp` to 1 since there is only one way to reach any position in the first row or column (by moving only right or down).
-4. Iterate over each position `(i, j)` in the grid, starting from the second row and second column:
-   - Update `dp[i][j]` by adding the number of unique paths from the cell above `(i-1, j)` and the cell to the left `(i, j-1)`.
-5. Return the value of `dp[m-1][n-1]`, which represents the number of unique paths to reach the bottom-right corner of the grid.
+1. Define a class named `Solution`.
+2. Inside the class, define a method named `uniquePaths` that takes `m` and `n` as input parameters.
+3. Implement the logic to calculate the number of unique paths using dynamic programming.
+4. Create a grid of size `m x n` to store the number of unique paths to each cell.
+5. Initialize the first row and first column of the grid to 1, as there is only one way to reach any cell in the first row or column.
+6. Iterate through the grid and calculate the number of unique paths to each cell using the formula `grid[i][j] = grid[i-1][j] + grid[i][j-1]`.
+7. Return the number of unique paths to the bottom-right corner of the grid (`grid[m-1][n-1]`).
 
-Here's the implementation of the `uniquePaths` method in Java:
+Here's the implementation:
 
-```java
-class Solution {
-    public int uniquePaths(int m, int n) {
-        int[][] dp = new int[m][n];
-        for (int i = 0; i < m; i++) {
-            dp[i][0] = 1; // Initialize first column to 1
-        }
-        for (int j = 0; j < n; j++) {
-            dp[0][j] = 1; // Initialize first row to 1
-        }
-        for (int i = 1; i < m; i++) {
-            for (int j = 1; j < n; j++) {
-                dp[i][j] = dp[i-1][j] + dp[i][j-1]; // Calculate number of paths for current cell
-            }
-        }
-        return dp[m-1][n-1]; // Return number of unique paths for bottom-right corner
-    }
-}
+```python
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        # Create a grid to store the number of unique paths to each cell
+        grid = [[0] * n for _ in range(m)]
+        
+        # Initialize the first row and first column to 1
+        for i in range(m):
+            grid[i][0] = 1
+        for j in range(n):
+            grid[0][j] = 1
+        
+        # Calculate the number of unique paths to each cell
+        for i in range(1, m):
+            for j in range(1, n):
+                grid[i][j] = grid[i-1][j] + grid[i][j-1]
+        
+        # Return the number of unique paths to the bottom-right corner
+        return grid[m-1][n-1]
+
+# Example usage:
+solution = Solution()
+print(solution.uniquePaths(3, 7))  # Output: 28
+print(solution.uniquePaths(3, 2))  # Output: 3
+print(solution.uniquePaths(7, 3))  # Output: 28
+print(solution.uniquePaths(3, 3))  # Output: 6
 ```
 
-This implementation efficiently calculates the number of unique paths using dynamic programming, with a time complexity of O(m * n) and a space complexity of O(m * n).
+This implementation uses dynamic programming to efficiently calculate the number of unique paths. It iterates through the grid only once, so the time complexity is O(m * n), where m is the number of rows and n is the number of columns.

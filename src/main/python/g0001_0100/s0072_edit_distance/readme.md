@@ -31,51 +31,49 @@ You have the following three operations permitted on a word:
 *   `0 <= word1.length, word2.length <= 500`
 *   `word1` and `word2` consist of lowercase English letters.
 
-To solve the "Edit Distance" problem in Java with the Solution class, follow these steps:
+To solve this task using Python with a `Solution` class, you can follow these steps:
 
-1. Define a method `minDistance` in the `Solution` class that takes two strings `word1` and `word2` as input and returns the minimum number of operations required to convert `word1` to `word2`.
-2. Initialize a 2D array `dp` of size `(m+1) x (n+1)`, where `m` is the length of `word1` and `n` is the length of `word2`.
-3. Set `dp[i][0] = i` for all `i` from `0` to `m`, as the minimum number of operations to convert a string of length `i` to an empty string is `i` deletions.
-4. Set `dp[0][j] = j` for all `j` from `0` to `n`, as the minimum number of operations to convert an empty string to a string of length `j` is `j` insertions.
-5. Iterate over the characters of `word1` and `word2`:
-   - If `word1.charAt(i-1)` is equal to `word2.charAt(j-1)`, set `dp[i][j] = dp[i-1][j-1]`, as no operation is required to match these characters.
-   - Otherwise, set `dp[i][j]` to the minimum of the following three options:
-     - `dp[i-1][j] + 1`: Delete the character at position `i` from `word1`.
-     - `dp[i][j-1] + 1`: Insert the character at position `j` from `word2` into `word1`.
-     - `dp[i-1][j-1] + 1`: Replace the character at position `i` in `word1` with the character at position `j` in `word2`.
-6. Return `dp[m][n]`, which represents the minimum number of operations required to convert `word1` to `word2`.
+1. Define a class named `Solution`.
+2. Inside the class, define a method named `minDistance` that takes `word1` and `word2` as input parameters.
+3. Implement the logic to calculate the minimum number of operations required to convert `word1` to `word2` using dynamic programming.
+4. Create a 2D array `dp` of size `(len(word1) + 1) x (len(word2) + 1)` to store the minimum number of operations required to convert substrings of `word1` to substrings of `word2`.
+5. Initialize the first row and first column of `dp` to represent the base cases: the minimum number of operations required to convert an empty string to a string of length `i` or `j` is equal to `i` or `j` respectively.
+6. Iterate through the substrings of `word1` and `word2` and fill in the `dp` array using the following recurrence relation:
+   - If the characters at the current positions are equal, `dp[i][j] = dp[i-1][j-1]`.
+   - Otherwise, `dp[i][j]` is the minimum of the following:
+     - `1 + dp[i-1][j]` (delete operation)
+     - `1 + dp[i][j-1]` (insert operation)
+     - `1 + dp[i-1][j-1]` (replace operation)
+7. Return `dp[len(word1)][len(word2)]`, which represents the minimum number of operations required to convert `word1` to `word2`.
 
-Here's the implementation of the `minDistance` method in Java:
+Here's the implementation:
 
-```java
-class Solution {
-    public int minDistance(String word1, String word2) {
-        int m = word1.length();
-        int n = word2.length();
+```python
+class Solution:
+    def minDistance(self, word1: str, word2: str) -> int:
+        m, n = len(word1), len(word2)
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
         
-        int[][] dp = new int[m + 1][n + 1];
+        # Initialize the first row and first column
+        for i in range(m + 1):
+            dp[i][0] = i
+        for j in range(n + 1):
+            dp[0][j] = j
         
-        for (int i = 0; i <= m; i++) {
-            dp[i][0] = i;
-        }
+        # Calculate the minimum number of operations
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if word1[i - 1] == word2[j - 1]:
+                    dp[i][j] = dp[i - 1][j - 1]
+                else:
+                    dp[i][j] = 1 + min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1])
         
-        for (int j = 0; j <= n; j++) {
-            dp[0][j] = j;
-        }
-        
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
-                if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
-                } else {
-                    dp[i][j] = Math.min(dp[i - 1][j], Math.min(dp[i][j - 1], dp[i - 1][j - 1])) + 1;
-                }
-            }
-        }
-        
-        return dp[m][n];
-    }
-}
+        return dp[m][n]
+
+# Example usage:
+solution = Solution()
+print(solution.minDistance("horse", "ros"))  # Output: 3
+print(solution.minDistance("intention", "execution"))  # Output: 5
 ```
 
-This implementation efficiently calculates the minimum edit distance between two strings using dynamic programming, with a time complexity of O(m * n) and a space complexity of O(m * n), where m is the length of `word1` and n is the length of `word2`.
+This implementation uses dynamic programming to efficiently calculate the minimum number of operations required. It iterates through the substrings of `word1` and `word2` only once, so the time complexity is O(m * n), where m is the length of `word1` and n is the length of `word2`.

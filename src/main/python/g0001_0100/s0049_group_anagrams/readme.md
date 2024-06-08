@@ -30,50 +30,57 @@ An **Anagram** is a word or phrase formed by rearranging the letters of a differ
 *   `0 <= strs[i].length <= 100`
 *   `strs[i]` consists of lowercase English letters.
 
-To solve the "Group Anagrams" problem in Java with the Solution class, follow these steps:
+To solve the "Group Anagrams" problem, you can use a hash table to group the anagrams together based on their sorted representations. Here are the steps to solve the problem:
 
-1. Define a method `groupAnagrams` in the `Solution` class that takes an array of strings `strs` as input and returns a list of lists of strings.
-2. Initialize an empty HashMap to store the groups of anagrams. The key will be the sorted string, and the value will be a list of strings.
-3. Iterate through each string `str` in the input array `strs`.
-4. Sort the characters of the current string `str` to create a key for the HashMap.
-5. Check if the sorted string exists as a key in the HashMap:
-   - If it does, add the original string `str` to the corresponding list of strings.
-   - If it doesn't, create a new entry in the HashMap with the sorted string as the key and a new list containing `str` as the value.
-6. After iterating through all strings, return the values of the HashMap as the result.
+### Approach:
 
-Here's the implementation of the `groupAnagrams` method in Java:
+1. **Initialize a Hash Table:**
+   - Initialize an empty dictionary to store the groups of anagrams. The keys of the dictionary will be the sorted representations of the words, and the values will be lists containing the original words.
 
-```java
-import java.util.*;
+2. **Iterate Through the Strings:**
+   - Iterate through each string in the given array `strs`.
 
-class Solution {
-    public List<List<String>> groupAnagrams(String[] strs) {
-        // Initialize a HashMap to store the groups of anagrams
-        Map<String, List<String>> anagramGroups = new HashMap<>();
+3. **Sort Each String:**
+   - For each string, sort its characters alphabetically to get its sorted representation.
+
+4. **Group Anagrams:**
+   - Use the sorted representation as the key in the dictionary and append the original word to the corresponding list in the dictionary.
+
+5. **Return the Groups:**
+   - Return the values of the dictionary, which contain the groups of anagrams.
+
+### Python Code:
+
+```python
+from collections import defaultdict
+
+class Solution:
+    def groupAnagrams(self, strs):
+        # Initialize a dictionary to store groups of anagrams
+        groups = defaultdict(list)
         
-        // Iterate through each string in the input array
-        for (String str : strs) {
-            // Sort the characters of the current string
-            char[] chars = str.toCharArray();
-            Arrays.sort(chars);
-            String sortedStr = new String(chars);
-            
-            // Check if the sorted string exists as a key in the HashMap
-            if (anagramGroups.containsKey(sortedStr)) {
-                // If it does, add the original string to the corresponding list
-                anagramGroups.get(sortedStr).add(str);
-            } else {
-                // If it doesn't, create a new entry in the HashMap
-                List<String> group = new ArrayList<>();
-                group.add(str);
-                anagramGroups.put(sortedStr, group);
-            }
-        }
+        # Group anagrams based on their sorted representations
+        for word in strs:
+            sorted_word = ''.join(sorted(word))
+            groups[sorted_word].append(word)
         
-        // Return the values of the HashMap as the result
-        return new ArrayList<>(anagramGroups.values());
-    }
-}
+        # Return the groups of anagrams
+        return list(groups.values())
+
+# Example Usage:
+solution = Solution()
+
+# Example 1:
+strs1 = ["eat","tea","tan","ate","nat","bat"]
+print(solution.groupAnagrams(strs1))  # Output: [["eat","tea","ate"],["tan","nat"],["bat"]]
+
+# Example 2:
+strs2 = [""]
+print(solution.groupAnagrams(strs2))  # Output: [[""]]
+
+# Example 3:
+strs3 = ["a"]
+print(solution.groupAnagrams(strs3))  # Output: [["a"]]
 ```
 
-This implementation ensures that all anagrams are grouped together efficiently using a HashMap.
+This code defines a `Solution` class with a `groupAnagrams` method to group the anagrams together. The example usage demonstrates how to create an instance of the `Solution` class and call the `groupAnagrams` method with different input arrays of strings.
