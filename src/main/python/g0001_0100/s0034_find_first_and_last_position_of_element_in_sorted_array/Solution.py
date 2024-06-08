@@ -9,7 +9,7 @@ class Solution:
         ans[1] = self.helper(nums, target, True)
         return ans
 
-    def helper(self, nums: list[int], target: int, equals: bool) -> int:
+    def helper(self, nums: List[int], target: int, equals: bool) -> int:
         l, r = 0, len(nums) - 1
         result = -1
         while l <= r:
