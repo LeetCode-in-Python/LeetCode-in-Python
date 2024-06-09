@@ -12,8 +12,3 @@ class Solution:
             for subset in combinations(nums, i):
                 res.append(list(subset))
         return res
-
-# Example usage:
-# sol = Solution()
-# result = sol.subsets([1, 2, 3])
-# print(result)  # Output should be [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
