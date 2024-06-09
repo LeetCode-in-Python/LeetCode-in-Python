@@ -9,7 +9,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def inorderTraversal(self, root):
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if root is None:
             return []
         answer = []
@@ -24,11 +24,3 @@ class Solution:
         answer.append(root.val)
         if root.right is not None:
             self._inorderTraversal(root.right, answer)
-
-# Example usage:
-# root = TreeNode(1)
-# root.right = TreeNode(2)
-# root.right.left = TreeNode(3)
-# sol = Solution()
-# print(sol.inorderTraversal(root))  # Output: [1, 3, 2]
-        
