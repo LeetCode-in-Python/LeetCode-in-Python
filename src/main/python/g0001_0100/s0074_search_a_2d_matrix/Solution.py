@@ -4,7 +4,7 @@
 # #2024_06_09_Time_35_ms_(97.66%)_Space_17_MB_(69.27%)
 
 class Solution:
-    def searchMatrix(self, matrix, target):
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         endRow = len(matrix)
         endCol = len(matrix[0])
         targetRow = 0
@@ -21,13 +21,3 @@ class Solution:
                 break
 
         return result
-
-# Example usage:
-# sol = Solution()
-# matrix = [
-#     [1, 3, 5, 7],
-#     [10, 11, 16, 20],
-#     [23, 30, 34, 60]
-# ]
-# target = 3
-# print(sol.searchMatrix(matrix, target))  # Output should be True
