@@ -27,47 +27,41 @@ Given an array of integers `heights` representing the histogram's bar height whe
 *   <code>1 <= heights.length <= 10<sup>5</sup></code>
 *   <code>0 <= heights[i] <= 10<sup>4</sup></code>
 
-To solve the "Largest Rectangle in Histogram" problem in Python with the Solution class, follow these steps:
+To solve this task using Python with a `Solution` class, you can follow these steps:
 
-1. Define a method `largestRectangleArea` in the `Solution` class that takes an array of integers `heights` as input and returns the area of the largest rectangle in the histogram.
-2. Implement a stack-based algorithm to find the largest rectangle:
-   - Initialize a stack to store indices of bars in the histogram.
-   - Iterate through each bar in the histogram:
-     - If the stack is empty or the current bar's height is greater than or equal to the height of the bar at the top of the stack, push the current bar's index onto the stack.
-     - If the current bar's height is less than the height of the bar at the top of the stack, keep popping bars from the stack until either the stack is empty or the height of the bar at the top of the stack is less than the height of the current bar.
-       - Calculate the area of the rectangle formed by the popped bar using its height and width (the difference between the current index and the index of the previous bar in the stack or -1 if the stack is empty).
-       - Update the maximum area if the calculated area is greater.
-   - After iterating through all bars, pop the remaining bars from the stack and calculate the area of rectangles formed by them using the same method as above.
-3. Return the maximum area calculated.
+1. Define a class named `Solution`.
+2. Inside the class, define a method named `largestRectangleArea` that takes `heights` as an input parameter.
+3. Implement an algorithm to find the area of the largest rectangle in the histogram.
+4. Use a stack-based approach to efficiently find the largest rectangle.
+5. Initialize a stack to store the indices of bars in non-decreasing order of heights.
+6. Iterate through each bar in the histogram:
+    - If the stack is empty or the current bar's height is greater than or equal to the height of the bar at the top of the stack, push the index of the current bar onto the stack.
+    - Otherwise, repeatedly pop indices from the stack and calculate the area of the rectangle with the popped bar as the smallest bar. Update the maximum area if necessary.
+7. After iterating through all bars, if the stack is not empty, repeat step 6 with remaining bars in the stack.
+8. Return the maximum area found.
 
-Here's the implementation of the `largestRectangleArea` method in Python:
+Here's the implementation:
 
 ```python
 class Solution:
-    def largestRectangleArea(self, heights: List[int]) -> int:
-        lefts = [0]
-        best = 0
-        heights.append(0)
-        for i,h in enumerate(heights):
-            if h > heights[lefts[-1]]:
-                lefts.append(i)
-            elif h == heights[lefts[-1]]:
-                pass
-            elif h < heights[lefts[-1]]:
-                while lefts and h < heights[lefts[-1]]:
-                    left = lefts.pop()
-                    hh = heights[left]
-                    ww = i - left
-                    if hh * ww > best:
-                        best = hh * ww
-                lefts.append(left)
-                heights[left] = h
-        return best
+    def largestRectangleArea(self, heights):
+        max_area = 0
+        stack = []
+        heights.append(0)  # Append 0 to the end to handle the case when all bars are ascending
+        
+        for i in range(len(heights)):
+            while stack and heights[i] < heights[stack[-1]]:
+                height = heights[stack.pop()]
+                width = i if not stack else i - stack[-1] - 1
+                max_area = max(max_area, height * width)
+            stack.append(i)
+        
+        return max_area
 
 # Example usage:
-# sol = Solution()
-# heights = [2, 1, 5, 6, 2, 3]
-# print(sol.largestRectangleArea(heights))  # Output should be 10
+solution = Solution()
+print(solution.largestRectangleArea([2,1,5,6,2,3]))  # Output: 10
+print(solution.largestRectangleArea([2,4]))          # Output: 4
 ```
 
-This implementation uses a stack-based approach to find the largest rectangle in the histogram, with a time complexity of O(N), where N is the number of bars in the histogram.
+This solution efficiently finds the largest rectangle area in the histogram using a stack-based approach. It iterates through the histogram only once, resulting in a time complexity of O(n), where n is the number of bars in the histogram.

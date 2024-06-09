@@ -22,26 +22,36 @@ Given an integer `n`, return _the number of structurally unique **BST'**s (binar
 
 *   `1 <= n <= 19`
 
-To solve the "Unique Binary Search Trees" problem in Python with the Solution class, follow these steps:
+To solve this task using Python with a `Solution` class, you can follow these steps:
 
-1. Define a method `numTrees` in the `Solution` class that takes an integer `n` as input and returns the number of structurally unique BSTs (binary search trees) with exactly `n` nodes.
-2. Implement a dynamic programming approach to solve the problem:
-   - Create an array `dp` of size `n + 1` to store the number of unique BSTs for each number of nodes from 0 to `n`.
-   - Initialize `dp[0] = 1` and `dp[1] = 1`, as there is only one unique BST for 0 and 1 node(s).
-   - Use a nested loop to calculate `dp[i]` for each `i` from 2 to `n`.
-   - For each `i`, calculate `dp[i]` by summing up the products of `dp[j]` and `dp[i - j - 1]` for all possible values of `j` from 0 to `i - 1`.
-   - Return `dp[n]`, which represents the number of unique BSTs with `n` nodes.
+1. Define a class named `Solution`.
+2. Inside the class, define a method named `numTrees` that takes `n` as an input parameter.
+3. Implement an algorithm to calculate the number of structurally unique BSTs (binary search trees) with exactly `n` nodes.
+4. Use dynamic programming to efficiently compute the number of unique BSTs.
+5. Create a list `dp` of length `n + 1` to store the number of unique BSTs for each number of nodes from 0 to `n`.
+6. Initialize `dp[0]` and `dp[1]` to 1, as there is only one unique BST for empty tree or tree with only one node.
+7. Iterate from 2 to `n`:
+    - For each `i`, calculate `dp[i]` by summing up the products of `dp[j - 1]` and `dp[i - j]` for all possible values of `j` from 1 to `i`.
+8. Return `dp[n]` as the result.
 
-Here's the implementation of the `numTrees` method in Python:
+Here's the implementation:
 
 ```python
 class Solution:
-    def numTrees(self, n: int) -> int:
-        def factorial(n):
-            if n<1: return 1
-            return n*factorial(n-1)
-        fact = [factorial(i) for i in range(2*n+1)]
-        return int(fact[2*n] / (fact[n] * fact[n] * (n+1)))
+    def numTrees(self, n):
+        dp = [0] * (n + 1)
+        dp[0], dp[1] = 1, 1
+        
+        for i in range(2, n + 1):
+            for j in range(1, i + 1):
+                dp[i] += dp[j - 1] * dp[i - j]
+        
+        return dp[n]
+
+# Example usage:
+solution = Solution()
+print(solution.numTrees(3))  # Output: 5
+print(solution.numTrees(1))  # Output: 1
 ```
 
-This implementation uses dynamic programming to compute the number of structurally unique BSTs with `n` nodes in O(n^2) time complexity.
+This solution efficiently calculates the number of structurally unique BSTs using dynamic programming. It iterates through each number of nodes from 2 to `n` and computes the number of unique BSTs for each number of nodes, resulting in a time complexity of O(n^2).

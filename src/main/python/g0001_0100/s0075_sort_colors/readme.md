@@ -40,45 +40,54 @@ You must solve this problem without using the library's sort function.
 
 **Follow up:** Could you come up with a one-pass algorithm using only constant extra space?
 
-To solve the "Sort Colors" problem in Python with the Solution class, follow these steps:
+To solve this task using Python with a `Solution` class, you can follow these steps:
 
-1. Define a method `sortColors` in the `Solution` class that takes an array of integers `nums` as input and sorts it in-place according to the colors red, white, and blue.
-2. Initialize three pointers: `low`, `mid`, and `high`. `low` points to the beginning of the array, `mid` points to the current element being processed, and `high` points to the end of the array.
-3. Loop while `mid` is less than or equal to `high`:
-   - If `nums[mid]` is 0, swap `nums[low]` with `nums[mid]`, increment `low` and `mid`.
-   - If `nums[mid]` is 1, increment `mid`.
-   - If `nums[mid]` is 2, swap `nums[mid]` with `nums[high]`, decrement `high`.
-4. After the loop, the array will be sorted in-place according to the colors red, white, and blue.
+1. Define a class named `Solution`.
+2. Inside the class, define a method named `sortColors` that takes `nums` as an input parameter.
+3. Implement the one-pass algorithm to sort the colors in-place.
+4. Use three pointers: `left`, `right`, and `curr`.
+5. Initialize `left` to 0, `right` to `len(nums) - 1`, and `curr` to 0.
+6. Iterate through the array while `curr` is less than or equal to `right`.
+7. If `nums[curr]` is 0, swap `nums[curr]` with `nums[left]`, increment both `left` and `curr`.
+8. If `nums[curr]` is 2, swap `nums[curr]` with `nums[right]`, decrement `right`.
+9. If `nums[curr]` is 1, simply increment `curr`.
+10. Repeat steps 6-9 until `curr` is greater than `right`.
 
-Here's the implementation of the `sortColors` method in Python:
+Here's the implementation:
 
 ```python
 class Solution:
-    def sortColors(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        zeroes = 0
-        ones = 0
+    def sortColors(self, nums):
+        left, right, curr = 0, len(nums) - 1, 0
+        
+        while curr <= right:
+            if nums[curr] == 0:
+                nums[curr], nums[left] = nums[left], nums[curr]
+                left += 1
+                curr += 1
+            elif nums[curr] == 2:
+                nums[curr], nums[right] = nums[right], nums[curr]
+                right -= 1
+            else:
+                curr += 1
 
-        for i in range(len(nums)):
-            if nums[i] == 0:
-                nums[zeroes] = 0
-                zeroes += 1
-            elif nums[i] == 1:
-                ones += 1
-
-        for j in range(zeroes, zeroes + ones):
-            nums[j] = 1
-
-        for k in range(zeroes + ones, len(nums)):
-            nums[k] = 2
-            
 # Example usage:
-# sol = Solution()
-# nums = [2, 0, 2, 1, 1, 0]
-# sol.sortColors(nums)
-# print(nums)  # Output should be [0, 0, 1, 1, 2, 2]
+solution = Solution()
+nums1 = [2,0,2,1,1,0]
+solution.sortColors(nums1)
+print(nums1)  # Output: [0,0,1,1,2,2] 
+
+nums2 = [2,0,1]
+solution.sortColors(nums2)
+print(nums2)  # Output: [0,1,2] 
+
+nums3 = [0]
+solution.sortColors(nums3)
+print(nums3)  # Output: [0] 
+
+nums4 = [1]
+solution.sortColors(nums4)
+print(nums4)  # Output: [1] 
 ```
 
-This implementation sorts the array in-place using a one-pass algorithm with constant extra space. It iterates through the array and swaps elements as needed to group them according to their colors. The time complexity of this solution is O(n), where n is the length of the array.
+This solution sorts the colors in-place using a one-pass algorithm with constant extra space. It traverses the array only once, so the time complexity is O(n), where n is the length of the array `nums`.

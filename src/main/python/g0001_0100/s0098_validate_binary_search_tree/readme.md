@@ -33,46 +33,51 @@ A **valid BST** is defined as follows:
 *   The number of nodes in the tree is in the range <code>[1, 10<sup>4</sup>]</code>.
 *   <code>-2<sup>31</sup> <= Node.val <= 2<sup>31</sup> - 1</code>
 
-To solve the "Validate Binary Search Tree" problem in Python with the Solution class, follow these steps:
+To solve this task using Python with a `Solution` class, you can follow these steps:
 
-1. Define a method `isValidBST` in the `Solution` class that takes the root of a binary tree as input and returns true if the tree is a valid binary search tree (BST), and false otherwise.
-2. Implement a recursive approach to validate if the given binary tree is a valid BST:
-   - Define a helper method `isValidBSTHelper` that takes the root node, a lower bound, and an upper bound as input parameters.
-   - In the `isValidBSTHelper` method, recursively traverse the binary tree nodes.
-   - At each node, check if its value is within the specified bounds (lower bound and upper bound) for a valid BST.
-   - If the node's value violates the BST property, return false.
-   - Otherwise, recursively validate the left and right subtrees by updating the bounds accordingly.
-   - If both the left and right subtrees are valid BSTs, return true.
-3. Call the `isValidBSTHelper` method with the root node and appropriate initial bounds to start the validation process.
+1. Define a class named `Solution`.
+2. Inside the class, define a method named `isValidBST` that takes `root` as an input parameter.
+3. Implement an algorithm to determine if the given binary tree is a valid binary search tree (BST).
+4. Use the properties of a BST to perform an inorder traversal of the tree.
+5. During the inorder traversal, keep track of the previous node's value to compare it with the current node's value.
+6. If the current node's value is less than or equal to the previous node's value, return False.
+7. After completing the traversal, return True, indicating that the tree is a valid BST.
 
-Here's the implementation of the `isValidBST` method in Python:
+Here's the implementation:
 
 ```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
-    def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        ans = self.isValidBSTHelper(root,float('-inf'),float('+inf'))
-        return ans
-
-
-    def isValidBSTHelper(self,root,mini,maxi):
-        if root==None:
-            return True
+    def isValidBST(self, root):
+        def inorder_traversal(node, prev):
+            if not node:
+                return True
+            
+            if not inorder_traversal(node.left, prev):
+                return False
+            
+            if prev[0] is not None and node.val <= prev[0]:
+                return False
+            
+            prev[0] = node.val
+            
+            return inorder_traversal(node.right, prev)
         
-        if root.val<mini or root.val>maxi:
-            return False
-        
-        left = self.isValidBSTHelper(root.left,mini,root.val-1)
-        right = self.isValidBSTHelper(root.right,root.val+1,maxi)
+        prev = [None]
+        return inorder_traversal(root, prev)
 
-        if left==False or right==False:
-            return False
-        return True
+# Example usage:
+solution = Solution()
+root1 = TreeNode(2)
+root1.left = TreeNode(1)
+root1.right = TreeNode(3)
+print(solution.isValidBST(root1))  # Output: True
+
+root2 = TreeNode(5)
+root2.left = TreeNode(1)
+root2.right = TreeNode(4)
+root2.right.left = TreeNode(3)
+root2.right.right = TreeNode(6)
+print(solution.isValidBST(root2))  # Output: False
 ```
 
-This implementation recursively validates whether the given binary tree is a valid BST in O(n) time complexity, where n is the number of nodes in the tree.
+This solution performs an inorder traversal of the binary tree and checks if the traversal sequence is sorted, indicating a valid BST. It has a time complexity of O(n), where n is the number of nodes in the tree, as it traverses each node exactly once.
