@@ -47,52 +47,38 @@ Given the `root` of a binary tree, return _the inorder traversal of its nodes' v
 
 **Follow up:** Recursive solution is trivial, could you do it iteratively?
 
-To solve the "Binary Tree Inorder Traversal" problem in Python with the Solution class, follow these steps:
+To solve this task using Python with a `Solution` class, you can follow these steps:
 
-1. Define a method `inorderTraversal` in the `Solution` class that takes the root of a binary tree as input and returns the inorder traversal of its nodes' values.
-2. Implement an iterative algorithm to perform inorder traversal:
-   - Initialize an empty list to store the inorder traversal result.
-   - Initialize a stack to track the nodes during traversal.
-   - Start with the root node and push it onto the stack.
-   - While the stack is not empty:
-     - Traverse down the left subtree by pushing all left child nodes onto the stack.
-     - Pop the top node from the stack and add its value to the traversal result list.
-     - Move to the right subtree of the popped node and repeat the process.
-   - Return the traversal result list.
-3. Return the inorder traversal result list.
+1. Define a class named `Solution`.
+2. Inside the class, define a method named `inorderTraversal` that takes `root` as an input parameter.
+3. Implement an algorithm to perform an inorder traversal of the binary tree iteratively.
+4. Use a stack-based approach to simulate the recursion of inorder traversal.
+5. Initialize an empty list `result` to store the inorder traversal sequence.
+6. Initialize a stack to store nodes during traversal.
+7. Start with the root node. While the current node is not None or the stack is not empty:
+    - While the current node is not None, push the current node onto the stack and move to its left child.
+    - Once the current node becomes None, pop the top node from the stack, add its value to the `result`, and move to its right child.
+8. Return the `result` list containing the inorder traversal sequence.
 
-Here's the implementation of the `inorderTraversal` method in Python:
+Here's the implementation:
 
 ```python
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
     def inorderTraversal(self, root):
-        if root is None:
-            return []
-        answer = []
-        self._inorderTraversal(root, answer)
-        return answer
-
-    def _inorderTraversal(self, root, answer):
-        if root is None:
-            return
-        if root.left is not None:
-            self._inorderTraversal(root.left, answer)
-        answer.append(root.val)
-        if root.right is not None:
-            self._inorderTraversal(root.right, answer)
-
-# Example usage:
-# root = TreeNode(1)
-# root.right = TreeNode(2)
-# root.right.left = TreeNode(3)
-# sol = Solution()
-# print(sol.inorderTraversal(root))  # Output: [1, 3, 2]
+        result = []
+        stack = []
+        current = root
+        
+        while current or stack:
+            while current:
+                stack.append(current)
+                current = current.left
+            
+            current = stack.pop()
+            result.append(current.val)
+            current = current.right
+        
+        return result
 ```
 
-This implementation performs an iterative inorder traversal of the binary tree using a stack, with a time complexity of O(N), where N is the number of nodes in the tree.
+This solution performs an inorder traversal of the binary tree iteratively using a stack-based approach. It traverses each node exactly once, resulting in a time complexity of O(n), where n is the number of nodes in the tree.

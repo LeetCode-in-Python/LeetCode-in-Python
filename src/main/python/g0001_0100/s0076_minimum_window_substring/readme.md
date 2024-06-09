@@ -41,56 +41,55 @@ A **substring** is a contiguous sequence of characters within the string.
 
 **Follow up:** Could you find an algorithm that runs in `O(m + n)` time?
 
-To solve the "Minimum Window Substring" problem in Python with the Solution class, follow these steps:
+To solve this task using Python with a `Solution` class, you can follow these steps:
 
-1. Define a method `minWindow` in the `Solution` class that takes two strings `s` and `t` as input and returns the minimum window substring of `s` containing all characters from `t`.
-2. Create two frequency maps: `tFreqMap` to store the frequency of characters in string `t`, and `sFreqMap` to store the frequency of characters in the current window of string `s`.
-3. Initialize two pointers `left` and `right` to track the window boundaries. Initialize a variable `minLength` to store the minimum window length found so far.
-4. Iterate over string `s` using the `right` pointer until the end of the string:
-   - Update the frequency map `sFreqMap` for the character at index `right`.
-   - Check if the current window contains all characters from `t`. If it does, move the `left` pointer to minimize the window while maintaining the condition.
-   - Update the `minLength` if the current window length is smaller.
-   - Move the `right` pointer to expand the window.
-5. Return the minimum window substring found, or an empty string if no such substring exists.
+1. Define a class named `Solution`.
+2. Inside the class, define a method named `minWindow` that takes `s` and `t` as input parameters.
+3. Implement an algorithm to find the minimum window substring of `s` that contains all characters of `t`.
+4. Use a sliding window approach to efficiently search for the minimum window substring.
+5. Create a dictionary `t_count` to store the frequency of characters in string `t`.
+6. Initialize variables `left` and `right` to keep track of the window boundaries.
+7. Initialize variables `min_window_start` and `min_window_length` to store the starting index and length of the minimum window substring found so far.
+8. Iterate through string `s` using the right pointer (`right`), and update the character frequencies in a temporary dictionary `window_count`.
+9. When all characters of `t` are found in the current window, update `min_window_start` and `min_window_length` if the current window is smaller than the minimum window found so far.
+10. Move the left pointer (`left`) to shrink the window until the window no longer contains all characters of `t`.
+11. Repeat steps 8-10 until the right pointer reaches the end of `s`.
+12. Return the minimum window substring found, or an empty string if no such substring exists.
 
-Here's the implementation of the `minWindow` method in Python:
+Here's the implementation:
 
 ```python
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        from collections import Counter
-
-        map = [0] * 128
+        t_count = {}
         for char in t:
-            map[ord(char) - ord('A')] += 1
-
-        count = len(t)
-        begin = 0
-        end = 0
-        d = float('inf')
-        head = 0
-
-        while end < len(s):
-            if map[ord(s[end]) - ord('A')] > 0:
-                count -= 1
-            map[ord(s[end]) - ord('A')] -= 1
-            end += 1
-
-            while count == 0:
-                if end - begin < d:
-                    d = end - begin
-                    head = begin
-                map[ord(s[begin]) - ord('A')] += 1
-                if map[ord(s[begin]) - ord('A')] > 0:
-                    count += 1
-                begin += 1
-
-        return "" if d == float('inf') else s[head:head + d]
+            t_count[char] = t_count.get(char, 0) + 1
         
-# Example usage:
-# sol = Solution()
-# result = sol.minWindow("ADOBECODEBANC", "ABC")
-# print(result)  # Output should be "BANC"
+        left, right = 0, 0
+        min_window_start = 0
+        min_window_length = float('inf')
+        required_chars = len(t)
+        
+        while right < len(s):
+            if s[right] in t_count:
+                if t_count[s[right]] > 0:
+                    required_chars -= 1
+                t_count[s[right]] -= 1
+            
+            while required_chars == 0:
+                if right - left + 1 < min_window_length:
+                    min_window_length = right - left + 1
+                    min_window_start = left
+                
+                if s[left] in t_count:
+                    t_count[s[left]] += 1
+                    if t_count[s[left]] > 0:
+                        required_chars += 1
+                left += 1
+            
+            right += 1
+        
+        return s[min_window_start:min_window_start + min_window_length] if min_window_length != float('inf') else ""
 ```
 
-This implementation finds the minimum window substring in `O(m + n)` time complexity, where `m` is the length of string `s` and `n` is the length of string `t`. It uses two frequency maps to keep track of character frequencies and adjusts the window boundaries to find the minimum window containing all characters from `t`.
+This solution uses a sliding window approach to efficiently search for the minimum window substring. It iterates through the string `s` only once, so the time complexity is O(m + n), where m is the length of `s` and n is the length of `t`.
