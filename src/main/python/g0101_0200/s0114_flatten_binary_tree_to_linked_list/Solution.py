@@ -33,5 +33,3 @@ class Solution:
             return tail
         else:
             return self.find_tail(tail.right)
-
-        
