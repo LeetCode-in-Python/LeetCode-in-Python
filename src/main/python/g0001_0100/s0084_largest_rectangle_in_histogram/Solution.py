@@ -21,8 +21,3 @@ class Solution:
                 lefts.append(left)
                 heights[left] = h
         return best
-
-# Example usage:
-# sol = Solution()
-# heights = [2, 1, 5, 6, 2, 3]
-# print(sol.largestRectangleArea(heights))  # Output should be 10
