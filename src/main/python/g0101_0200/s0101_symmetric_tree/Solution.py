@@ -9,7 +9,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSymmetric(self, root: TreeNode) -> bool:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         if root is None:
             return True
         return self.helper(root.left, root.right)
@@ -20,4 +20,3 @@ class Solution:
         if leftNode.val != rightNode.val:
             return False
         return self.helper(leftNode.left, rightNode.right) and self.helper(leftNode.right, rightNode.left)
-        
