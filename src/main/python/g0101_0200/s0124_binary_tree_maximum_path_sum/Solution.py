@@ -12,7 +12,7 @@ class Solution:
     def __init__(self):
         self.max_sum = float('-inf')
 
-    def maxPathSum(self, root: TreeNode) -> int:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
         self.helper(root)
         return self.max_sum
 
@@ -27,5 +27,3 @@ class Solution:
         self.max_sum = max(self.max_sum, current)
         
         return root.val + max(left, right)
-
-        
