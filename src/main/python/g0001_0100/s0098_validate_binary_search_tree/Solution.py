@@ -14,7 +14,6 @@ class Solution:
         ans = self.isValidBSTHelper(root,float('-inf'),float('+inf'))
         return ans
 
-
     def isValidBSTHelper(self,root,mini,maxi):
         if root==None:
             return True
