@@ -66,3 +66,72 @@ The judge will then create the linked structure based on these inputs and pass t
 *   `intersectVal == listA[skipA] == listB[skipB]` if `listA` and `listB` intersect.
 
 **Follow up:** Could you write a solution that runs in `O(n)` time and use only `O(1)` memory?
+
+To solve the problem of finding the intersection of two linked lists, we can use an efficient approach that leverages the properties of linked lists and ensures that the solution runs in O(n) time and uses O(1) extra space.
+
+### Steps:
+
+1. **Calculate the Lengths**:
+   - Traverse both linked lists to calculate their lengths.
+
+2. **Align the Starting Points**:
+   - If one list is longer than the other, advance the pointer of the longer list by the difference in lengths. This way, both pointers are equidistant from the intersection point (if it exists).
+
+3. **Find the Intersection**:
+   - Traverse both lists simultaneously, comparing nodes to see if they are the same. The first common node is the intersection point.
+
+### Implementation:
+
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        def get_length(head):
+            length = 0
+            while head:
+                length += 1
+                head = head.next
+            return length
+
+        # Get the lengths of both linked lists
+        lengthA = get_length(headA)
+        lengthB = get_length(headB)
+
+        # Align the starting points of both linked lists
+        while lengthA > lengthB:
+            headA = headA.next
+            lengthA -= 1
+        while lengthB > lengthA:
+            headB = headB.next
+            lengthB -= 1
+
+        # Traverse both lists together to find the intersection
+        while headA and headB:
+            if headA == headB:
+                return headA
+            headA = headA.next
+            headB = headB.next
+
+        return None
+```
+
+### Explanation:
+
+1. **Calculate the Lengths**:
+   - The `get_length` function calculates the length of a linked list by traversing it from the head to the end.
+   - We calculate `lengthA` for `headA` and `lengthB` for `headB`.
+
+2. **Align the Starting Points**:
+   - If `lengthA` is greater than `lengthB`, we advance `headA` by `lengthA - lengthB` steps.
+   - If `lengthB` is greater than `lengthA`, we advance `headB` by `lengthB - lengthA` steps.
+   - This ensures that both pointers are the same distance away from the potential intersection point.
+
+3. **Find the Intersection**:
+   - We traverse both lists simultaneously, comparing the nodes. If `headA` is equal to `headB`, we've found the intersection point and return it.
+   - If the traversal completes without finding an intersection, we return `None`.
+
+This approach ensures that we only traverse each list a maximum of twice (once to calculate lengths and once to find the intersection), making the solution efficient with O(n) time complexity and O(1) space complexity.
