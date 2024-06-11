@@ -35,7 +35,7 @@ Implement the Trie class:
 *   `word` and `prefix` consist only of lowercase English letters.
 *   At most <code>3 * 10<sup>4</sup></code> calls **in total** will be made to `insert`, `search`, and `startsWith`.
 
-To solve the task here are the steps to solve the Implement Trie (Prefix Tree) problem:
+To solve the task, here are the steps for implementing the Trie (Prefix Tree) problem:
 
 1. **Define the TrieNode Class**:
    - Define a class named `TrieNode` to represent each node in the trie.
