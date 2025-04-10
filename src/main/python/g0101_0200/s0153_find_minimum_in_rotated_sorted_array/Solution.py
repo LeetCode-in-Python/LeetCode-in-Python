@@ -1,6 +1,6 @@
 # #Medium #Top_100_Liked_Questions #Array #Binary_Search #Algorithm_II_Day_2_Binary_Search
-# #Binary_Search_I_Day_12 #Udemy_Binary_Search #Big_O_Time_O(log_N)_Space_O(log_N)
-# #2024_06_09_Time_44_ms_(47.26%)_Space_16.7_MB_(93.20%)
+# #Binary_Search_I_Day_12 #Udemy_Binary_Search #Top_Interview_150_Binary_Search
+# #Big_O_Time_O(log_N)_Space_O(log_N) #2024_06_09_Time_44_ms_(47.26%)_Space_16.7_MB_(93.20%)
 
 class Solution:
     def findMinUtil(self, nums: List[int], l: int, r: int) -> int:

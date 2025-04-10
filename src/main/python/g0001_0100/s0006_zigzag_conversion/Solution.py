@@ -1,4 +1,5 @@
-# #Medium #String #2024_06_03_Time_41_ms_(94.82%)_Space_16.5_MB_(92.96%)
+# #Medium #String #Top_Interview_150_Array/String
+# #2024_06_03_Time_41_ms_(94.82%)_Space_16.5_MB_(92.96%)
 
 class Solution:
     def convert(self, s: str, numRows: int) -> str:

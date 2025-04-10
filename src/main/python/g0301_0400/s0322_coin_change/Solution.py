@@ -1,6 +1,6 @@
 # #Medium #Top_100_Liked_Questions #Array #Dynamic_Programming #Breadth_First_Search
 # #Algorithm_II_Day_18_Dynamic_Programming #Dynamic_Programming_I_Day_20
-# #Level_2_Day_12_Dynamic_Programming #Big_O_Time_O(m*n)_Space_O(amount)
+# #Level_2_Day_12_Dynamic_Programming #Top_Interview_150_1D_DP #Big_O_Time_O(m*n)_Space_O(amount)
 # #2024_06_08_Time_488_ms_(96.38%)_Space_16.9_MB_(86.07%)
 
 class Solution:
