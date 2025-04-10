@@ -1,5 +1,6 @@
 # #Medium #Top_100_Liked_Questions #Top_Interview_Questions #Array #Hash_Table #Union_Find
-# #Big_O_Time_O(N_log_N)_Space_O(1) #2024_06_09_Time_338_ms_(82.56%)_Space_31.7_MB_(88.80%)
+# #Top_Interview_150_Hashmap #Big_O_Time_O(N_log_N)_Space_O(1)
+# #2024_06_09_Time_338_ms_(82.56%)_Space_31.7_MB_(88.80%)
 
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:

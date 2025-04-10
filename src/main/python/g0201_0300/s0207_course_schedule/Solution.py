@@ -1,6 +1,6 @@
 # #Medium #Top_100_Liked_Questions #Top_Interview_Questions #Depth_First_Search
-# #Breadth_First_Search #Graph #Topological_Sort #Big_O_Time_O(N)_Space_O(N)
-# #2024_06_09_Time_86_ms_(76.64%)_Space_18.4_MB_(48.61%)
+# #Breadth_First_Search #Graph #Topological_Sort #Top_Interview_150_Graph_General
+# #Big_O_Time_O(N)_Space_O(N) #2024_06_09_Time_86_ms_(76.64%)_Space_18.4_MB_(48.61%)
 
 class Solution:
     WHITE = 0

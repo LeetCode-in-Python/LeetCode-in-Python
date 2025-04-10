@@ -1,6 +1,6 @@
 # #Medium #Top_100_Liked_Questions #Array #Dynamic_Programming #Matrix
-# #Dynamic_Programming_I_Day_16 #Udemy_Dynamic_Programming #Big_O_Time_O(m*n)_Space_O(m*n)
-# #2024_06_08_Time_72_ms_(97.25%)_Space_18.2_MB_(74.63%)
+# #Dynamic_Programming_I_Day_16 #Udemy_Dynamic_Programming #Top_Interview_150_Multidimensional_DP
+# #Big_O_Time_O(m*n)_Space_O(m*n) #2024_06_08_Time_72_ms_(97.25%)_Space_18.2_MB_(74.63%)
 
 class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:

@@ -1,5 +1,6 @@
 # #Hard #Top_100_Liked_Questions #Top_Interview_Questions #Array #Binary_Search #Divide_and_Conquer
-# #Big_O_Time_O(log(min(N,M)))_Space_O(1) #2024_06_03_Time_63_ms_(99.35%)_Space_16.9_MB_(31.27%)
+# #Top_Interview_150_Binary_Search #Big_O_Time_O(log(min(N,M)))_Space_O(1)
+# #AI_can_be_used_to_solve_the_task #2024_06_03_Time_63_ms_(99.35%)_Space_16.9_MB_(31.27%)
 
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
