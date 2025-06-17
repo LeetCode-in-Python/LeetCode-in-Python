@@ -1,5 +1,6 @@
-# #Medium #Top_100_Liked_Questions #Array #Stack #Monotonic_Stack #Programming_Skills_II_Day_6
-# #Big_O_Time_O(n)_Space_O(n) #2024_06_07_Time_864_ms_(87.84%)_Space_30.8_MB_(64.29%)
+# #Medium #Top_100_Liked_Questions #Array #Stack #Monotonic_Stack #LeetCode_75_Monotonic_Stack
+# #Programming_Skills_II_Day_6 #Big_O_Time_O(n)_Space_O(n)
+# #2024_06_07_Time_864_ms_(87.84%)_Space_30.8_MB_(64.29%)
 
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
