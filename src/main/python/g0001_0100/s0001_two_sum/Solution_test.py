@@ -1,5 +1,4 @@
 import unittest
-from Solution import Solution
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
@@ -15,4 +14,4 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(self.sol.twoSum([3, 3], 6), [0, 1])
 
     def test_two_sum4(self):
-        self.assertEqual(self.sol.twoSum([3, 3], 7), [-1, 1])
+        self.assertEqual(self.sol.twoSum([3, 3], 7), [-1, -1])
