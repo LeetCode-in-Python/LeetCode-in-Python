@@ -1,4 +1,5 @@
 import unittest
+from Solution import Solution
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
