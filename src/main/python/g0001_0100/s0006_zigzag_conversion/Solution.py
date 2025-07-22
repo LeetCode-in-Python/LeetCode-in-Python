@@ -1,5 +1,5 @@
-# #Medium #String #Top_Interview_150_Array/String
-# #2024_06_03_Time_41_ms_(94.82%)_Space_16.5_MB_(92.96%)
+# #Medium #String #Top_Interview_150_Array/String #Big_O_Time_O(n)_Space_O(n)
+# #2025_07_22_Time_5_ms_(93.09%)_Space_17.85_MB_(70.00%)
 
 class Solution:
     def convert(self, s: str, numRows: int) -> str:

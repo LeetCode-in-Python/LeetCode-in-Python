@@ -1,6 +1,6 @@
 # #Medium #Top_100_Liked_Questions #Top_Interview_Questions #Two_Pointers #Linked_List
 # #Algorithm_I_Day_5_Two_Pointers #Level_2_Day_3_Linked_List #Top_Interview_150_Linked_List
-# #Big_O_Time_O(L)_Space_O(L) #2024_06_04_Time_21_ms_(99.70%)_Space_16.4_MB_(86.23%)
+# #Big_O_Time_O(L)_Space_O(L) #2025_07_22_Time_0_ms_(100.00%)_Space_17.70_MB_(84.76%)
 
 # Definition for singly-linked list.
 # class ListNode:

@@ -1,5 +1,5 @@
-# #Medium #Top_Interview_Questions #Math #Udemy_Integers
-# #2024_06_03_Time_28_ms_(94.06%)_Space_16.5_MB_(93.17%)
+# #Medium #Top_Interview_Questions #Math #Udemy_Integers #Big_O_Time_O(log10(x))_Space_O(1)
+# #2025_07_22_Time_37_ms_(69.51%)_Space_17.70_MB_(57.22%)
 
 class Solution:
     def reverse(self, x: int) -> int:
