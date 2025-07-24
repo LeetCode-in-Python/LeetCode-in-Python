@@ -1,6 +1,6 @@
 # #Medium #Top_100_Liked_Questions #Top_Interview_Questions #Array #Matrix #Backtracking
 # #Algorithm_II_Day_11_Recursion_Backtracking #Top_Interview_150_Backtracking
-# #Big_O_Time_O(4^(m*n))_Space_O(m*n) #2024_06_09_Time_619_ms_(95.31%)_Space_16.6_MB_(20.49%)
+# #Big_O_Time_O(4^(m*n))_Space_O(m*n) #2025_07_24_Time_623_ms_(94.85%)_Space_17.84_MB_(65.07%)
 
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
