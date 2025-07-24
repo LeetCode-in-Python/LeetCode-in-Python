@@ -1,5 +1,5 @@
 # #Hard #Top_100_Liked_Questions #Array #Backtracking #Big_O_Time_O(N!)_Space_O(N)
-# #2024_06_08_Time_31_ms_(99.90%)_Space_16.9_MB_(70.82%)
+# #2025_07_24_Time_6_ms_(98.12%)_Space_18.42_MB_(15.31%)
 
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:

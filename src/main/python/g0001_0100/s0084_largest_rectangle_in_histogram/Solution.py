@@ -1,5 +1,5 @@
 # #Hard #Top_100_Liked_Questions #Top_Interview_Questions #Array #Stack #Monotonic_Stack
-# #Big_O_Time_O(n_log_n)_Space_O(log_n) #2024_06_09_Time_644_ms_(90.89%)_Space_30.7_MB_(64.32%)
+# #Big_O_Time_O(n_log_n)_Space_O(log_n) #2025_07_24_Time_63_ms_(99.53%)_Space_29.12_MB_(95.20%)
 
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:

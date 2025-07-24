@@ -1,7 +1,7 @@
 # #Easy #Top_100_Liked_Questions #Top_Interview_Questions #Dynamic_Programming #Math #Memoization
 # #Algorithm_I_Day_12_Dynamic_Programming #Dynamic_Programming_I_Day_2
 # #Level_1_Day_10_Dynamic_Programming #Udemy_Dynamic_Programming #Top_Interview_150_1D_DP
-# #Big_O_Time_O(n)_Space_O(n) #2024_06_08_Time_29_ms_(87.37%)_Space_16.4_MB_(74.67%)
+# #Big_O_Time_O(n)_Space_O(n) #2025_07_24_Time_0_ms_(100.00%)_Space_17.79_MB_(48.58%)
 
 class Solution:
     def climbStairs(self, n: int) -> int:
