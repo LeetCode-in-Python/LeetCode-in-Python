@@ -1,6 +1,6 @@
 # #Medium #Top_100_Liked_Questions #Depth_First_Search #Tree #Binary_Tree
 # #LeetCode_75_Binary_Tree/DFS #Level_2_Day_7_Tree #Big_O_Time_O(n)_Space_O(n)
-# #2025_07_25_Time_310_ms_(27.21%)_Space_18.22_MB_(71.08%)
+# #2025_07_25_Time_6_ms_(68.63%)_Space_18.23_MB_(71.08%)
 
 # Definition for a binary tree node.
 # class TreeNode:
@@ -9,24 +9,20 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def __init__(self):
+    def pathSum(self, root: TreeNode, targetSum: int) -> int:
+        def dfs(node: TreeNode, targetSum: int, curr_sum: int) -> None:
+            if not node:
+                return
+
+            curr_sum += node.val
+            self.count += self.prefix_sum.get(curr_sum - targetSum, 0)
+            self.prefix_sum[curr_sum] = self.prefix_sum.get(curr_sum, 0) + 1
+            dfs(node.left, targetSum, curr_sum)
+            dfs(node.right, targetSum, curr_sum)
+
+            self.prefix_sum[curr_sum] -= 1
+
         self.count = 0
-
-    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
-        if root is None:
-            return 0
-        self.helper(root, targetSum, 0)
-        self.pathSum(root.left, targetSum)
-        self.pathSum(root.right, targetSum)
+        self.prefix_sum = {0: 1}
+        dfs(root, targetSum, 0)
         return self.count
-
-    def helper(self, node: TreeNode, targetSum: int, currSum: int) -> None:
-        if node is None:
-            return
-        currSum += node.val
-        if targetSum == currSum:
-            self.count += 1
-        if node.left is not None:
-            self.helper(node.left, targetSum, currSum)
-        if node.right is not None:
-            self.helper(node.right, targetSum, currSum)

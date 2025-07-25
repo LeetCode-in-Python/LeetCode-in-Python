@@ -1,51 +1,40 @@
 # #Medium #Top_100_Liked_Questions #Top_Interview_Questions #String #Hash_Table #Design #Trie
 # #LeetCode_75_Trie #Level_2_Day_16_Design #Udemy_Trie_and_Heap #Top_Interview_150_Trie
 # #Big_O_Time_O(word.length())_or_O(prefix.length())_Space_O(N)
-# #2025_07_25_Time_59_ms_(32.46%)_Space_35.26_MB_(14.23%)
+# #2025_07_25_Time_44_ms_(68.94%)_Space_32.08_MB_(76.05%)
 
 class TrieNode:
-    # Initialize your data structure here.
     def __init__(self):
-        self.children = [None] * 26
-        self.isWord = False
+        self.children = dict()
+        self.isWordEnd = False
 
 class Trie:
     def __init__(self):
         self.root = TrieNode()
-        self.startWith = False
 
-    # Inserts a word into the trie.
-    def insert(self, word):
-        self._insert(word, self.root, 0)
+    def insert(self, word: str) -> None:
+        curr = self.root
+        for c in word:
+            if c not in curr.children:
+                curr.children[c] = TrieNode()
+            curr = curr.children[c]
+        curr.isWordEnd = True
 
-    def _insert(self, word, root, idx):
-        if idx == len(word):
-            root.isWord = True
-            return
-        index = ord(word[idx]) - ord('a')
-        if root.children[index] is None:
-            root.children[index] = TrieNode()
-        self._insert(word, root.children[index], idx + 1)
+    def search(self, word: str) -> bool:
+        curr = self.root
+        for c in word:
+            if c not in curr.children:
+                return False
+            curr = curr.children[c]
+        return curr.isWordEnd 
 
-    # Returns if the word is in the trie.
-    def search(self, word):
-        return self._search(word, self.root, 0)
-
-    def _search(self, word, root, idx):
-        if idx == len(word):
-            self.startWith = True
-            return root.isWord
-        index = ord(word[idx]) - ord('a')
-        if root.children[index] is None:
-            self.startWith = False
-            return False
-        return self._search(word, root.children[index], idx + 1)
-
-    # Returns if there is any word in the trie
-    # that starts with the given prefix.
-    def startsWith(self, prefix):
-        self.search(prefix)
-        return self.startWith
+    def startsWith(self, prefix: str) -> bool:
+        curr = self.root
+        for c in prefix:
+            if c not in curr.children:
+                return False
+            curr = curr.children[c]
+        return True
 
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()
