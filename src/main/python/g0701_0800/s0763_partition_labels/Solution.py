@@ -1,5 +1,6 @@
-# #Medium #String #Hash_Table #Greedy #Two_Pointers #Data_Structure_II_Day_7_String
-# #Big_O_Time_O(n)_Space_O(1) #2024_06_07_Time_32_ms_(95.28%)_Space_16.4_MB_(98.19%)
+# #Medium #Top_100_Liked_Questions #String #Hash_Table #Greedy #Two_Pointers
+# #Data_Structure_II_Day_7_String #Big_O_Time_O(n)_Space_O(1)
+# #2025_07_25_Time_5_ms_(53.34%)_Space_17.62_MB_(84.14%)
 
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
