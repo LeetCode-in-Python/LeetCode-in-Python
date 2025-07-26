@@ -1,6 +1,6 @@
 # #Medium #Top_100_Liked_Questions #Depth_First_Search #Tree #Binary_Tree
 # #LeetCode_75_Binary_Tree/DFS #Level_2_Day_7_Tree #Big_O_Time_O(n)_Space_O(n)
-# #2025_07_25_Time_6_ms_(68.63%)_Space_18.23_MB_(71.08%)
+# #2025_07_26_Time_0_ms_(100.00%)_Space_18.23_MB_(71.00%)
 
 # Definition for a binary tree node.
 # class TreeNode:
@@ -9,7 +9,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def pathSum(self, root: TreeNode, targetSum: int) -> int:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
         def dfs(node: TreeNode, targetSum: int, curr_sum: int) -> None:
             if not node:
                 return
