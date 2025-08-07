@@ -1,7 +1,7 @@
 import unittest
 from Solution0003 import Solution
 
-class TestSolution(unittest.TestCase):
+class SolutionTest(unittest.TestCase):
     def test_lengthOfLongestSubstring(self):
         self.assertEqual(Solution().lengthOfLongestSubstring("abcabcbb"), 3)
 
