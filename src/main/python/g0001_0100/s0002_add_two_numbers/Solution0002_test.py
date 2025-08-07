@@ -18,7 +18,7 @@ def linked_list_to_str(node):
         node = node.next
     return ', '.join(vals)
 
-class TestSolution(unittest.TestCase):
+class SolutionTest(unittest.TestCase):
     def test_addTwoNumbers(self):
         listNode1 = construct_linked_list([2, 4, 3])
         listNode2 = construct_linked_list([5, 6, 4])
