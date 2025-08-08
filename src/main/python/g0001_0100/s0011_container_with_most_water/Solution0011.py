@@ -2,6 +2,8 @@
 # #LeetCode_75_Two_Pointers #Algorithm_II_Day_4_Two_Pointers #Top_Interview_150_Two_Pointers
 # #Big_O_Time_O(n)_Space_O(1) #2025_07_22_Time_68_ms_(91.16%)_Space_28.60_MB_(23.78%)
 
+from typing import List
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         max_area = -1
