@@ -1,7 +1,6 @@
 import unittest
 from Solution0031 import Solution
 
-
 class SolutionTest(unittest.TestCase):
     def test_nextPermutation(self):
         array = [1, 2, 3]
