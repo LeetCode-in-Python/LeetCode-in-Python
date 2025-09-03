@@ -1,7 +1,6 @@
 import unittest
 from Solution0017 import Solution
 
-
 class SolutionTest(unittest.TestCase):
     def test_letterCombinations(self):
         self.assertEqual(
@@ -31,4 +30,4 @@ class SolutionTest(unittest.TestCase):
         self.assertEqual(Solution().letterCombinations("8"), ["t", "u", "v"])
 
     def test_letterCombinations9(self):
-        self.assertEqual(Solution().letterCombinations("9"), ["w", "x", "y", "z"]) 
+        self.assertEqual(Solution().letterCombinations("9"), ["w", "x", "y", "z"])
