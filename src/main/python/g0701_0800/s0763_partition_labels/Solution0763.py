@@ -2,6 +2,8 @@
 # #Data_Structure_II_Day_7_String #Big_O_Time_O(n)_Space_O(1)
 # #2025_07_25_Time_5_ms_(53.34%)_Space_17.62_MB_(84.14%)
 
+from typing import List
+
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
         letters = list(s)
