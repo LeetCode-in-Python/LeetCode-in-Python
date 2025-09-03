@@ -3,7 +3,6 @@ import importlib
 
 mod = importlib.import_module('Solution0021')
 
-
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -34,6 +33,7 @@ class SolutionTest(unittest.TestCase):
         l1 = from_list([1, 2, 4])
         l2 = from_list([1, 3, 4])
         self.assertEqual(to_string(mod.Solution().mergeTwoLists(l1, l2)), "1, 1, 2, 3, 4, 4")
+
 
     def test_mergeTwoLists2(self):
         mod.ListNode = ListNode
