@@ -39,4 +39,4 @@ class SolutionTest(unittest.TestCase):
         mod.ListNode = ListNode
         node1 = ListNode(1)
         result = mod.Solution().removeNthFromEnd(node1, 1)
-        self.assertIsNone(result) 
+        self.assertIsNone(result)
