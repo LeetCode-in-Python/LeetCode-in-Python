@@ -3,7 +3,6 @@ import importlib
 
 mod = importlib.import_module('Solution0025')
 
-
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -39,4 +38,4 @@ class SolutionTest(unittest.TestCase):
         mod.ListNode = ListNode
         head = from_list([1, 2, 3, 4, 5])
         result = mod.Solution().reverseKGroup(head, 3)
-        self.assertEqual(to_string(result), "3, 2, 1, 4, 5") 
+        self.assertEqual(to_string(result), "3, 2, 1, 4, 5")
