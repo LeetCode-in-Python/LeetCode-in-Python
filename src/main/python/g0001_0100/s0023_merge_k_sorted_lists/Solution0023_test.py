@@ -3,7 +3,6 @@ import importlib
 
 mod = importlib.import_module('Solution0023')
 
-
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -43,4 +42,4 @@ class SolutionTest(unittest.TestCase):
         head2 = from_list([2, 8, 12])
         head3 = from_list([4, 6, 9, 10])
         result = mod.Solution().mergeKLists([head1, head2, head3])
-        self.assertEqual(to_string(result), "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12") 
+        self.assertEqual(to_string(result), "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12")
