@@ -3,7 +3,6 @@ import importlib
 
 mod = importlib.import_module('Solution0024')
 
-
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -38,4 +37,4 @@ class SolutionTest(unittest.TestCase):
     def test_swapPairs2(self):
         mod.ListNode = ListNode
         result = mod.Solution().swapPairs(ListNode(1))
-        self.assertEqual(to_string(result), "1") 
+        self.assertEqual(to_string(result), "1")
