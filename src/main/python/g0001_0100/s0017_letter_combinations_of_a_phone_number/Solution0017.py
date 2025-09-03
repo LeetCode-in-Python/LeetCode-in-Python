@@ -3,6 +3,8 @@
 # #Udemy_Backtracking/Recursion #Top_Interview_150_Backtracking #Big_O_Time_O(4^n)_Space_O(n)
 # #2025_07_22_Time_0_ms_(100.00%)_Space_17.68_MB_(92.03%)
 
+from typing import List
+
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         if not digits:

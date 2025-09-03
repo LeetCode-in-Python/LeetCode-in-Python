@@ -1,6 +1,8 @@
 # #Medium #Top_100_Liked_Questions #Array #Two_Pointers #Big_O_Time_O(n)_Space_O(1)
 # #2025_07_22_Time_0_ms_(100.00%)_Space_17.71_MB_(56.73%)
 
+from typing import List
+
 class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         """

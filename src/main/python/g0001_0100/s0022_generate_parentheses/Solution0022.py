@@ -3,6 +3,8 @@
 # #Top_Interview_150_Backtracking #Big_O_Time_O(2^n)_Space_O(n)
 # #2025_07_22_Time_0_ms_(100.00%)_Space_18.17_MB_(25.52%)
 
+from typing import List
+
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         ans = []

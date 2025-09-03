@@ -3,6 +3,8 @@
 # #Top_Interview_150_Two_Pointers #Big_O_Time_O(n*log(n))_Space_O(n^2)
 # #2025_07_22_Time_581_ms_(56.92%)_Space_20.72_MB_(36.56%)
 
+from typing import List
+
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()

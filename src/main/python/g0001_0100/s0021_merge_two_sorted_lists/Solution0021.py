@@ -3,6 +3,13 @@
 # #Level_1_Day_3_Linked_List #Udemy_Linked_List #Top_Interview_150_Linked_List
 # #Big_O_Time_O(m+n)_Space_O(m+n) #2025_07_22_Time_0_ms_(100.00%)_Space_17.70_MB_(61.28%)
 
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
