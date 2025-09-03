@@ -1,7 +1,6 @@
 import unittest
 from Solution0020 import Solution
 
-
 class SolutionTest(unittest.TestCase):
     def test_isValid(self):
         self.assertTrue(Solution().isValid("()"))
@@ -16,4 +15,4 @@ class SolutionTest(unittest.TestCase):
         self.assertFalse(Solution().isValid("([)]"))
 
     def test_isValid5(self):
-        self.assertTrue(Solution().isValid("{[]}")) 
+        self.assertTrue(Solution().isValid("{[]}"))
