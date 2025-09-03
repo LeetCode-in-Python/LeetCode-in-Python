@@ -2,6 +2,7 @@
 # #Big_O_Time_O(n)_Space_O(n) #2025_07_25_Time_27_ms_(84.54%)_Space_20.34_MB_(71.80%)
 
 from collections import defaultdict
+from typing import List
 
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
