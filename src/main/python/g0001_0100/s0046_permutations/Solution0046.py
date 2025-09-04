@@ -3,6 +3,8 @@
 # #Udemy_Backtracking/Recursion #Top_Interview_150_Backtracking #Big_O_Time_O(n*n!)_Space_O(n+n!)
 # #2025_07_24_Time_0_ms_(100.00%)_Space_18.04_MB_(32.82%)
 
+from typing import List
+
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         if not nums:

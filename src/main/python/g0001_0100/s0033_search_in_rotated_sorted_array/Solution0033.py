@@ -3,6 +3,8 @@
 # #Udemy_Binary_Search #Top_Interview_150_Binary_Search #Big_O_Time_O(log_n)_Space_O(1)
 # #2025_07_22_Time_0_ms_(100.00%)_Space_18.28_MB_(22.25%)
 
+from typing import List
+
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         lo, hi = 0, len(nums) - 1
