@@ -1,7 +1,6 @@
 import unittest
 from Solution0048 import Solution
 
-
 class SolutionTest(unittest.TestCase):
     def test_rotate(self):
         m = [[1,2,3],[4,5,6],[7,8,9]]
