@@ -3,6 +3,8 @@
 # #Top_Interview_150_Array/String #Big_O_Time_O(n)_Space_O(1)
 # #2025_07_24_Time_11_ms_(71.16%)_Space_19.22_MB_(68.64%)
 
+from typing import List
+
 class Solution:
     def trap(self, height: List[int]) -> int:
         l, r = 0, len(height) - 1

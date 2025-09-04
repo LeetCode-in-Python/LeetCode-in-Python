@@ -3,6 +3,8 @@
 # #Top_Interview_150_Backtracking #Big_O_Time_O(2^n)_Space_O(n+2^n)
 # #2025_07_22_Time_4_ms_(90.51%)_Space_17.64_MB_(98.10%)
 
+from typing import List
+
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         ans = []

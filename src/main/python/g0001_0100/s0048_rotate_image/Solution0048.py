@@ -3,6 +3,8 @@
 # #Top_Interview_150_Matrix #Big_O_Time_O(n^2)_Space_O(1)
 # #2025_07_24_Time_0_ms_(100.00%)_Space_17.66_MB_(91.44%)
 
+from typing import List
+
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
         """

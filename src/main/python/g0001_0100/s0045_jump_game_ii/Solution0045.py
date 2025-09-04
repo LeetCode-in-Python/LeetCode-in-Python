@@ -3,6 +3,8 @@
 # #Top_Interview_150_Array/String #Big_O_Time_O(n)_Space_O(1)
 # #2025_07_24_Time_8_ms_(57.34%)_Space_18.40_MB_(92.28%)
 
+from typing import List
+
 class Solution:
     def jump(self, nums: List[int]) -> int:
         length = 0
