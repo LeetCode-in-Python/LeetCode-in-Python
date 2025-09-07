@@ -3,6 +3,7 @@
 # #Level_1_Day_12_Sliding_Window/Two_Pointer #Big_O_Time_O(n+m)_Space_O(1)
 # #2025_07_25_Time_54_ms_(54.80%)_Space_18.16_MB_(94.43%)
 
+from typing import List
 from collections import defaultdict
 
 class Solution:

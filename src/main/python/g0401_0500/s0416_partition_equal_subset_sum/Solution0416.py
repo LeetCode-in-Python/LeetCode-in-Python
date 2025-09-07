@@ -1,6 +1,8 @@
 # #Medium #Top_100_Liked_Questions #Array #Dynamic_Programming #Level_2_Day_13_Dynamic_Programming
 # #Big_O_Time_O(n*sums)_Space_O(n*sums) #2025_07_25_Time_564_ms_(63.45%)_Space_18.06_MB_(74.36%)
 
+from typing import List
+
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         sums = sum(nums)
