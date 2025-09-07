@@ -3,6 +3,8 @@
 # #Top_Interview_150_Array/String #Big_O_Time_O(N)_Space_O(1)
 # #2025_07_25_Time_17_ms_(98.03%)_Space_26.89_MB_(77.51%)
 
+from typing import List
+
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         min_price = float('inf')

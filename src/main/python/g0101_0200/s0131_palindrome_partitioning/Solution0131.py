@@ -2,6 +2,8 @@
 # #Backtracking #Big_O_Time_O(N*2^N)_Space_O(2^N*N)
 # #2025_07_25_Time_50_ms_(56.82%)_Space_32.70_MB_(87.12%)
 
+from typing import List
+
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
         res = []

@@ -2,6 +2,13 @@
 # #Tree #Binary_Tree #Udemy_Tree_Stack_Queue #Top_Interview_150_Binary_Tree_General
 # #Big_O_Time_O(N)_Space_O(N) #2025_07_25_Time_11_ms_(91.40%)_Space_22.92_MB_(80.36%)
 
+from typing import Optional
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
