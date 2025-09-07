@@ -4,6 +4,7 @@
 # #2025_07_24_Time_11_ms_(82.75%)_Space_20.85_MB_(56.49%)
 
 from collections import defaultdict
+from typing import List
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:

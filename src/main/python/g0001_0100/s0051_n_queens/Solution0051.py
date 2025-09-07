@@ -1,6 +1,8 @@
 # #Hard #Top_100_Liked_Questions #Array #Backtracking #Big_O_Time_O(N!)_Space_O(N)
 # #2025_07_24_Time_6_ms_(98.12%)_Space_18.42_MB_(15.31%)
 
+from typing import List
+
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
         pos = [False] * (n + 2 * n - 1 + 2 * n - 1)
@@ -26,7 +28,7 @@ class Solution:
             pos[n + i + row] = False
             pos[index] = False
 
-    def construct(self, n: int, pos: list[int], ans: list[list[str]]):
+    def construct(self, n: int, pos: List[int], ans: List[List[str]]):
         sol = []
         for r in range(n):
             queenRow = ['.'] * n

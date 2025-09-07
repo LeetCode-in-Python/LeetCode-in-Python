@@ -3,6 +3,8 @@
 # #Udemy_2D_Arrays/Matrix #Top_Interview_150_Binary_Search #Big_O_Time_O(endRow+endCol)_Space_O(1)
 # #2025_07_24_Time_0_ms_(100.00%)_Space_18.07_MB_(93.02%)
 
+from typing import List
+
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         endRow = len(matrix)

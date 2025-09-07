@@ -3,6 +3,8 @@
 # #Udemy_Famous_Algorithm #Top_Interview_150_Kadane's_Algorithm #Big_O_Time_O(n)_Space_O(1)
 # #2025_07_24_Time_50_ms_(77.23%)_Space_32.78_MB_(39.19%)
 
+from typing import List
+
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         maxi = float('-inf')
