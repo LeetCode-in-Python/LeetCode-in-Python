@@ -1,7 +1,7 @@
 import unittest
 from MinStack import MinStack
 
-class SolutionTest(unittest.TestCase):
+class MinStackTest(unittest.TestCase):
     def test_minStack(self):
         minStack = MinStack()
         minStack.push(-2)
