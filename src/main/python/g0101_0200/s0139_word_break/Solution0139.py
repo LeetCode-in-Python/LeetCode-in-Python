@@ -3,6 +3,8 @@
 # #Dynamic_Programming_I_Day_9 #Udemy_Dynamic_Programming #Top_Interview_150_1D_DP
 # #Big_O_Time_O(M+max*N)_Space_O(M+N+max) #2025_07_25_Time_3_ms_(70.59%)_Space_17.90_MB_(63.78%)
 
+from typing import List
+
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         n = len(s)

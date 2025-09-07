@@ -2,6 +2,8 @@
 # #Top_Interview_150_Hashmap #Big_O_Time_O(N_log_N)_Space_O(1)
 # #2025_07_25_Time_47_ms_(76.47%)_Space_33.24_MB_(81.27%)
 
+from typing import List
+
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         num_set = set(nums)

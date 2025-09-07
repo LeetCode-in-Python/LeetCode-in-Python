@@ -3,6 +3,8 @@
 # #Algorithm_I_Day_14_Bit_Manipulation #Udemy_Integers #Top_Interview_150_Bit_Manipulation
 # #Big_O_Time_O(N)_Space_O(1) #2025_07_25_Time_0_ms_(100.00%)_Space_19.69_MB_(43.28%)
 
+from typing import List
+
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         res = 0
