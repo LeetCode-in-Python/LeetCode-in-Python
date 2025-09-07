@@ -2,6 +2,8 @@
 # #Breadth_First_Search #Graph #Topological_Sort #Top_Interview_150_Graph_General
 # #Big_O_Time_O(N)_Space_O(N) #2025_07_25_Time_3_ms_(88.23%)_Space_19.05_MB_(73.39%)
 
+from typing import List
+
 class Solution:
     WHITE = 0
     GRAY = 1

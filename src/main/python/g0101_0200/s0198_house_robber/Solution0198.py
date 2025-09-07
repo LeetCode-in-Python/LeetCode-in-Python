@@ -3,6 +3,8 @@
 # #Level_2_Day_12_Dynamic_Programming #Udemy_Dynamic_Programming #Top_Interview_150_1D_DP
 # #Big_O_Time_O(n)_Space_O(n) #2025_07_25_Time_0_ms_(100.00%)_Space_17.77_MB_(54.18%)
 
+from typing import List
+
 class Solution:
     def rob(self, nums: List[int]) -> int:
         if len(nums) == 0:
