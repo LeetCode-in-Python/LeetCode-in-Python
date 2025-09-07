@@ -5,6 +5,8 @@
 # #Top_Interview_150_Graph_General #Big_O_Time_O(M*N)_Space_O(M*N)
 # #2025_07_25_Time_234_ms_(82.73%)_Space_19.96_MB_(95.69%)
 
+from typing import List
+
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         def dfs(grid, x, y):

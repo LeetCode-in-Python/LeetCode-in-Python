@@ -2,6 +2,8 @@
 # #Top_Interview_150_Multidimensional_DP #Big_O_Time_O(m*n)_Space_O(m*n)
 # #2025_07_25_Time_129_ms_(64.49%)_Space_33.02_MB_(58.33%)
 
+from typing import List
+
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
         if not matrix:
