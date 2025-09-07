@@ -3,6 +3,7 @@
 # #Big_O_Time_O(2^n)_Space_O(n*2^n) #2025_07_24_Time_0_ms_(100.00%)_Space_18.05_MB_(21.18%)
 
 from itertools import combinations
+from typing import List
 
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:

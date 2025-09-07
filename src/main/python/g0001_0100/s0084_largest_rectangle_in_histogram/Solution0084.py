@@ -1,6 +1,8 @@
 # #Hard #Top_100_Liked_Questions #Top_Interview_Questions #Array #Stack #Monotonic_Stack
 # #Big_O_Time_O(n_log_n)_Space_O(log_n) #2025_07_24_Time_63_ms_(99.53%)_Space_29.12_MB_(95.20%)
 
+from typing import List
+
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
         lefts = [0]

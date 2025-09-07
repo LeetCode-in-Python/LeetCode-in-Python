@@ -2,6 +2,9 @@
 # #Algorithm_II_Day_11_Recursion_Backtracking #Top_Interview_150_Backtracking
 # #Big_O_Time_O(4^(m*n))_Space_O(m*n) #2025_07_24_Time_623_ms_(94.85%)_Space_17.84_MB_(65.07%)
 
+from typing import List
+from collections import Counter
+
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
         n = len(board)
@@ -15,7 +18,8 @@ class Solution:
             c = Counter()
             for line in board:
                 c.update(line)
-            return Counter(word) <= c
+            w = Counter(word)
+            return all(c[ch] >= count for ch, count in w.items())
 
         if not is_sub(board, word):
             return False

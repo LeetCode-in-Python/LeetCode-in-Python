@@ -2,6 +2,8 @@
 # #Data_Structure_II_Day_2_Array #Udemy_Arrays #Big_O_Time_O(n)_Space_O(1)
 # #2025_07_24_Time_0_ms_(100.00%)_Space_17.89_MB_(33.05%)
 
+from typing import List
+
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
         """
