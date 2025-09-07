@@ -1,6 +1,8 @@
 # #Medium #Array #Dynamic_Programming #Backtracking #Big_O_Time_O(n*(sum+s))_Space_O(n*(sum+s))
 # #2025_07_25_Time_59_ms_(77.59%)_Space_18.11_MB_(61.50%)
 
+from typing import List
+
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         total_sum = sum(nums)
