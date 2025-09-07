@@ -2,6 +2,13 @@
 # #Divide_and_Conquer #Merge_Sort #Level_2_Day_4_Linked_List #Top_Interview_150_Divide_and_Conquer
 # #Big_O_Time_O(log(N))_Space_O(log(N)) #2025_07_25_Time_186_ms_(43.67%)_Space_32.96_MB_(41.09%)
 
+from typing import Optional
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):

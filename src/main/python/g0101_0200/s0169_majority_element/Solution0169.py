@@ -3,6 +3,8 @@
 # #Top_Interview_150_Array/String #Big_O_Time_O(n)_Space_O(1)
 # #2025_07_25_Time_7_ms_(56.72%)_Space_19.50_MB_(19.10%)
 
+from typing import List
+
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         count = 1
