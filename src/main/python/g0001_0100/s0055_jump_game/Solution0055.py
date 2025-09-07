@@ -3,6 +3,8 @@
 # #Top_Interview_150_Array/String #Big_O_Time_O(n)_Space_O(1)
 # #2025_07_24_Time_12_ms_(85.38%)_Space_18.61_MB_(41.98%)
 
+from typing import List
+
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         goal = len(nums) - 1

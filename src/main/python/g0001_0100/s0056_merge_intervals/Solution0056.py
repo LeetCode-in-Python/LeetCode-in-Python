@@ -3,6 +3,8 @@
 # #Top_Interview_150_Intervals #Big_O_Time_O(n_log_n)_Space_O(n)
 # #2025_07_24_Time_7_ms_(72.98%)_Space_20.89_MB_(89.16%)
 
+from typing import List
+
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         intervals.sort(key=lambda x: x[0])
