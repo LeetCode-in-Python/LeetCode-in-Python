@@ -1,7 +1,7 @@
 import unittest
 from LRUCache import LRUCache
 
-class SolutionTest(unittest.TestCase):
+class LRUCacheTest(unittest.TestCase):
     def test_lruCache(self):
         lru = LRUCache(2)
         lru.put(1, 1)
