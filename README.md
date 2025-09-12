@@ -250,6 +250,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0014 |[Longest Common Prefix](src/main/python/g0001_0100/s0014_longest_common_prefix/Solution0014.py)| Easy | Top_Interview_Questions, String, Big_O_Time_O(n\*m)_Space_O(m) | 0 | 100.00
 
 #### Day 3 Linked List
 
@@ -376,6 +377,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0014 |[Longest Common Prefix](src/main/python/g0001_0100/s0014_longest_common_prefix/Solution0014.py)| Easy | Top_Interview_Questions, String, Big_O_Time_O(n\*m)_Space_O(m) | 0 | 100.00
 | 0003 |[Longest Substring Without Repeating Characters](src/main/python/g0001_0100/s0003_longest_substring_without_repeating_characters/Solution0003.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Hash_Table, Sliding_Window, Big_O_Time_O(n)_Space_O(1), AI_can_be_used_to_solve_the_task | 9 | 97.01
 | 0020 |[Valid Parentheses](src/main/python/g0001_0100/s0020_valid_parentheses/Solution0020.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, String, Stack, Big_O_Time_O(n)_Space_O(n) | 0 | 100.00
 | 0005 |[Longest Palindromic Substring](src/main/python/g0001_0100/s0005_longest_palindromic_substring/Solution0005.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Dynamic_Programming, Big_O_Time_O(n)_Space_O(n) | 47 | 97.38
@@ -407,6 +409,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0026 |[Remove Duplicates from Sorted Array](src/main/python/g0001_0100/s0026_remove_duplicates_from_sorted_array/Solution0026.py)| Easy | Top_Interview_Questions, Array, Two_Pointers | 0 | 100.00
 | 0042 |[Trapping Rain Water](src/main/python/g0001_0100/s0042_trapping_rain_water/Solution0042.py)| Hard | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Two_Pointers, Stack, Monotonic_Stack, Big_O_Time_O(n)_Space_O(1) | 11 | 71.16
 | 0015 |[3Sum](src/main/python/g0001_0100/s0015_3sum/Solution0015.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Sorting, Two_Pointers, Big_O_Time_O(n\*log(n))_Space_O(n^2) | 581 | 56.92
 
@@ -514,6 +517,8 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0027 |[Remove Element](src/main/python/g0001_0100/s0027_remove_element/Solution0027.py)| Easy | Array, Two_Pointers | 0 | 100.00
+| 0026 |[Remove Duplicates from Sorted Array](src/main/python/g0001_0100/s0026_remove_duplicates_from_sorted_array/Solution0026.py)| Easy | Top_Interview_Questions, Array, Two_Pointers | 0 | 100.00
 | 0169 |[Majority Element](src/main/python/g0101_0200/s0169_majority_element/Solution0169.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Array, Hash_Table, Sorting, Counting, Divide_and_Conquer, Big_O_Time_O(n)_Space_O(1) | 7 | 56.72
 | 0189 |[Rotate Array](src/main/python/g0101_0200/s0189_rotate_array/Solution0189.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Math, Two_Pointers, Big_O_Time_O(n)_Space_O(1) | 3 | 74.65
 | 0121 |[Best Time to Buy and Sell Stock](src/main/python/g0101_0200/s0121_best_time_to_buy_and_sell_stock/Solution0121.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Big_O_Time_O(N)_Space_O(1) | 17 | 98.03
@@ -521,6 +526,9 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0045 |[Jump Game II](src/main/python/g0001_0100/s0045_jump_game_ii/Solution0045.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Greedy, Big_O_Time_O(n)_Space_O(1) | 8 | 57.34
 | 0238 |[Product of Array Except Self](src/main/python/g0201_0300/s0238_product_of_array_except_self/Solution0238.py)| Medium | Top_100_Liked_Questions, Array, Prefix_Sum, LeetCode_75_Array/String, Big_O_Time_O(n^2)_Space_O(n) | 15 | 97.12
 | 0042 |[Trapping Rain Water](src/main/python/g0001_0100/s0042_trapping_rain_water/Solution0042.py)| Hard | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Two_Pointers, Stack, Monotonic_Stack, Big_O_Time_O(n)_Space_O(1) | 11 | 71.16
+| 0013 |[Roman to Integer](src/main/python/g0001_0100/s0013_roman_to_integer/Solution0013.py)| Easy | Top_Interview_Questions, String, Hash_Table, Math, Big_O_Time_O(n)_Space_O(1) | 1 | 86.91
+| 0012 |[Integer to Roman](src/main/python/g0001_0100/s0012_integer_to_roman/Solution0012.py)| Medium | String, Hash_Table, Math, Big_O_Time_O(1)_Space_O(1) | 0 | 100.00
+| 0014 |[Longest Common Prefix](src/main/python/g0001_0100/s0014_longest_common_prefix/Solution0014.py)| Easy | Top_Interview_Questions, String, Big_O_Time_O(n\*m)_Space_O(m) | 0 | 100.00
 | 0006 |[Zigzag Conversion](src/main/python/g0001_0100/s0006_zigzag_conversion/Solution0006.py)| Medium | String, Big_O_Time_O(n)_Space_O(n) | 5 | 93.09
 
 #### Top Interview 150 Two Pointers
@@ -1678,6 +1686,8 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0033 |[Search in Rotated Sorted Array](src/main/python/g0001_0100/s0033_search_in_rotated_sorted_array/Solution0033.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Binary_Search, Algorithm_II_Day_1_Binary_Search, Binary_Search_I_Day_11, Level_2_Day_8_Binary_Search, Udemy_Binary_Search, Top_Interview_150_Binary_Search, Big_O_Time_O(log_n)_Space_O(1) | 0 | 100.00
 | 0032 |[Longest Valid Parentheses](src/main/python/g0001_0100/s0032_longest_valid_parentheses/Solution0032.py)| Hard | Top_100_Liked_Questions, String, Dynamic_Programming, Stack, Big_O_Time_O(n)_Space_O(1) | 6 | 66.50
 | 0031 |[Next Permutation](src/main/python/g0001_0100/s0031_next_permutation/Solution0031.py)| Medium | Top_100_Liked_Questions, Array, Two_Pointers, Big_O_Time_O(n)_Space_O(1) | 0 | 100.00
+| 0027 |[Remove Element](src/main/python/g0001_0100/s0027_remove_element/Solution0027.py)| Easy | Array, Two_Pointers, Top_Interview_150_Array/String | 0 | 100.00
+| 0026 |[Remove Duplicates from Sorted Array](src/main/python/g0001_0100/s0026_remove_duplicates_from_sorted_array/Solution0026.py)| Easy | Top_Interview_Questions, Array, Two_Pointers, Udemy_Two_Pointers, Top_Interview_150_Array/String | 0 | 100.00
 | 0025 |[Reverse Nodes in k-Group](src/main/python/g0001_0100/s0025_reverse_nodes_in_k_group/Solution0025.py)| Hard | Top_100_Liked_Questions, Linked_List, Recursion, Data_Structure_II_Day_13_Linked_List, Udemy_Linked_List, Top_Interview_150_Linked_List, Big_O_Time_O(n)_Space_O(k) | 0 | 100.00
 | 0024 |[Swap Nodes in Pairs](src/main/python/g0001_0100/s0024_swap_nodes_in_pairs/Solution0024.py)| Medium | Top_100_Liked_Questions, Linked_List, Recursion, Data_Structure_II_Day_12_Linked_List, Udemy_Linked_List, Big_O_Time_O(n)_Space_O(1) | 0 | 100.00
 | 0023 |[Merge k Sorted Lists](src/main/python/g0001_0100/s0023_merge_k_sorted_lists/Solution0023.py)| Hard | Top_100_Liked_Questions, Top_Interview_Questions, Heap_Priority_Queue, Linked_List, Divide_and_Conquer, Merge_Sort, Top_Interview_150_Divide_and_Conquer, Big_O_Time_O(k\*n\*log(k))_Space_O(log(k)) | 5 | 93.52
@@ -1687,6 +1697,9 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0019 |[Remove Nth Node From End of List](src/main/python/g0001_0100/s0019_remove_nth_node_from_end_of_list/Solution0019.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Two_Pointers, Linked_List, Algorithm_I_Day_5_Two_Pointers, Level_2_Day_3_Linked_List, Top_Interview_150_Linked_List, Big_O_Time_O(L)_Space_O(L) | 0 | 100.00
 | 0017 |[Letter Combinations of a Phone Number](src/main/python/g0001_0100/s0017_letter_combinations_of_a_phone_number/Solution0017.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Hash_Table, Backtracking, LeetCode_75_Backtracking, Algorithm_II_Day_11_Recursion_Backtracking, Udemy_Backtracking/Recursion, Top_Interview_150_Backtracking, Big_O_Time_O(4^n)_Space_O(n) | 0 | 100.00
 | 0015 |[3Sum](src/main/python/g0001_0100/s0015_3sum/Solution0015.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Sorting, Two_Pointers, Data_Structure_II_Day_1_Array, Algorithm_II_Day_3_Two_Pointers, Udemy_Two_Pointers, Top_Interview_150_Two_Pointers, Big_O_Time_O(n\*log(n))_Space_O(n^2) | 581 | 56.92
+| 0014 |[Longest Common Prefix](src/main/python/g0001_0100/s0014_longest_common_prefix/Solution0014.py)| Easy | Top_Interview_Questions, String, Level_2_Day_2_String, Udemy_Strings, Top_Interview_150_Array/String, Big_O_Time_O(n\*m)_Space_O(m) | 0 | 100.00
+| 0013 |[Roman to Integer](src/main/python/g0001_0100/s0013_roman_to_integer/Solution0013.py)| Easy | Top_Interview_Questions, String, Hash_Table, Math, Top_Interview_150_Array/String, Big_O_Time_O(n)_Space_O(1) | 1 | 86.91
+| 0012 |[Integer to Roman](src/main/python/g0001_0100/s0012_integer_to_roman/Solution0012.py)| Medium | String, Hash_Table, Math, Top_Interview_150_Array/String, Big_O_Time_O(1)_Space_O(1) | 0 | 100.00
 | 0011 |[Container With Most Water](src/main/python/g0001_0100/s0011_container_with_most_water/Solution0011.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Greedy, Two_Pointers, LeetCode_75_Two_Pointers, Algorithm_II_Day_4_Two_Pointers, Top_Interview_150_Two_Pointers, Big_O_Time_O(n)_Space_O(1) | 68 | 91.16
 | 0010 |[Regular Expression Matching](src/main/python/g0001_0100/s0010_regular_expression_matching/Solution0010.py)| Hard | Top_Interview_Questions, String, Dynamic_Programming, Recursion, Udemy_Dynamic_Programming, Big_O_Time_O(m\*n)_Space_O(m\*n) | 1 | 97.40
 | 0009 |[Palindrome Number](src/main/python/g0001_0100/s0009_palindrome_number/Solution0009.py)| Easy | Math, Udemy_Integers, Top_Interview_150_Math, Big_O_Time_O(log10(x))_Space_O(1) | 4 | 80.28
