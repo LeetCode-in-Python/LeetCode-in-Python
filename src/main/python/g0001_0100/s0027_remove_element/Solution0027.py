@@ -1,4 +1,5 @@
 # #Easy #Array #Two_Pointers #Top_Interview_150_Array/String
+# #2025_09_12_Time_0_ms_(100.00%)_Space_17.75_MB_(52.42%)
 
 from typing import List
 
