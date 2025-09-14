@@ -310,6 +310,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0210 |[Course Schedule II](src/main/python/g0201_0300/s0210_course_schedule_ii/Solution0210.py)| Medium | Top_Interview_Questions, Depth_First_Search, Breadth_First_Search, Graph, Topological_Sort | 0 | 100.00
 
 #### Day 12 Dynamic Programming
 
@@ -596,6 +597,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0049 |[Group Anagrams](src/main/python/g0001_0100/s0049_group_anagrams/Solution0049.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, String, Hash_Table, Sorting, Big_O_Time_O(n\*k_log_k)_Space_O(n) | 11 | 82.75
 | 0001 |[Two Sum](src/main/python/g0001_0100/s0001_two_sum/Solution0001.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Array, Hash_Table, Big_O_Time_O(n)_Space_O(n), AI_can_be_used_to_solve_the_task | 0 | 100.00
 | 0202 |[Happy Number](src/main/python/g0201_0300/s0202_happy_number/Solution0202.py)| Easy | Top_Interview_Questions, Hash_Table, Math, Two_Pointers | 0 | 100.00
+| 0219 |[Contains Duplicate II](src/main/python/g0201_0300/s0219_contains_duplicate_ii/Solution0219.py)| Easy | Array, Hash_Table, Sliding_Window | 26 | 84.30
 | 0128 |[Longest Consecutive Sequence](src/main/python/g0101_0200/s0128_longest_consecutive_sequence/Solution0128.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Hash_Table, Union_Find, Big_O_Time_O(N_log_N)_Space_O(1) | 47 | 76.47
 
 #### Top Interview 150 Intervals
@@ -613,6 +615,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0071 |[Simplify Path](src/main/python/g0001_0100/s0071_simplify_path/Solution0071.py)| Medium | String, Stack | 0 | 100.00
 | 0155 |[Min Stack](src/main/python/g0101_0200/s0155_min_stack/MinStack.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Stack, Design, Big_O_Time_O(1)_Space_O(N) | 3 | 83.83
 | 0150 |[Evaluate Reverse Polish Notation](src/main/python/g0101_0200/s0150_evaluate_reverse_polish_notation/Solution0150.py)| Medium | Top_Interview_Questions, Array, Math, Stack | 0 | 100.00
+| 0224 |[Basic Calculator](src/main/python/g0201_0300/s0224_basic_calculator/Solution0224.py)| Hard | String, Math, Stack, Recursion | 19 | 93.87
 
 #### Top Interview 150 Linked List
 
@@ -670,6 +673,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0130 |[Surrounded Regions](src/main/python/g0101_0200/s0130_surrounded_regions/Solution0130.py)| Medium | Top_Interview_Questions, Array, Depth_First_Search, Breadth_First_Search, Matrix, Union_Find | 3 | 86.86
 | 0133 |[Clone Graph](src/main/python/g0101_0200/s0133_clone_graph/Solution0133.py)| Medium | Hash_Table, Depth_First_Search, Breadth_First_Search, Graph | 38 | 86.28
 | 0207 |[Course Schedule](src/main/python/g0201_0300/s0207_course_schedule/Solution0207.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Depth_First_Search, Breadth_First_Search, Graph, Topological_Sort, Big_O_Time_O(N)_Space_O(N) | 3 | 88.23
+| 0210 |[Course Schedule II](src/main/python/g0201_0300/s0210_course_schedule_ii/Solution0210.py)| Medium | Top_Interview_Questions, Depth_First_Search, Breadth_First_Search, Graph, Topological_Sort | 0 | 100.00
 
 #### Top Interview 150 Graph BFS
 
@@ -682,6 +686,8 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
 | 0208 |[Implement Trie (Prefix Tree)](src/main/python/g0201_0300/s0208_implement_trie_prefix_tree/Trie.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Hash_Table, Design, Trie, LeetCode_75_Trie, Big_O_Time_O(word.length())_or_O(prefix.length())_Space_O(N) | 44 | 68.94
+| 0211 |[Design Add and Search Words Data Structure](src/main/python/g0201_0300/s0211_design_add_and_search_words_data_structure/Solution0211.py)| Medium | String, Depth_First_Search, Design, Trie | 1114 | 83.50
+| 0212 |[Word Search II](src/main/python/g0201_0300/s0212_word_search_ii/Solution0212.py)| Hard | Top_Interview_Questions, Array, String, Matrix, Backtracking, Trie | 615 | 82.14
 
 #### Top Interview 150 Backtracking
 
@@ -1724,8 +1730,13 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0234 |[Palindrome Linked List](src/main/python/g0201_0300/s0234_palindrome_linked_list/Solution0234.py)| Easy | Top_100_Liked_Questions, Two_Pointers, Stack, Linked_List, Recursion, Level_2_Day_3_Linked_List, Udemy_Linked_List, Big_O_Time_O(n)_Space_O(1) | 23 | 81.92
 | 0230 |[Kth Smallest Element in a BST](src/main/python/g0201_0300/s0230_kth_smallest_element_in_a_bst/Solution0230.py)| Medium | Top_100_Liked_Questions, Depth_First_Search, Tree, Binary_Tree, Binary_Search_Tree, Data_Structure_II_Day_17_Tree, Level_2_Day_9_Binary_Search_Tree, Top_Interview_150_Binary_Search_Tree, Big_O_Time_O(n)_Space_O(n) | 0 | 100.00
 | 0226 |[Invert Binary Tree](src/main/python/g0201_0300/s0226_invert_binary_tree/Solution0226.py)| Easy | Top_100_Liked_Questions, Depth_First_Search, Breadth_First_Search, Tree, Binary_Tree, Data_Structure_I_Day_12_Tree, Level_2_Day_6_Tree, Udemy_Tree_Stack_Queue, Top_Interview_150_Binary_Tree_General, Big_O_Time_O(n)_Space_O(n) | 0 | 100.00
+| 0224 |[Basic Calculator](src/main/python/g0201_0300/s0224_basic_calculator/Solution0224.py)| Hard | String, Math, Stack, Recursion, Top_Interview_150_Stack | 19 | 93.87
 | 0221 |[Maximal Square](src/main/python/g0201_0300/s0221_maximal_square/Solution0221.py)| Medium | Array, Dynamic_Programming, Matrix, Dynamic_Programming_I_Day_16, Top_Interview_150_Multidimensional_DP, Big_O_Time_O(m\*n)_Space_O(m\*n) | 129 | 64.49
+| 0219 |[Contains Duplicate II](src/main/python/g0201_0300/s0219_contains_duplicate_ii/Solution0219.py)| Easy | Array, Hash_Table, Sliding_Window, Top_Interview_150_Hashmap | 26 | 84.30
 | 0215 |[Kth Largest Element in an Array](src/main/python/g0201_0300/s0215_kth_largest_element_in_an_array/Solution0215.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Sorting, Heap_Priority_Queue, Divide_and_Conquer, Quickselect, LeetCode_75_Heap/Priority_Queue, Data_Structure_II_Day_20_Heap_Priority_Queue, Top_Interview_150_Heap, Big_O_Time_O(n\*log(n))_Space_O(log(n)) | 45 | 90.46
+| 0212 |[Word Search II](src/main/python/g0201_0300/s0212_word_search_ii/Solution0212.py)| Hard | Top_Interview_Questions, Array, String, Matrix, Backtracking, Trie, Top_Interview_150_Trie | 615 | 82.14
+| 0211 |[Design Add and Search Words Data Structure](src/main/python/g0201_0300/s0211_design_add_and_search_words_data_structure/Solution0211.py)| Medium | String, Depth_First_Search, Design, Trie, Top_Interview_150_Trie | 1114 | 83.50
+| 0210 |[Course Schedule II](src/main/python/g0201_0300/s0210_course_schedule_ii/Solution0210.py)| Medium | Top_Interview_Questions, Depth_First_Search, Breadth_First_Search, Graph, Topological_Sort, Level_2_Day_11_Graph/BFS/DFS, Top_Interview_150_Graph_General | 0 | 100.00
 | 0209 |[Minimum Size Subarray Sum](src/main/python/g0201_0300/s0209_minimum_size_subarray_sum/Solution0209.py)| Medium | Array, Binary_Search, Prefix_Sum, Sliding_Window, Algorithm_II_Day_5_Sliding_Window, Binary_Search_II_Day_1, Top_Interview_150_Sliding_Window | 7 | 91.69
 | 0208 |[Implement Trie (Prefix Tree)](src/main/python/g0201_0300/s0208_implement_trie_prefix_tree/Trie.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Hash_Table, Design, Trie, LeetCode_75_Trie, Level_2_Day_16_Design, Udemy_Trie_and_Heap, Top_Interview_150_Trie, Big_O_Time_O(word.length())_or_O(prefix.length())_Space_O(N) | 44 | 68.94
 | 0207 |[Course Schedule](src/main/python/g0201_0300/s0207_course_schedule/Solution0207.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Depth_First_Search, Breadth_First_Search, Graph, Topological_Sort, Top_Interview_150_Graph_General, Big_O_Time_O(N)_Space_O(N) | 3 | 88.23
