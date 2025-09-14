@@ -87,6 +87,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0127 |[Word Ladder](src/main/python/g0101_0200/s0127_word_ladder/Solution0127.py)| Hard | Top_Interview_Questions, String, Hash_Table, Breadth_First_Search | 21 | 99.65
 
 #### Day 13 Graph Theory
 
@@ -403,6 +404,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0283 |[Move Zeroes](src/main/python/g0201_0300/s0283_move_zeroes/Solution0283.py)| Easy | Top_100_Liked_Questions, Array, Two_Pointers, LeetCode_75_Two_Pointers, Big_O_Time_O(n)_Space_O(1) | 3 | 80.05
 | 0001 |[Two Sum](src/main/python/g0001_0100/s0001_two_sum/Solution0001.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Array, Hash_Table, Big_O_Time_O(n)_Space_O(n), AI_can_be_used_to_solve_the_task | 0 | 100.00
 | 0058 |[Length of Last Word](src/main/python/g0001_0100/s0058_length_of_last_word/Solution0058.py)| Easy | String | 0 | 100.00
+| 0122 |[Best Time to Buy and Sell Stock II](src/main/python/g0101_0200/s0122_best_time_to_buy_and_sell_stock_ii/Solution0122.py)| Medium | Top_Interview_Questions, Array, Dynamic_Programming, Greedy | 0 | 100.00
 | 0080 |[Remove Duplicates from Sorted Array II](src/main/python/g0001_0100/s0080_remove_duplicates_from_sorted_array_ii/Solution0080.py)| Medium | Array, Two_Pointers | 73 | 96.40
 | 0189 |[Rotate Array](src/main/python/g0101_0200/s0189_rotate_array/Solution0189.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Math, Two_Pointers, Big_O_Time_O(n)_Space_O(1) | 3 | 74.65
 | 0055 |[Jump Game](src/main/python/g0001_0100/s0055_jump_game/Solution0055.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Greedy, Big_O_Time_O(n)_Space_O(1) | 12 | 85.38
@@ -416,6 +418,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0125 |[Valid Palindrome](src/main/python/g0101_0200/s0125_valid_palindrome/Solution0125.py)| Hard | Array, Dynamic_Programming | 232 | 75.22
 | 0026 |[Remove Duplicates from Sorted Array](src/main/python/g0001_0100/s0026_remove_duplicates_from_sorted_array/Solution0026.py)| Easy | Top_Interview_Questions, Array, Two_Pointers | 0 | 100.00
 | 0042 |[Trapping Rain Water](src/main/python/g0001_0100/s0042_trapping_rain_water/Solution0042.py)| Hard | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Two_Pointers, Stack, Monotonic_Stack, Big_O_Time_O(n)_Space_O(1) | 11 | 71.16
 | 0015 |[3Sum](src/main/python/g0001_0100/s0015_3sum/Solution0015.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Sorting, Two_Pointers, Big_O_Time_O(n\*log(n))_Space_O(n^2) | 581 | 56.92
@@ -486,11 +489,13 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
 | 0200 |[Number of Islands](src/main/python/g0101_0200/s0200_number_of_islands/Solution0200.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Depth_First_Search, Breadth_First_Search, Matrix, Union_Find, Big_O_Time_O(M\*N)_Space_O(M\*N) | 234 | 82.73
+| 0133 |[Clone Graph](src/main/python/g0101_0200/s0133_clone_graph/Solution0133.py)| Medium | Hash_Table, Depth_First_Search, Breadth_First_Search, Graph | 38 | 86.28
 
 #### Udemy Dynamic Programming
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0120 |[Triangle](src/main/python/g0101_0200/s0120_triangle/Solution0120.py)| Medium | Array, Dynamic_Programming | 0 | 100.00
 | 0139 |[Word Break](src/main/python/g0101_0200/s0139_word_break/Solution0139.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Hash_Table, Dynamic_Programming, Trie, Memoization, Big_O_Time_O(M+max\*N)_Space_O(M+N+max) | 3 | 70.59
 | 0152 |[Maximum Product Subarray](src/main/python/g0101_0200/s0152_maximum_product_subarray/Solution0152.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Big_O_Time_O(N)_Space_O(1) | 3 | 98.51
 | 0198 |[House Robber](src/main/python/g0101_0200/s0198_house_robber/Solution0198.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, LeetCode_75_DP/1D, Big_O_Time_O(n)_Space_O(n) | 0 | 100.00
@@ -536,9 +541,12 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0169 |[Majority Element](src/main/python/g0101_0200/s0169_majority_element/Solution0169.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Array, Hash_Table, Sorting, Counting, Divide_and_Conquer, Big_O_Time_O(n)_Space_O(1) | 7 | 56.72
 | 0189 |[Rotate Array](src/main/python/g0101_0200/s0189_rotate_array/Solution0189.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Math, Two_Pointers, Big_O_Time_O(n)_Space_O(1) | 3 | 74.65
 | 0121 |[Best Time to Buy and Sell Stock](src/main/python/g0101_0200/s0121_best_time_to_buy_and_sell_stock/Solution0121.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Big_O_Time_O(N)_Space_O(1) | 17 | 98.03
+| 0122 |[Best Time to Buy and Sell Stock II](src/main/python/g0101_0200/s0122_best_time_to_buy_and_sell_stock_ii/Solution0122.py)| Medium | Top_Interview_Questions, Array, Dynamic_Programming, Greedy | 0 | 100.00
 | 0055 |[Jump Game](src/main/python/g0001_0100/s0055_jump_game/Solution0055.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Greedy, Big_O_Time_O(n)_Space_O(1) | 12 | 85.38
 | 0045 |[Jump Game II](src/main/python/g0001_0100/s0045_jump_game_ii/Solution0045.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Greedy, Big_O_Time_O(n)_Space_O(1) | 8 | 57.34
 | 0238 |[Product of Array Except Self](src/main/python/g0201_0300/s0238_product_of_array_except_self/Solution0238.py)| Medium | Top_100_Liked_Questions, Array, Prefix_Sum, LeetCode_75_Array/String, Big_O_Time_O(n^2)_Space_O(n) | 15 | 97.12
+| 0134 |[Gas Station](src/main/python/g0101_0200/s0134_gas_station/Solution0134.py)| Medium | Top_Interview_Questions, Array, Greedy | 15 | 88.80
+| 0135 |[Candy](src/main/python/g0101_0200/s0135_candy/Solution0135.py)| Hard | Array, Greedy | 7 | 97.91
 | 0042 |[Trapping Rain Water](src/main/python/g0001_0100/s0042_trapping_rain_water/Solution0042.py)| Hard | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Two_Pointers, Stack, Monotonic_Stack, Big_O_Time_O(n)_Space_O(1) | 11 | 71.16
 | 0013 |[Roman to Integer](src/main/python/g0001_0100/s0013_roman_to_integer/Solution0013.py)| Easy | Top_Interview_Questions, String, Hash_Table, Math, Big_O_Time_O(n)_Space_O(1) | 1 | 86.91
 | 0012 |[Integer to Roman](src/main/python/g0001_0100/s0012_integer_to_roman/Solution0012.py)| Medium | String, Hash_Table, Math, Big_O_Time_O(1)_Space_O(1) | 0 | 100.00
@@ -552,6 +560,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0125 |[Valid Palindrome](src/main/python/g0101_0200/s0125_valid_palindrome/Solution0125.py)| Hard | Array, Dynamic_Programming | 232 | 75.22
 | 0011 |[Container With Most Water](src/main/python/g0001_0100/s0011_container_with_most_water/Solution0011.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Greedy, Two_Pointers, LeetCode_75_Two_Pointers, Big_O_Time_O(n)_Space_O(1) | 68 | 91.16
 | 0015 |[3Sum](src/main/python/g0001_0100/s0015_3sum/Solution0015.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Sorting, Two_Pointers, Big_O_Time_O(n\*log(n))_Space_O(n^2) | 581 | 56.92
 
@@ -624,6 +633,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0117 |[Populating Next Right Pointers in Each Node II](src/main/python/g0101_0200/s0117_populating_next_right_pointers_in_each_node_ii/Solution0117.py)| Medium | Depth_First_Search, Breadth_First_Search, Tree, Binary_Tree, Linked_List | 44 | 70.94
 | 0114 |[Flatten Binary Tree to Linked List](src/main/python/g0101_0200/s0114_flatten_binary_tree_to_linked_list/Solution0114.py)| Medium | Top_100_Liked_Questions, Depth_First_Search, Tree, Binary_Tree, Stack, Linked_List, Big_O_Time_O(N)_Space_O(N) | 0 | 100.00
 | 0112 |[Path Sum](src/main/python/g0101_0200/s0112_path_sum/Solution0112.py)| Easy | Depth_First_Search, Breadth_First_Search, Tree, Binary_Tree | 0 | 100.00
+| 0129 |[Sum Root to Leaf Numbers](src/main/python/g0101_0200/s0129_sum_root_to_leaf_numbers/Solution0129.py)| Medium | Depth_First_Search, Tree, Binary_Tree | 0 | 100.00
 | 0124 |[Binary Tree Maximum Path Sum](src/main/python/g0101_0200/s0124_binary_tree_maximum_path_sum/Solution0124.py)| Hard | Top_100_Liked_Questions, Top_Interview_Questions, Dynamic_Programming, Depth_First_Search, Tree, Binary_Tree, Big_O_Time_O(N)_Space_O(N) | 11 | 91.40
 | 0236 |[Lowest Common Ancestor of a Binary Tree](src/main/python/g0201_0300/s0236_lowest_common_ancestor_of_a_binary_tree/Solution0236.py)| Medium | Top_100_Liked_Questions, Depth_First_Search, Tree, Binary_Tree, LeetCode_75_Binary_Tree/DFS, Big_O_Time_O(n)_Space_O(n) | 41 | 97.74
 
@@ -646,12 +656,15 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
 | 0200 |[Number of Islands](src/main/python/g0101_0200/s0200_number_of_islands/Solution0200.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Depth_First_Search, Breadth_First_Search, Matrix, Union_Find, Big_O_Time_O(M\*N)_Space_O(M\*N) | 234 | 82.73
+| 0130 |[Surrounded Regions](src/main/python/g0101_0200/s0130_surrounded_regions/Solution0130.py)| Medium | Top_Interview_Questions, Array, Depth_First_Search, Breadth_First_Search, Matrix, Union_Find | 3 | 86.86
+| 0133 |[Clone Graph](src/main/python/g0101_0200/s0133_clone_graph/Solution0133.py)| Medium | Hash_Table, Depth_First_Search, Breadth_First_Search, Graph | 38 | 86.28
 | 0207 |[Course Schedule](src/main/python/g0201_0300/s0207_course_schedule/Solution0207.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Depth_First_Search, Breadth_First_Search, Graph, Topological_Sort, Big_O_Time_O(N)_Space_O(N) | 3 | 88.23
 
 #### Top Interview 150 Graph BFS
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0127 |[Word Ladder](src/main/python/g0101_0200/s0127_word_ladder/Solution0127.py)| Hard | Top_Interview_Questions, String, Hash_Table, Breadth_First_Search | 21 | 99.65
 
 #### Top Interview 150 Trie
 
@@ -730,11 +743,13 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0120 |[Triangle](src/main/python/g0101_0200/s0120_triangle/Solution0120.py)| Medium | Array, Dynamic_Programming | 0 | 100.00
 | 0064 |[Minimum Path Sum](src/main/python/g0001_0100/s0064_minimum_path_sum/Solution0064.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Matrix, Big_O_Time_O(m\*n)_Space_O(m\*n) | 15 | 60.38
 | 0063 |[Unique Paths II](src/main/python/g0001_0100/s0063_unique_paths_ii/Solution0063.py)| Medium | Array, Dynamic_Programming, Matrix | 0 | 100.00
 | 0005 |[Longest Palindromic Substring](src/main/python/g0001_0100/s0005_longest_palindromic_substring/Solution0005.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Dynamic_Programming, Big_O_Time_O(n)_Space_O(n) | 47 | 97.38
 | 0097 |[Interleaving String](src/main/python/g0001_0100/s0097_interleaving_string/Solution0097.py)| Medium | String, Dynamic_Programming | 37 | 90.93
 | 0072 |[Edit Distance](src/main/python/g0001_0100/s0072_edit_distance/Solution0072.py)| Medium | Top_100_Liked_Questions, String, Dynamic_Programming, LeetCode_75_DP/Multidimensional, Big_O_Time_O(n^2)_Space_O(n2) | 23 | 98.84
+| 0123 |[Best Time to Buy and Sell Stock III](src/main/python/g0101_0200/s0123_best_time_to_buy_and_sell_stock_iii/Solution0123.py)| Hard | Array, Dynamic_Programming | 232 | 75.22
 | 0221 |[Maximal Square](src/main/python/g0201_0300/s0221_maximal_square/Solution0221.py)| Medium | Array, Dynamic_Programming, Matrix, Big_O_Time_O(m\*n)_Space_O(m\*n) | 129 | 64.49
 
 ### Data Structure I
@@ -1031,6 +1046,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 |-|-|-|-|-|-
 | 0070 |[Climbing Stairs](src/main/python/g0001_0100/s0070_climbing_stairs/Solution0070.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Dynamic_Programming, Math, Memoization, Big_O_Time_O(n)_Space_O(n) | 0 | 100.00
 | 0198 |[House Robber](src/main/python/g0101_0200/s0198_house_robber/Solution0198.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, LeetCode_75_DP/1D, Big_O_Time_O(n)_Space_O(n) | 0 | 100.00
+| 0120 |[Triangle](src/main/python/g0101_0200/s0120_triangle/Solution0120.py)| Medium | Array, Dynamic_Programming | 0 | 100.00
 
 #### Day 13 Bit Manipulation
 
@@ -1094,6 +1110,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0130 |[Surrounded Regions](src/main/python/g0101_0200/s0130_surrounded_regions/Solution0130.py)| Medium | Top_Interview_Questions, Array, Depth_First_Search, Breadth_First_Search, Matrix, Union_Find | 3 | 86.86
 
 #### Day 9 Recursion Backtracking
 
@@ -1389,6 +1406,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
 | 0121 |[Best Time to Buy and Sell Stock](src/main/python/g0101_0200/s0121_best_time_to_buy_and_sell_stock/Solution0121.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Big_O_Time_O(N)_Space_O(1) | 17 | 98.03
+| 0122 |[Best Time to Buy and Sell Stock II](src/main/python/g0101_0200/s0122_best_time_to_buy_and_sell_stock_ii/Solution0122.py)| Medium | Top_Interview_Questions, Array, Dynamic_Programming, Greedy | 0 | 100.00
 
 #### Day 8
 
@@ -1422,6 +1440,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 
 | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- --> | <!-- -->
 |-|-|-|-|-|-
+| 0120 |[Triangle](src/main/python/g0101_0200/s0120_triangle/Solution0120.py)| Medium | Array, Dynamic_Programming | 0 | 100.00
 
 #### Day 14
 
@@ -1700,10 +1719,20 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0139 |[Word Break](src/main/python/g0101_0200/s0139_word_break/Solution0139.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Hash_Table, Dynamic_Programming, Trie, Memoization, Algorithm_II_Day_15_Dynamic_Programming, Dynamic_Programming_I_Day_9, Udemy_Dynamic_Programming, Top_Interview_150_1D_DP, Big_O_Time_O(M+max\*N)_Space_O(M+N+max) | 3 | 70.59
 | 0138 |[Copy List with Random Pointer](src/main/python/g0101_0200/s0138_copy_list_with_random_pointer/Solution0138.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Hash_Table, Linked_List, Programming_Skills_II_Day_14, Udemy_Linked_List, Top_Interview_150_Linked_List, Big_O_Time_O(N)_Space_O(N) | 38 | 77.31
 | 0136 |[Single Number](src/main/python/g0101_0200/s0136_single_number/Solution0136.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Array, Bit_Manipulation, LeetCode_75_Bit_Manipulation, Data_Structure_II_Day_1_Array, Algorithm_I_Day_14_Bit_Manipulation, Udemy_Integers, Top_Interview_150_Bit_Manipulation, Big_O_Time_O(N)_Space_O(1) | 0 | 100.00
+| 0135 |[Candy](src/main/python/g0101_0200/s0135_candy/Solution0135.py)| Hard | Array, Greedy, Top_Interview_150_Array/String | 7 | 97.91
+| 0134 |[Gas Station](src/main/python/g0101_0200/s0134_gas_station/Solution0134.py)| Medium | Top_Interview_Questions, Array, Greedy, Top_Interview_150_Array/String | 15 | 88.80
+| 0133 |[Clone Graph](src/main/python/g0101_0200/s0133_clone_graph/Solution0133.py)| Medium | Hash_Table, Depth_First_Search, Breadth_First_Search, Graph, Udemy_Graph, Top_Interview_150_Graph_General | 38 | 86.28
 | 0131 |[Palindrome Partitioning](src/main/python/g0101_0200/s0131_palindrome_partitioning/Solution0131.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, String, Dynamic_Programming, Backtracking, Big_O_Time_O(N\*2^N)_Space_O(2^N\*N) | 50 | 56.82
+| 0130 |[Surrounded Regions](src/main/python/g0101_0200/s0130_surrounded_regions/Solution0130.py)| Medium | Top_Interview_Questions, Array, Depth_First_Search, Breadth_First_Search, Matrix, Union_Find, Algorithm_II_Day_8_Breadth_First_Search_Depth_First_Search, Top_Interview_150_Graph_General | 3 | 86.86
+| 0129 |[Sum Root to Leaf Numbers](src/main/python/g0101_0200/s0129_sum_root_to_leaf_numbers/Solution0129.py)| Medium | Depth_First_Search, Tree, Binary_Tree, Top_Interview_150_Binary_Tree_General | 0 | 100.00
 | 0128 |[Longest Consecutive Sequence](src/main/python/g0101_0200/s0128_longest_consecutive_sequence/Solution0128.py)| Medium | Top_100_Liked_Questions, Top_Interview_Questions, Array, Hash_Table, Union_Find, Top_Interview_150_Hashmap, Big_O_Time_O(N_log_N)_Space_O(1) | 47 | 76.47
+| 0127 |[Word Ladder](src/main/python/g0101_0200/s0127_word_ladder/Solution0127.py)| Hard | Top_Interview_Questions, String, Hash_Table, Breadth_First_Search, Graph_Theory_I_Day_12_Breadth_First_Search, Top_Interview_150_Graph_BFS | 21 | 99.65
+| 0125 |[Valid Palindrome](src/main/python/g0101_0200/s0125_valid_palindrome/Solution0125.py)| Hard | Array, Dynamic_Programming, Top_Interview_150_Multidimensional_DP | 232 | 75.22
 | 0124 |[Binary Tree Maximum Path Sum](src/main/python/g0101_0200/s0124_binary_tree_maximum_path_sum/Solution0124.py)| Hard | Top_100_Liked_Questions, Top_Interview_Questions, Dynamic_Programming, Depth_First_Search, Tree, Binary_Tree, Udemy_Tree_Stack_Queue, Top_Interview_150_Binary_Tree_General, Big_O_Time_O(N)_Space_O(N) | 11 | 91.40
+| 0123 |[Best Time to Buy and Sell Stock III](src/main/python/g0101_0200/s0123_best_time_to_buy_and_sell_stock_iii/Solution0123.py)| Hard | Array, Dynamic_Programming, Top_Interview_150_Multidimensional_DP | 232 | 75.22
+| 0122 |[Best Time to Buy and Sell Stock II](src/main/python/g0101_0200/s0122_best_time_to_buy_and_sell_stock_ii/Solution0122.py)| Medium | Top_Interview_Questions, Array, Dynamic_Programming, Greedy, Dynamic_Programming_I_Day_7, Udemy_Arrays, Top_Interview_150_Array/String | 0 | 100.00
 | 0121 |[Best Time to Buy and Sell Stock](src/main/python/g0101_0200/s0121_best_time_to_buy_and_sell_stock/Solution0121.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Array, Dynamic_Programming, Data_Structure_I_Day_3_Array, Dynamic_Programming_I_Day_7, Level_1_Day_5_Greedy, Udemy_Arrays, Top_Interview_150_Array/String, Big_O_Time_O(N)_Space_O(1) | 17 | 98.03
+| 0120 |[Triangle](src/main/python/g0101_0200/s0120_triangle/Solution0120.py)| Medium | Array, Dynamic_Programming, Algorithm_I_Day_12_Dynamic_Programming, Dynamic_Programming_I_Day_13, Udemy_Dynamic_Programming, Top_Interview_150_Multidimensional_DP | 0 | 100.00
 | 0117 |[Populating Next Right Pointers in Each Node II](src/main/python/g0101_0200/s0117_populating_next_right_pointers_in_each_node_ii/Solution0117.py)| Medium | Depth_First_Search, Breadth_First_Search, Tree, Binary_Tree, Linked_List, Algorithm_II_Day_7_Breadth_First_Search_Depth_First_Search, Top_Interview_150_Binary_Tree_General | 44 | 70.94
 | 0114 |[Flatten Binary Tree to Linked List](src/main/python/g0101_0200/s0114_flatten_binary_tree_to_linked_list/Solution0114.py)| Medium | Top_100_Liked_Questions, Depth_First_Search, Tree, Binary_Tree, Stack, Linked_List, Udemy_Linked_List, Top_Interview_150_Binary_Tree_General, Big_O_Time_O(N)_Space_O(N) | 0 | 100.00
 | 0112 |[Path Sum](src/main/python/g0101_0200/s0112_path_sum/Solution0112.py)| Easy | Depth_First_Search, Breadth_First_Search, Tree, Binary_Tree, Data_Structure_I_Day_12_Tree, Top_Interview_150_Binary_Tree_General | 0 | 100.00
