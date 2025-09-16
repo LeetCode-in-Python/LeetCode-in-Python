@@ -28,7 +28,7 @@ class Solution:
                         sb.append(' ')
                         line_total += 1
                 else:
-                    # # of extra spaces
+                    # of extra spaces
                     extra_sp = (maxWidth - line_total) % (num_words_on_line - 1)
                     # Creating the line
                     for j in range(start_word, start_word + num_words_on_line - 1):
