@@ -564,7 +564,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0151 |[Reverse Words in a String](src/main/python/g0101_0200/s0151_reverse_words_in_a_string/Solution0151.py)| Medium | String, Two_Pointers, LeetCode_75_Array/String | 0 | 100.00
 | 0006 |[Zigzag Conversion](src/main/python/g0001_0100/s0006_zigzag_conversion/Solution0006.py)| Medium | String, Big_O_Time_O(n)_Space_O(n) | 5 | 93.09
 | 0028 |[Implement strStr()](src/main/python/g0001_0100/s0028_find_the_index_of_the_first_occurrence_in_a_string/Solution0028.py)| Easy | Top_Interview_Questions, String, Two_Pointers, String_Matching | 0 | 100.00
-| 0068 |[Text Justification](src/main/python/g0001_0100/s0068_text_justification/Solution0068.py)| Hard | Array, String, Simulation, 2025_09_13_Time_0_ms_(100.00%)_Space_17.85_MB_(62.97%) |  | 
+| 0068 |[Text Justification](src/main/python/g0001_0100/s0068_text_justification/Solution0068.py)| Hard | Array, String, Simulation | 0 | 100.00
 
 #### Top Interview 150 Two Pointers
 
@@ -1829,7 +1829,7 @@ Python-based LeetCode algorithm problem solutions, regularly updated.
 | 0072 |[Edit Distance](src/main/python/g0001_0100/s0072_edit_distance/Solution0072.py)| Medium | Top_100_Liked_Questions, String, Dynamic_Programming, LeetCode_75_DP/Multidimensional, Algorithm_II_Day_18_Dynamic_Programming, Dynamic_Programming_I_Day_19, Udemy_Dynamic_Programming, Top_Interview_150_Multidimensional_DP, Big_O_Time_O(n^2)_Space_O(n2) | 23 | 98.84
 | 0071 |[Simplify Path](src/main/python/g0001_0100/s0071_simplify_path/Solution0071.py)| Medium | String, Stack, Top_Interview_150_Stack | 0 | 100.00
 | 0070 |[Climbing Stairs](src/main/python/g0001_0100/s0070_climbing_stairs/Solution0070.py)| Easy | Top_100_Liked_Questions, Top_Interview_Questions, Dynamic_Programming, Math, Memoization, Algorithm_I_Day_12_Dynamic_Programming, Dynamic_Programming_I_Day_2, Level_1_Day_10_Dynamic_Programming, Udemy_Dynamic_Programming, Top_Interview_150_1D_DP, Big_O_Time_O(n)_Space_O(n) | 0 | 100.00
-| 0068 |[Text Justification](src/main/python/g0001_0100/s0068_text_justification/Solution0068.py)| Hard | Array, String, Simulation, Top_Interview_150_Array/String, 2025_09_13_Time_0_ms_(100.00%)_Space_17.85_MB_(62.97%) |  | 
+| 0068 |[Text Justification](src/main/python/g0001_0100/s0068_text_justification/Solution0068.py)| Hard | Array, String, Simulation, Top_Interview_150_Array/String | 0 | 100.00
 | 0067 |[Add Binary](src/main/python/g0001_0100/s0067_add_binary/Solution0067.py)| Easy | String, Math, Bit_Manipulation, Simulation, Programming_Skills_II_Day_5, Top_Interview_150_Bit_Manipulation | 0 | 100.00
 | 0066 |[Plus One](src/main/python/g0001_0100/s0066_plus_one/Solution0066.py)| Easy | Top_Interview_Questions, Array, Math, Programming_Skills_II_Day_3, Udemy_Arrays, Top_Interview_150_Math | 0 | 100.00
 | 0064 |[Minimum Path Sum](src/main/python/g0001_0100/s0064_minimum_path_sum/Solution0064.py)| Medium | Top_100_Liked_Questions, Array, Dynamic_Programming, Matrix, Dynamic_Programming_I_Day_16, Udemy_Dynamic_Programming, Top_Interview_150_Multidimensional_DP, Big_O_Time_O(m\*n)_Space_O(m\*n) | 15 | 60.38
