@@ -1,7 +1,6 @@
 import unittest
 from Solution0151 import Solution
 
-
 class SolutionTest(unittest.TestCase):
     def test_reverseWords(self):
         self.assertEqual(Solution().reverseWords("the sky is blue"), "blue is sky the")
