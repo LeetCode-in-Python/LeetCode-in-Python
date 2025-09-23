@@ -3,6 +3,12 @@
 # #Top_Interview_150_Binary_Tree_General #Big_O_Time_O(n)_Space_O(n)
 # #2025_07_25_Time_41_ms_(97.74%)_Space_22.14_MB_(43.54%)
 
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):

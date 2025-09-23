@@ -3,6 +3,8 @@
 # #Level_2_Day_12_Dynamic_Programming #Top_Interview_150_1D_DP #Big_O_Time_O(m*n)_Space_O(amount)
 # #2025_07_25_Time_454_ms_(96.33%)_Space_18.19_MB_(69.69%)
 
+from typing import List
+
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         dp = [0] * (amount + 1)

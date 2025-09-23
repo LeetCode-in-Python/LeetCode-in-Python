@@ -2,6 +2,9 @@
 # #Monotonic_Queue #Udemy_Arrays #Big_O_Time_O(n*k)_Space_O(n+k)
 # #2025_07_25_Time_152_ms_(81.96%)_Space_30.79_MB_(96.65%)
 
+from typing import List
+from collections import deque
+
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
         q = deque()

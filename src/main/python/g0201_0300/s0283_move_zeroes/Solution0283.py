@@ -2,6 +2,8 @@
 # #Algorithm_I_Day_3_Two_Pointers #Programming_Skills_I_Day_6_Array #Udemy_Arrays
 # #Big_O_Time_O(n)_Space_O(1) #2025_07_25_Time_3_ms_(80.05%)_Space_18.63_MB_(94.75%)
 
+from typing import List
+
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
         """

@@ -2,6 +2,8 @@
 # #Data_Structure_II_Day_5_Array #Udemy_Arrays #Top_Interview_150_Array/String
 # #Big_O_Time_O(n^2)_Space_O(n) #2025_07_25_Time_15_ms_(97.12%)_Space_23.25_MB_(79.77%)
 
+from typing import List
+
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         product = 1

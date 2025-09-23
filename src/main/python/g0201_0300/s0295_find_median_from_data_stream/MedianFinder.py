@@ -2,6 +2,8 @@
 # #Top_Interview_150_Heap #Big_O_Time_O(n*log_n)_Space_O(n)
 # #2025_07_25_Time_131_ms_(72.46%)_Space_40.10_MB_(17.67%)
 
+from typing import List
+
 import heapq
 
 class MedianFinder:
