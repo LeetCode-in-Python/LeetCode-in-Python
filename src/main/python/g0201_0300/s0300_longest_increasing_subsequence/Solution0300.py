@@ -3,6 +3,7 @@
 # #Udemy_Dynamic_Programming #Top_Interview_150_1D_DP #Big_O_Time_O(n*log_n)_Space_O(n)
 # #2025_07_25_Time_11_ms_(78.54%)_Space_18.12_MB_(38.75%)
 
+from typing import List
 import bisect
 
 class Solution:

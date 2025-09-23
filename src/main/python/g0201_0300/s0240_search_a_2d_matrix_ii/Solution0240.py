@@ -2,6 +2,8 @@
 # #Data_Structure_II_Day_4_Array #Binary_Search_II_Day_8 #Big_O_Time_O(n+m)_Space_O(1)
 # #2025_07_25_Time_143_ms_(64.84%)_Space_24.00_MB_(80.86%)
 
+from typing import List
+
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         if not matrix or not matrix[0]:
