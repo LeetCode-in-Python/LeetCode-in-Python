@@ -1,8 +1,6 @@
 import unittest
 from Solution0560 import Solution
 
-import unittest
-
 class SolutionTest(unittest.TestCase):
     def setUp(self):
         self.solution = Solution()

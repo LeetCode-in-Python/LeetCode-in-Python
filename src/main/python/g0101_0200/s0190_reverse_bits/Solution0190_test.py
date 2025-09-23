@@ -1,7 +1,6 @@
 import unittest
 from Solution0190 import Solution
 
-
 class SolutionTest(unittest.TestCase):
     def test_reverseBits(self):
         self.assertEqual(
