@@ -34,7 +34,7 @@ class RandomizedSet:
         return True
 
     def getRandom(self) -> int:
-        return random.choice(self.list)
+        return random.choice(self.list) #NOSONAR
 
 # Your RandomizedSet object will be instantiated and called as such:
 # obj = RandomizedSet()
