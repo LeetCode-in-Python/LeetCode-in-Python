@@ -6,12 +6,12 @@ from typing import List
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
         alphabets = [chr(ord("a") + i) for i in range(26)] + ["end"]
-        trie = {i:None for i in alphabets}
+        trie = {i:None for i in alphabets} #NOSONAR
         for word in words:
             root = trie
             for letter in word:
                 if not root[letter]: 
-                    root[letter] = {i:None for i in alphabets}
+                    root[letter] = {i:None for i in alphabets} #NOSONAR
                 root = root[letter]
             root["end"] = True
 
