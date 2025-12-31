@@ -23,7 +23,7 @@ class Solution:
     def get(self, key: int) -> int:
         return self.map[key]
 
-    def answer(self, preorder: List[int], inorder: List[int], start: int, end: int) -> TreeNode:
+    def answer(self, preorder: List[int], inorder: List[int], start: int, end: int) -> TreeNode | None:
         if start > end or self.j > len(preorder):
             return None
         value = preorder[self.j]

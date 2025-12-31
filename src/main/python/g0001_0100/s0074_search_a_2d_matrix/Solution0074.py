@@ -7,18 +7,18 @@ from typing import List
 
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
-        endRow = len(matrix)
-        endCol = len(matrix[0])
-        targetRow = 0
+        end_row = len(matrix)
+        end_col = len(matrix[0])
+        target_row = 0
         result = False
 
-        for i in range(endRow):
-            if matrix[i][endCol - 1] >= target:
-                targetRow = i
+        for i in range(end_row):
+            if matrix[i][end_col - 1] >= target:
+                target_row = i
                 break
 
-        for i in range(endCol):
-            if matrix[targetRow][i] == target:
+        for i in range(end_col):
+            if matrix[target_row][i] == target:
                 result = True
                 break
 

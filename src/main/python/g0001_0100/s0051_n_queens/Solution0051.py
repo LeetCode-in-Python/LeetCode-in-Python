@@ -31,7 +31,7 @@ class Solution:
     def construct(self, n: int, pos: List[int], ans: List[List[str]]):
         sol = []
         for r in range(n):
-            queenRow = ['.'] * n
-            queenRow[pos[r]] = 'Q'
-            sol.append(''.join(queenRow))
+            queen_row = ['.'] * n
+            queen_row[pos[r]] = 'Q'
+            sol.append(''.join(queen_row))
         ans.append(sol)

@@ -22,9 +22,9 @@ class Solution:
             return True
         return self.helper(root.left, root.right)
 
-    def helper(self, leftNode: TreeNode, rightNode: TreeNode) -> bool:
-        if leftNode is None or rightNode is None:
-            return leftNode is None and rightNode is None
-        if leftNode.val != rightNode.val:
+    def helper(self, left_node: TreeNode, right_node: TreeNode) -> bool:
+        if left_node is None or right_node is None:
+            return left_node is None and right_node is None
+        if left_node.val != right_node.val:
             return False
-        return self.helper(leftNode.left, rightNode.right) and self.helper(leftNode.right, rightNode.left)
+        return self.helper(left_node.left, right_node.right) and self.helper(left_node.right, right_node.left)

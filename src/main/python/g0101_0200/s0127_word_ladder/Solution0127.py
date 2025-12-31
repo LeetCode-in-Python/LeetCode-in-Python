@@ -5,17 +5,17 @@
 from typing import List, Set
 
 class Solution:
-    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+    def ladderLength(self, begin_word: str, end_word: str, word_list: List[str]) -> int:
         begin_set = set()
         end_set = set()
-        word_set = set(wordList)
+        word_set = set(word_list)
         visited = set()
-        if endWord not in wordList:
+        if end_word not in word_list:
             return 0
         length = 1
-        str_len = len(beginWord)
-        begin_set.add(beginWord)
-        end_set.add(endWord)
+        str_len = len(begin_word)
+        begin_set.add(begin_word)
+        end_set.add(end_word)
         while begin_set and end_set:
             if len(begin_set) > len(end_set):
                 begin_set, end_set = end_set, begin_set

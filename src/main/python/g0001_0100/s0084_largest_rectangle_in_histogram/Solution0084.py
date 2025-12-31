@@ -11,8 +11,6 @@ class Solution:
         for i,h in enumerate(heights):
             if h > heights[lefts[-1]]:
                 lefts.append(i)
-            elif h == heights[lefts[-1]]:
-                pass
             elif h < heights[lefts[-1]]:
                 while lefts and h < heights[lefts[-1]]:
                     left = lefts.pop()

@@ -2,17 +2,17 @@
 # #2025_07_22_Time_5_ms_(93.09%)_Space_17.85_MB_(70.00%)
 
 class Solution:
-    def convert(self, s: str, numRows: int) -> str:
+    def convert(self, s: str, num_rows: int) -> str:
         s_len = len(s)
-        if numRows == 1:
+        if num_rows == 1:
             return s
 
-        max_dist = numRows * 2 - 2
+        max_dist = num_rows * 2 - 2
         buf = []
 
-        for i in range(numRows):
+        for i in range(num_rows):
             index = i
-            if i == 0 or i == numRows - 1:
+            if i == 0 or i == num_rows - 1:
                 while index < s_len:
                     buf.append(s[index])
                     index += max_dist
