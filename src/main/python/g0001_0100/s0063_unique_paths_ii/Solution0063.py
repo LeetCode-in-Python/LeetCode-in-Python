@@ -4,27 +4,27 @@
 from typing import List
 
 class Solution:
-    def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+    def uniquePathsWithObstacles(self, obstacle_grid: List[List[int]]) -> int:
         # if start point has obstacle, there's no path
-        if obstacleGrid[0][0] == 1:
+        if obstacle_grid[0][0] == 1:
             return 0
-        obstacleGrid[0][0] = 1
-        m = len(obstacleGrid)
-        n = len(obstacleGrid[0])
+        obstacle_grid[0][0] = 1
+        m = len(obstacle_grid)
+        n = len(obstacle_grid[0])
         for i in range(1, m):
-            if obstacleGrid[i][0] == 1:
-                obstacleGrid[i][0] = 0
+            if obstacle_grid[i][0] == 1:
+                obstacle_grid[i][0] = 0
             else:
-                obstacleGrid[i][0] = obstacleGrid[i - 1][0]
+                obstacle_grid[i][0] = obstacle_grid[i - 1][0]
         for j in range(1, n):
-            if obstacleGrid[0][j] == 1:
-                obstacleGrid[0][j] = 0
+            if obstacle_grid[0][j] == 1:
+                obstacle_grid[0][j] = 0
             else:
-                obstacleGrid[0][j] = obstacleGrid[0][j - 1]
+                obstacle_grid[0][j] = obstacle_grid[0][j - 1]
         for i in range(1, m):
             for j in range(1, n):
-                if obstacleGrid[i][j] == 1:
-                    obstacleGrid[i][j] = 0
+                if obstacle_grid[i][j] == 1:
+                    obstacle_grid[i][j] = 0
                 else:
-                    obstacleGrid[i][j] = obstacleGrid[i - 1][j] + obstacleGrid[i][j - 1]
-        return obstacleGrid[m - 1][n - 1]
+                    obstacle_grid[i][j] = obstacle_grid[i - 1][j] + obstacle_grid[i][j - 1]
+        return obstacle_grid[m - 1][n - 1]

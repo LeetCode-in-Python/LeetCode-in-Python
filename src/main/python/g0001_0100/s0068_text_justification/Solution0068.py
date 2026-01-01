@@ -4,7 +4,7 @@
 from typing import List
 
 class Solution:
-    def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
+    def fullJustify(self, words: List[str], max_width: int) -> List[str]:
         # Trying to gauge the number of lines so the list doesn't need to resize
         output = []
         # Setting string capacity also
@@ -18,18 +18,18 @@ class Solution:
             # tracking line length + #words
             num_words_on_line += 1
             # checking if the next word causes an overflow
-            if line_total + num_words_on_line + len(words[i + 1]) > maxWidth:
+            if line_total + num_words_on_line + len(words[i + 1]) > max_width:
                 # if only one word fits on the line...
                 if num_words_on_line == 1:
                     # append word
                     sb.append(words[i])
                     # pad right with spaces
-                    while line_total < maxWidth:
+                    while line_total < max_width:
                         sb.append(' ')
                         line_total += 1
                 else:
                     # of extra spaces
-                    extra_sp = (maxWidth - line_total) % (num_words_on_line - 1)
+                    extra_sp = (max_width - line_total) % (num_words_on_line - 1)
                     # Creating the line
                     for j in range(start_word, start_word + num_words_on_line - 1):
                         # appending the word
@@ -39,7 +39,7 @@ class Solution:
                             sb.append(' ')
                             extra_sp -= 1
                         # appending the rest of the required spaces
-                        max_spaces = max(0, (maxWidth - line_total) // (num_words_on_line - 1))
+                        max_spaces = max(0, (max_width - line_total) // (num_words_on_line - 1))
                         sb.append(' ' * max_spaces)
                     # appending the last word of the line
                     sb.append(words[start_word + num_words_on_line - 1])
@@ -57,11 +57,11 @@ class Solution:
         for i in range(start_word, len(words)):
             line_total += len(words[i])
             sb.append(words[i])
-            if line_total < maxWidth:
+            if line_total < max_width:
                 sb.append(' ')
                 line_total += 1
         # padding right side with spaces
-        while line_total < maxWidth:
+        while line_total < max_width:
             sb.append(' ')
             line_total += 1
         # add the final line to output list

@@ -10,9 +10,9 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+    def hasPathSum(self, root: Optional[TreeNode], target_sum: int) -> bool:
         if root is None:
             return False
-        if targetSum == root.val and root.left is None and root.right is None:
+        if target_sum == root.val and root.left is None and root.right is None:
             return True
-        return self.hasPathSum(root.left, targetSum - root.val) or self.hasPathSum(root.right, targetSum - root.val)
+        return self.hasPathSum(root.left, target_sum - root.val) or self.hasPathSum(root.right, target_sum - root.val)

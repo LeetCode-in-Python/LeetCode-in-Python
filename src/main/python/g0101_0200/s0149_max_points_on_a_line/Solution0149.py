@@ -20,7 +20,7 @@ class Solution:
                     hashmap[m].add(i)
                     hashmap[m].add(j)
                 else:
-                    hashmap[m] = set([i, j])                
+                    hashmap[m] = {i, j}
                 result = max(len(hashmap[m]), result)
         
         return result

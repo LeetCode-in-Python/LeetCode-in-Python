@@ -15,7 +15,7 @@ class Solution:
         post_index = [len(postorder) - 1]
         return self._helper(inorder, postorder, in_index, post_index, float('inf'))
 
-    def _helper(self, inorder: List[int], postorder: List[int], index: List[int], p_index: List[int], target: int) -> Optional[TreeNode]:
+    def _helper(self, inorder: List[int], postorder: List[int], index: List[int], p_index: List[int], target: float) -> Optional[TreeNode]:
         if index[0] < 0 or (index[0] < len(inorder) and inorder[index[0]] == target):
             return None
         root = TreeNode(postorder[p_index[0]])

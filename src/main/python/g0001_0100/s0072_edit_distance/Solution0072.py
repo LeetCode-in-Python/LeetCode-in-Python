@@ -14,5 +14,5 @@ class Solution:
 
     def minDistance(self, word1: str, word2: str) -> int:
         m,n = len(word1), len(word2)
-        dp=[[-1]*(n+1) for i in range(m+1)]
+        dp=[[-1] * (n+1) for _ in range(m + 1)]
         return self.solve(word1, m, word2, n, dp)

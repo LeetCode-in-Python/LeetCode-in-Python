@@ -24,7 +24,7 @@ class Solution:
             return head
         temp = head
         # iterate and go to the K+1 th node from the end or count - K - 1 node from start
-        for i in range(1, count - times):
+        for _ in range(1, count - times):
             if temp is not None:
                 temp = temp.next
         new_head = None

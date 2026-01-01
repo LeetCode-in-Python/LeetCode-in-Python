@@ -18,10 +18,8 @@ class Solution:
 
             elif guess < target:
                 low = mid + 1
-                if nums[-1] == guess:
+                if nums[-1] == guess or nums[low] > target:
                     return mid + 1
-                elif nums[low] > target:
-                    return mid + 1              
             else: 
                 high = mid - 1
                  
