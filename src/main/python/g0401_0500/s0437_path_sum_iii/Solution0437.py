@@ -17,20 +17,20 @@ class TreeNode:
 #         self.left = left
 #         self.right = right
 class Solution:
-    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
-        def dfs(node: TreeNode, targetSum: int, curr_sum: int) -> None:
+    def pathSum(self, root: Optional[TreeNode], target_sum: int) -> int:
+        def dfs(node: TreeNode, target_sum: int, curr_sum: int) -> None:
             if not node:
                 return
 
             curr_sum += node.val
-            self.count += self.prefix_sum.get(curr_sum - targetSum, 0)
+            self.count += self.prefix_sum.get(curr_sum - target_sum, 0)
             self.prefix_sum[curr_sum] = self.prefix_sum.get(curr_sum, 0) + 1
-            dfs(node.left, targetSum, curr_sum)
-            dfs(node.right, targetSum, curr_sum)
+            dfs(node.left, target_sum, curr_sum)
+            dfs(node.right, target_sum, curr_sum)
 
             self.prefix_sum[curr_sum] -= 1
 
         self.count = 0
         self.prefix_sum = {0: 1}
-        dfs(root, targetSum, 0)
+        dfs(root, target_sum, 0)
         return self.count

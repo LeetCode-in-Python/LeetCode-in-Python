@@ -9,11 +9,11 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        firstZero = 0
+        first_zero = 0
         for i in range(len(nums)):
             if nums[i] != 0:
-                self.swap(firstZero, i, nums)
-                firstZero += 1
+                self.swap(first_zero, i, nums)
+                first_zero += 1
 
     def swap(self, index1: int, index2: int, nums: List[int]) -> None:
         nums[index1], nums[index2] = nums[index2], nums[index1]

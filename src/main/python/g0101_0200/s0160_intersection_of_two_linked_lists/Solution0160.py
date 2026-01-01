@@ -15,9 +15,9 @@ class ListNode:
 #         self.val = x
 #         self.next = None
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
-        node1, node2 = headA, headB
+    def getIntersectionNode(self, head_a: ListNode, head_b: ListNode) -> Optional[ListNode]:
+        node1, node2 = head_a, head_b
         while node1 != node2:
-            node1 = headB if node1 is None else node1.next
-            node2 = headA if node2 is None else node2.next
+            node1 = head_b if node1 is None else node1.next
+            node2 = head_a if node2 is None else node2.next
         return node1

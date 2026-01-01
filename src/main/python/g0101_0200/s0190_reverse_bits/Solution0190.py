@@ -6,7 +6,7 @@ class Solution:
     def reverseBits(self, n: int) -> int:
         ret = 0
         # because there are 32 bits in total
-        for i in range(32):
+        for _ in range(32):
             ret = ret << 1
             # If the bit is 1 we OR it with 1, ie add 1
             if (n & 1) > 0:

@@ -10,7 +10,7 @@ class SolutionTest(unittest.TestCase):
             [10, 13, 14, 17, 24],
             [18, 21, 23, 26, 30]
         ]
-        self.assertEqual(Solution().searchMatrix(matrix, 5), True)
+        self.assertTrue(Solution().searchMatrix(matrix, 5))
 
     def test_searchMatrix2(self):
         matrix = [
@@ -20,4 +20,4 @@ class SolutionTest(unittest.TestCase):
             [10, 13, 14, 17, 24],
             [18, 21, 23, 26, 30]
         ]
-        self.assertEqual(Solution().searchMatrix(matrix, 20), False)
+        self.assertFalse(Solution().searchMatrix(matrix, 20))

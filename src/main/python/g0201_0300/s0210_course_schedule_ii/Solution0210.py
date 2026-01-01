@@ -5,9 +5,9 @@
 from typing import List, Dict
 
 class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+    def findOrder(self, num_courses: int, prerequisites: List[List[int]]) -> List[int]:
         graph = {}
-        for i in range(numCourses):
+        for i in range(num_courses):
             graph[i] = []
         for classes in prerequisites:
             graph[classes[0]].append(classes[1])

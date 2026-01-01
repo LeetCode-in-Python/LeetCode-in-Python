@@ -48,4 +48,4 @@ class SolutionTest(unittest.TestCase):
     def test_invertTree3(self):
         root = build_tree([])
         result = Solution().invertTree(root)
-        self.assertEqual(result, None)
+        self.assertIsNone(result)
