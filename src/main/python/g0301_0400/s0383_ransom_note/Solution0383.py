@@ -2,11 +2,11 @@
 # #2025_09_20_Time_11_ms_(89.85%)_Space_17.93_MB_(54.38%)
 
 class Solution:
-    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+    def canConstruct(self, ransom_note: str, magazine: str) -> bool:
         freq = [0] * 26
-        n = len(ransomNote)
+        n = len(ransom_note)
         for i in range(n):
-            freq[ord(ransomNote[i]) - 97] += 1
+            freq[ord(ransom_note[i]) - 97] += 1
         for i in range(len(magazine)):
             if n == 0:
                 break

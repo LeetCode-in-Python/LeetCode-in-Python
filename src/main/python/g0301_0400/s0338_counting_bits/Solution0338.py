@@ -7,16 +7,16 @@ from typing import List
 class Solution:
     def countBits(self, num: int) -> List[int]:
         result = [0] * (num + 1)
-        borderPos = 1
-        incrPos = 1
+        border_pos = 1
+        incr_pos = 1
         
         for i in range(1, len(result)):
-            if incrPos == borderPos:
+            if incr_pos == border_pos:
                 result[i] = 1
-                incrPos = 1
-                borderPos = i
+                incr_pos = 1
+                border_pos = i
             else:
-                result[i] = 1 + result[incrPos]
-                incrPos += 1
+                result[i] = 1 + result[incr_pos]
+                incr_pos += 1
                 
         return result

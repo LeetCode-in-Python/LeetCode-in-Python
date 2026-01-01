@@ -4,20 +4,20 @@
 from typing import List, Optional
 
 class Node:
-    def __init__(self, val: bool = False, isLeaf: bool = False, 
-                 topLeft: Optional['Node'] = None, topRight: Optional['Node'] = None,
-                 bottomLeft: Optional['Node'] = None, bottomRight: Optional['Node'] = None):
+    def __init__(self, val: bool = False, is_leaf: bool = False,
+                 top_left: Optional['Node'] = None, top_right: Optional['Node'] = None,
+                 bottom_left: Optional['Node'] = None, bottom_right: Optional['Node'] = None):
         self.val = val
-        self.isLeaf = isLeaf
-        self.topLeft = topLeft
-        self.topRight = topRight
-        self.bottomLeft = bottomLeft
-        self.bottomRight = bottomRight
+        self.is_leaf = is_leaf
+        self.top_left = top_left
+        self.top_right = top_right
+        self.bottom_left = bottom_left
+        self.bottom_right = bottom_right
     
     def __str__(self):
-        if self.isLeaf:
-            return f"[{int(self.val)},{int(self.isLeaf)}]"
-        return f"[{int(self.val)},{int(self.isLeaf)}]{self.topLeft}{self.topRight}{self.bottomLeft}{self.bottomRight}"
+        if self.is_leaf:
+            return f"[{int(self.val)},{int(self.is_leaf)}]"
+        return f"[{int(self.val)},{int(self.is_leaf)}]{self.top_left}{self.top_right}{self.bottom_left}{self.bottom_right}"
 
 """
 # Definition for a QuadTree node.
@@ -56,10 +56,10 @@ class Solution:
             return Node(
                 True,  # val koi bhi ho, internal node ke liye irrelevant
                 False, # Not a leaf
-                topLeft=build(x, y, half),
-                topRight=build(x, y + half, half),
-                bottomLeft=build(x + half, y, half),
-                bottomRight=build(x + half, y + half, half)
+                top_left=build(x, y, half),
+                top_right=build(x, y + half, half),
+                bottom_left=build(x + half, y, half),
+                bottom_right=build(x + half, y + half, half)
             )
 
         return build(0, 0, n)

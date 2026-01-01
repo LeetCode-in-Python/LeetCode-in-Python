@@ -9,14 +9,14 @@ class Solution:
     GRAY = 1
     BLACK = 2
 
-    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        adj = [[] for _ in range(numCourses)]
+    def canFinish(self, num_courses: int, prerequisites: List[List[int]]) -> bool:
+        adj = [[] for _ in range(num_courses)]
         for pre in prerequisites:
             adj[pre[1]].append(pre[0])
         
-        colors = [self.WHITE] * numCourses
+        colors = [self.WHITE] * num_courses
         
-        for i in range(numCourses):
+        for i in range(num_courses):
             if colors[i] == self.WHITE and adj[i] and self.hasCycle(adj, i, colors):
                 return False
         return True

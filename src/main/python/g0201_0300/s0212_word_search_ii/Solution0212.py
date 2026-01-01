@@ -27,7 +27,7 @@ class Solution:
                 
             return None
         
-        def getAns(m, n, root, word):
+        def get_ans(m, n, root, word):
 
             if root["end"]: 
                 ans.append(word)
@@ -38,14 +38,12 @@ class Solution:
             for i,j in [[1,0],[-1,0],[0,1],[0,-1]]:
                 a, b = m+i, n+j
                 if 0 <= a < y and 0 <= b < x and visited[a][b] == False and root[board[a][b]]:
-                    getAns(a, b, root[board[a][b]], word + board[a][b])
+                    get_ans(a, b, root[board[a][b]], word + board[a][b])
             visited[m][n] = False
-
-            return
 
         for i in range(y):
             for j in range(x):
                 if trie[board[i][j]]:
-                    getAns(i, j, trie[board[i][j]], board[i][j])
+                    get_ans(i, j, trie[board[i][j]], board[i][j])
         
         return ans

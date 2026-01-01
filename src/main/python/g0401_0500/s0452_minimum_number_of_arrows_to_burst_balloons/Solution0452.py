@@ -11,12 +11,12 @@ class Solution:
         # Sort by ending points
         points.sort(key=lambda x: x[1])
         
-        minArrows = 1
+        min_arrows = 1
         end = points[0][1]
         
         for i in range(1, len(points)):
             if points[i][0] > end:
-                minArrows += 1
+                min_arrows += 1
                 end = points[i][1]
         
-        return minArrows
+        return min_arrows
