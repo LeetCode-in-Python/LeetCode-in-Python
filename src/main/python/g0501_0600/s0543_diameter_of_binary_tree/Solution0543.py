@@ -28,7 +28,7 @@ class Solution:
     def diameterOfBinaryTreeUtil(self, root: TreeNode) -> int:
         if root is None:
             return 0
-        leftLength = 1 + self.diameterOfBinaryTreeUtil(root.left) if root.left else 0
-        rightLength = 1 + self.diameterOfBinaryTreeUtil(root.right) if root.right else 0
-        self.diameter = max(self.diameter, leftLength + rightLength)
-        return max(leftLength, rightLength)
+        left_length = 1 + self.diameterOfBinaryTreeUtil(root.left) if root.left else 0
+        right_length = 1 + self.diameterOfBinaryTreeUtil(root.right) if root.right else 0
+        self.diameter = max(self.diameter, left_length + right_length)
+        return max(left_length, right_length)
